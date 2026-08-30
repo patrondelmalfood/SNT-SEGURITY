@@ -1,30 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="UTF-8">
+<title>SNT Security Services | Cámaras de Seguridad</title>
 
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<meta name="description"
+content="Venta, instalación, configuración y mantenimiento de cámaras de seguridad para hogares, negocios y empresas.">
 
-  <title>SNT Security Services | Cámaras de Seguridad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <meta name="description"
-        content="Venta, instalación, configuración y mantenimiento de cámaras de seguridad. Cámaras WiFi, kits HD y Full HD para hogares y negocios.">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-/* =========================================================
-   GENERAL
-========================================================= */
 
 *{
   margin:0;
@@ -34,26 +24,17 @@
 
 :root{
   --navy:#020b1b;
-  --navy-2:#03132d;
-  --navy-3:#061d43;
-  --navy-4:#082653;
-
+  --navy2:#03132d;
+  --navy3:#061e44;
   --blue:#118cff;
-  --blue-light:#32a9ff;
-  --blue-soft:#89ceff;
-
+  --blue2:#39aaff;
   --yellow:#ffc400;
-  --yellow-2:#ffad00;
-
+  --yellow2:#ffad00;
   --green:#25d366;
-
-  --white:#ffffff;
-  --text:#e6edf7;
-  --muted:#8fa4bd;
-
-  --line:rgba(44,139,255,.18);
-
-  --header-h:82px;
+  --white:#fff;
+  --text:#dce8f7;
+  --muted:#8fa7c1;
+  --line:rgba(45,145,255,.18);
 }
 
 html{
@@ -62,9 +43,13 @@ html{
 
 body{
   font-family:'Montserrat',sans-serif;
-  background:#020b1b;
+  background:var(--navy);
   color:#fff;
   overflow-x:hidden;
+}
+
+body.cart-open{
+  overflow:hidden;
 }
 
 a{
@@ -83,92 +68,46 @@ button{
   cursor:pointer;
 }
 
-img{
-  display:block;
-  width:100%;
+.container{
+  width:min(92%,1500px);
+  margin:auto;
 }
 
 section{
   scroll-margin-top:100px;
 }
 
-
-/* =========================================================
-   UTILIDADES
-========================================================= */
-
-.container{
-  width:min(92%,1500px);
-  margin:auto;
-}
-
 .section{
-  padding:88px 0;
+  padding:85px 0;
 }
 
 .section-dark{
   background:#020b1b;
 }
 
-.section-deep{
-  background:
-    linear-gradient(
-      180deg,
-      #03132d,
-      #020b1b
-    );
-}
-
-.section-soft{
-  background:
-    linear-gradient(
-      135deg,
-      #061a3a,
-      #031126
-    );
+.section-blue{
+  background:linear-gradient(180deg,#03142f,#020b1b);
 }
 
 .section-heading{
   max-width:760px;
-  margin:0 auto 48px;
+  margin:0 auto 45px;
   text-align:center;
 }
 
-.section-kicker{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-
-  margin-bottom:13px;
-
-  color:var(--blue-light);
-
+.kicker{
+  color:var(--blue2);
   font-size:10px;
   font-weight:800;
-
-  letter-spacing:1.8px;
+  letter-spacing:1.6px;
   text-transform:uppercase;
 }
 
-.section-kicker::before{
-  content:"";
-  width:28px;
-  height:2px;
-  background:var(--yellow);
-}
-
-.section-kicker::after{
-  content:"";
-  width:28px;
-  height:2px;
-  background:var(--yellow);
-}
-
 .section-heading h2{
+  margin-top:10px;
   font-family:'Barlow Condensed',sans-serif;
-  font-size:clamp(44px,4vw,67px);
+  font-size:clamp(42px,4vw,66px);
   line-height:.95;
-  font-weight:800;
   text-transform:uppercase;
 }
 
@@ -178,160 +117,74 @@ section{
 
 .section-heading p{
   max-width:650px;
-  margin:17px auto 0;
-
-  color:#aabbd0;
-
-  font-size:13px;
-  line-height:1.75;
-}
-
-.btn{
-  min-height:50px;
-  padding:0 21px;
-
-  border:0;
-  border-radius:7px;
-
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-
-  font-size:10px;
-  font-weight:800;
-
-  transition:.25s ease;
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-}
-
-.btn-yellow{
-  color:#061329;
-  background:
-    linear-gradient(
-      135deg,
-      var(--yellow),
-      var(--yellow-2)
-    );
-}
-
-.btn-blue{
-  color:#fff;
-  background:var(--blue);
-}
-
-.btn-outline{
-  color:#fff;
-  border:1px solid rgba(37,148,255,.7);
-  background:rgba(4,24,55,.70);
+  margin:16px auto 0;
+  font-size:12px;
+  line-height:1.7;
+  color:#9fb2c8;
 }
 
 
-/* =========================================================
-   HEADER DESKTOP
-========================================================= */
+/* =====================================================
+   HEADER PC
+===================================================== */
 
-.site-header{
+.desktop-header{
   position:fixed;
   top:0;
   left:0;
-
   width:100%;
-  height:var(--header-h);
-
-  z-index:3000;
-
-  border-bottom:
-    1px solid rgba(255,255,255,.04);
-
-  transition:.3s ease;
+  height:82px;
+  z-index:4000;
+  border-bottom:1px solid rgba(255,255,255,.04);
+  transition:.3s;
 }
 
-.site-header.scrolled{
+.desktop-header.scrolled{
   background:rgba(2,11,27,.94);
-  backdrop-filter:blur(16px);
-
-  box-shadow:
-    0 10px 35px rgba(0,0,0,.30);
-
-  border-bottom:
-    1px solid rgba(30,140,255,.15);
+  backdrop-filter:blur(15px);
+  box-shadow:0 10px 35px rgba(0,0,0,.30);
 }
 
 .header-inner{
-  width:100%;
   max-width:1700px;
+  width:100%;
   height:100%;
-
   margin:auto;
   padding:0 4%;
-
   display:grid;
-  grid-template-columns:280px minmax(0,1fr) 210px;
-
+  grid-template-columns:245px 1fr auto;
   align-items:center;
-  gap:25px;
+  gap:20px;
 }
 
-
-/* =========================================================
-   LOGO
-========================================================= */
-
 .brand{
-  width:max-content;
-
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:11px;
+  width:max-content;
 }
 
 .brand-icon{
-  width:56px;
-  height:56px;
-
-  flex:0 0 56px;
-
+  width:54px;
+  height:54px;
   display:grid;
   place-items:center;
-
   border-radius:13px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #083c86,
-      #02132e
-    );
-
-  border:1px solid rgba(28,145,255,.65);
-
-  box-shadow:
-    0 0 22px rgba(0,120,255,.18);
+  background:linear-gradient(145deg,#08418f,#02142f);
+  border:1px solid rgba(38,145,255,.6);
 }
 
 .brand-icon svg{
-  width:34px;
-  height:34px;
-
+  width:32px;
   fill:none;
   stroke:#fff;
   stroke-width:1.7;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
-
-.brand-name{
-  line-height:1;
-  white-space:nowrap;
 }
 
 .brand-main{
-  font-size:21px;
+  font-size:20px;
   font-weight:800;
+  line-height:1;
 }
 
 .brand-main span{
@@ -340,252 +193,144 @@ section{
 
 .brand-sub{
   display:block;
-
-  margin-top:7px;
-
-  font-size:7px;
+  margin-top:6px;
+  font-size:6px;
   font-weight:700;
-
-  letter-spacing:5px;
+  letter-spacing:4px;
 }
-
-
-/* =========================================================
-   NAV DESKTOP
-========================================================= */
 
 .desktop-nav{
   height:100%;
-
   display:flex;
-  justify-content:center;
   align-items:center;
-
-  gap:24px;
+  justify-content:center;
+  gap:23px;
 }
 
 .desktop-nav a{
-  position:relative;
-
   height:100%;
-
+  position:relative;
   display:flex;
   align-items:center;
-
   font-size:10px;
   font-weight:700;
-
-  color:#f8fbff;
-
   white-space:nowrap;
-
-  transition:.25s ease;
 }
 
 .desktop-nav a::after{
   content:"";
-
   position:absolute;
-
-  left:50%;
   bottom:17px;
-
+  left:50%;
   width:0;
   height:2px;
-
   background:var(--yellow);
-
-  transition:.25s;
-}
-
-.desktop-nav a:hover{
-  color:var(--blue-light);
+  transition:.2s;
 }
 
 .desktop-nav a:hover::after,
 .desktop-nav a.active::after{
-  left:0;
   width:100%;
+  left:0;
 }
 
-
-/* =========================================================
-   HEADER CTA
-========================================================= */
-
-.header-action{
+.header-buttons{
   display:flex;
-  justify-content:flex-end;
-}
-
-.header-cta{
-  min-height:47px;
-
-  padding:0 19px;
-
-  display:inline-flex;
   align-items:center;
-  justify-content:center;
-  gap:8px;
+  gap:9px;
+}
 
+.cart-header-btn,
+.quote-header-btn{
+  height:46px;
+  border:0;
   border-radius:8px;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--yellow),
-      var(--yellow-2)
-    );
-
-  color:#041329;
-
-  font-size:10px;
+  padding:0 15px;
+  font-size:9px;
   font-weight:800;
-
-  box-shadow:
-    0 10px 28px rgba(255,185,0,.19);
 }
 
-.header-cta svg{
-  width:18px;
-  height:18px;
+.cart-header-btn{
+  color:#fff;
+  background:rgba(6,34,75,.90);
+  border:1px solid rgba(42,148,255,.35);
+}
 
-  fill:none;
-  stroke:currentColor;
-  stroke-width:1.8;
+.quote-header-btn{
+  display:flex;
+  align-items:center;
+  background:linear-gradient(135deg,var(--yellow),var(--yellow2));
+  color:#041329;
 }
 
 
-/* =========================================================
-   MOBILE HEADER
-========================================================= */
+/* =====================================================
+   HEADER MÓVIL
+===================================================== */
 
 .mobile-header{
   display:none;
 }
 
 
-/* =========================================================
+/* =====================================================
    HERO
-========================================================= */
+===================================================== */
 
 .hero{
   position:relative;
-
   min-height:900px;
-
   display:flex;
   align-items:center;
-
   overflow:hidden;
 
-  background-color:#020b1b;
-
   background-image:
-    linear-gradient(
-      90deg,
-      rgba(1,8,21,.98) 0%,
-      rgba(1,10,26,.91) 24%,
-      rgba(1,11,29,.64) 41%,
-      rgba(1,11,29,.12) 68%,
-      rgba(1,8,22,.04) 100%
-    ),
-    url('portada-snt.png');
+  linear-gradient(
+    90deg,
+    rgba(1,8,21,.98) 0%,
+    rgba(1,10,26,.90) 25%,
+    rgba(1,11,29,.59) 42%,
+    rgba(1,11,29,.10) 70%
+  ),
+  url('portada-snt.png');
 
   background-size:cover;
-  background-position:center center;
-  background-repeat:no-repeat;
-}
-
-.hero::before{
-  content:"";
-
-  position:absolute;
-  inset:0;
-
-  background:
-    radial-gradient(
-      circle at 75% 48%,
-      rgba(0,119,255,.13),
-      transparent 36%
-    );
-
-  pointer-events:none;
+  background-position:center;
 }
 
 .hero-inner{
   position:relative;
-  z-index:5;
-
+  z-index:3;
   width:100%;
   max-width:1700px;
-
   margin:auto;
-
-  padding:
-    135px 4%
-    175px;
+  padding:135px 4% 175px;
 }
 
 .hero-content{
-  max-width:690px;
+  max-width:680px;
 }
 
 .hero-label{
-  width:max-content;
-  max-width:100%;
-
-  min-height:43px;
-
-  padding:0 17px;
-
   display:inline-flex;
   align-items:center;
-  gap:9px;
-
-  border-radius:7px;
-
-  border:
-    1px solid rgba(21,148,255,.78);
-
-  background:
-    rgba(2,18,43,.70);
-
-  color:var(--blue-light);
-
-  font-size:10px;
+  min-height:40px;
+  padding:0 14px;
+  border-radius:6px;
+  border:1px solid rgba(36,148,255,.65);
+  background:rgba(3,20,47,.66);
+  color:var(--blue2);
+  font-size:9px;
   font-weight:700;
-
-  letter-spacing:.4px;
-
-  margin-bottom:25px;
-}
-
-.hero-label svg{
-  width:19px;
-  height:19px;
-
-  fill:none;
-  stroke:var(--blue-light);
-  stroke-width:1.7;
 }
 
 .hero-title{
+  margin-top:23px;
   font-family:'Barlow Condensed',sans-serif;
-
-  font-size:
-    clamp(68px,6vw,102px);
-
-  font-weight:800;
-
+  font-size:clamp(67px,6vw,100px);
   line-height:.88;
-
-  letter-spacing:-1px;
-
+  font-weight:800;
   text-transform:uppercase;
-
-  text-shadow:
-    0 9px 35px rgba(0,0,0,.52);
 }
 
 .hero-title span{
@@ -593,816 +338,440 @@ section{
 }
 
 .hero-description{
-  max-width:630px;
-
-  margin-top:27px;
-
-  color:#e6edf7;
-
+  max-width:610px;
+  margin-top:24px;
+  color:#e1eaf5;
   font-size:16px;
-  line-height:1.65;
-
-  text-shadow:
-    0 3px 15px rgba(0,0,0,.6);
+  line-height:1.6;
 }
 
 .hero-actions{
-  margin-top:29px;
-
   display:flex;
   flex-wrap:wrap;
-
-  gap:15px;
+  gap:13px;
+  margin-top:27px;
 }
 
 .hero-btn{
-  min-height:58px;
-
-  padding:0 27px;
-
-  display:inline-flex;
+  min-height:56px;
+  padding:0 25px;
+  border-radius:8px;
+  display:flex;
   align-items:center;
   justify-content:center;
-  gap:10px;
-
-  border-radius:8px;
-
-  font-size:11px;
+  font-size:10px;
   font-weight:800;
-
-  transition:.25s ease;
 }
 
-.hero-btn:hover{
-  transform:translateY(-3px);
-}
-
-.hero-btn-primary{
+.hero-btn-yellow{
+  background:linear-gradient(135deg,var(--yellow),var(--yellow2));
   color:#041329;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--yellow),
-      var(--yellow-2)
-    );
-
-  box-shadow:
-    0 10px 30px rgba(255,183,0,.20);
 }
 
-.hero-btn-secondary{
-  border:
-    1px solid rgba(28,145,255,.85);
-
-  background:
-    rgba(2,17,42,.72);
+.hero-btn-outline{
+  border:1px solid rgba(45,151,255,.75);
+  background:rgba(2,19,45,.72);
 }
-
-.hero-btn svg{
-  width:19px;
-  height:19px;
-}
-
-
-/* =========================================================
-   BENEFICIOS HERO
-========================================================= */
 
 .hero-benefits{
-  margin-top:34px;
-
+  margin-top:31px;
   display:flex;
   flex-wrap:wrap;
 }
 
 .hero-benefit{
-  position:relative;
-
-  min-height:54px;
-
-  padding:0 22px;
-
+  padding:0 20px;
   display:flex;
   align-items:center;
-
-  gap:10px;
+  gap:9px;
+  border-right:1px solid rgba(53,145,255,.28);
 }
 
 .hero-benefit:first-child{
   padding-left:0;
 }
 
-.hero-benefit:not(:last-child)::after{
-  content:"";
-
-  position:absolute;
-
-  right:0;
-
-  width:1px;
-  height:34px;
-
-  background:
-    rgba(37,141,255,.38);
+.hero-benefit:last-child{
+  border-right:0;
 }
 
 .benefit-icon{
-  width:40px;
-  height:40px;
-
-  flex:0 0 40px;
-
+  width:39px;
+  height:39px;
   display:grid;
   place-items:center;
-
   border-radius:50%;
-
-  background:
-    rgba(5,30,67,.80);
-
-  border:
-    1px solid rgba(24,146,255,.72);
+  border:1px solid rgba(49,159,255,.55);
+  background:rgba(4,31,70,.74);
 }
 
 .benefit-icon svg{
-  width:21px;
-  height:21px;
-
+  width:20px;
+  height:20px;
   fill:none;
-  stroke:var(--blue-light);
-
+  stroke:var(--blue2);
   stroke-width:1.7;
-  stroke-linecap:round;
-  stroke-linejoin:round;
 }
 
 .hero-benefit span{
-  font-size:9px;
-  font-weight:600;
-
-  line-height:1.45;
-}
-
-
-/* =========================================================
-   HERO STATS
-========================================================= */
-
-.hero-stats{
-  position:absolute;
-
-  z-index:10;
-
-  left:4%;
-  right:4%;
-
-  bottom:32px;
-
-  max-width:1570px;
-
-  margin:auto;
-
-  min-height:105px;
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(5,minmax(0,1fr));
-
-  border-radius:15px;
-
-  border:
-    1px solid rgba(35,140,255,.48);
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(2,18,44,.97),
-      rgba(3,29,69,.94)
-    );
-
-  box-shadow:
-    0 22px 50px rgba(0,0,0,.30);
-
-  overflow:hidden;
-}
-
-.hero-stat{
-  position:relative;
-
-  padding:20px 15px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  gap:14px;
-}
-
-.hero-stat:not(:last-child)::after{
-  content:"";
-
-  position:absolute;
-
-  right:0;
-  top:28%;
-
-  width:1px;
-  height:44%;
-
-  background:
-    rgba(255,255,255,.13);
-}
-
-.stat-icon{
-  width:44px;
-  height:44px;
-
-  flex:0 0 44px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:10px;
-
-  background:
-    rgba(16,129,255,.07);
-
-  border:
-    1px solid rgba(28,143,255,.20);
-}
-
-.stat-icon svg{
-  width:25px;
-  height:25px;
-
-  fill:none;
-  stroke:var(--blue-light);
-
-  stroke-width:1.7;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
-
-.stat-value{
-  display:block;
-
-  color:var(--blue-light);
-
-  font-size:20px;
-  font-weight:800;
-
-  line-height:1;
-}
-
-.stat-label{
-  display:block;
-
-  margin-top:6px;
-
-  color:#e7f0fb;
-
-  font-size:8px;
-  font-weight:600;
-
-  text-transform:uppercase;
-}
-
-
-/* =========================================================
-   SOLUCIONES
-========================================================= */
-
-.solutions-grid{
-  display:grid;
-
-  grid-template-columns:
-    repeat(3,minmax(0,1fr));
-
-  gap:22px;
-}
-
-.solution-card{
-  position:relative;
-
-  min-height:420px;
-
-  padding:34px;
-
-  overflow:hidden;
-
-  border-radius:18px;
-
-  border:
-    1px solid rgba(38,143,255,.19);
-
-  background:
-    linear-gradient(
-      155deg,
-      rgba(7,32,73,.98),
-      rgba(2,13,32,.98)
-    );
-
-  box-shadow:
-    0 20px 55px rgba(0,0,0,.17);
-
-  transition:.3s ease;
-}
-
-.solution-card:hover{
-  transform:translateY(-6px);
-
-  border-color:
-    rgba(50,169,255,.45);
-
-  box-shadow:
-    0 25px 65px rgba(0,0,0,.30);
-}
-
-.solution-card::before{
-  content:"";
-
-  position:absolute;
-
-  width:230px;
-  height:230px;
-
-  border-radius:50%;
-
-  right:-70px;
-  top:-70px;
-
-  background:
-    rgba(12,130,255,.09);
-}
-
-.solution-icon{
-  position:relative;
-  z-index:2;
-
-  width:68px;
-  height:68px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:15px;
-
-  background:
-    rgba(17,140,255,.11);
-
-  border:
-    1px solid rgba(47,159,255,.28);
-}
-
-.solution-icon svg{
-  width:36px;
-  height:36px;
-
-  fill:none;
-  stroke:var(--blue-light);
-
-  stroke-width:1.6;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
-
-.solution-card h3{
-  position:relative;
-  z-index:2;
-
-  margin-top:26px;
-
-  font-family:'Barlow Condensed',sans-serif;
-
-  font-size:35px;
-  font-weight:800;
-
-  text-transform:uppercase;
-}
-
-.solution-card p{
-  position:relative;
-  z-index:2;
-
-  margin-top:13px;
-
-  min-height:76px;
-
-  color:#9fb1c8;
-
-  font-size:11px;
-  line-height:1.7;
-}
-
-.solution-features{
-  position:relative;
-  z-index:2;
-
-  margin:18px 0 25px;
-
-  display:grid;
-  gap:10px;
-
-  list-style:none;
-}
-
-.solution-features li{
-  display:flex;
-  align-items:center;
-  gap:9px;
-
-  color:#dbe7f6;
-
-  font-size:10px;
-}
-
-.solution-features li::before{
-  content:"✓";
-
-  color:var(--yellow);
-
-  font-weight:800;
-}
-
-
-/* =========================================================
-   PRODUCT / KIT CARDS
-========================================================= */
-
-.category-head{
-  margin-bottom:27px;
-
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-
-  gap:20px;
-}
-
-.category-head h3{
-  font-family:'Barlow Condensed',sans-serif;
-
-  font-size:40px;
-  font-weight:800;
-
-  text-transform:uppercase;
-}
-
-.category-head h3 span{
-  color:var(--blue);
-}
-
-.category-head p{
-  max-width:550px;
-
-  color:#8fa5bf;
-
-  font-size:10px;
-  line-height:1.6;
-}
-
-.products-grid{
-  display:grid;
-
-  grid-template-columns:
-    repeat(4,minmax(0,1fr));
-
-  gap:18px;
-}
-
-.product-card{
-  position:relative;
-
-  overflow:hidden;
-
-  border-radius:15px;
-
-  border:
-    1px solid rgba(37,137,255,.17);
-
-  background:
-    linear-gradient(
-      160deg,
-      #071c3e,
-      #031126
-    );
-
-  transition:.3s;
-}
-
-.product-card:hover{
-  transform:translateY(-5px);
-
-  border-color:
-    rgba(46,157,255,.43);
-}
-
-.product-visual{
-  position:relative;
-
-  height:190px;
-
-  display:grid;
-  place-items:center;
-
-  overflow:hidden;
-
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(17,140,255,.20),
-      transparent 57%
-    ),
-    linear-gradient(
-      135deg,
-      #09244e,
-      #020c1d
-    );
-}
-
-.product-visual svg{
-  width:95px;
-  height:95px;
-
-  fill:none;
-  stroke:#72c4ff;
-
-  stroke-width:1.1;
-
-  opacity:.92;
-}
-
-.product-qty{
-  position:absolute;
-
-  top:14px;
-  left:14px;
-
-  min-width:38px;
-  height:28px;
-
-  padding:0 10px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:20px;
-
-  background:var(--yellow);
-
-  color:#041329;
-
-  font-size:9px;
-  font-weight:800;
-}
-
-.product-badge{
-  position:absolute;
-
-  top:14px;
-  right:14px;
-
-  padding:7px 9px;
-
-  border-radius:5px;
-
-  background:
-    rgba(4,19,44,.92);
-
-  border:
-    1px solid rgba(39,151,255,.30);
-
-  color:var(--blue-light);
-
-  font-size:7px;
-  font-weight:800;
-}
-
-.product-body{
-  padding:22px;
-}
-
-.product-type{
-  color:var(--blue-light);
-
-  font-size:8px;
-  font-weight:800;
-
-  letter-spacing:1px;
-}
-
-.product-card h4{
-  margin-top:6px;
-
-  font-family:'Barlow Condensed',sans-serif;
-
-  font-size:27px;
-  font-weight:800;
-}
-
-.product-card p{
-  margin-top:9px;
-
-  min-height:52px;
-
-  color:#93a7c0;
-
-  font-size:9px;
-  line-height:1.6;
-}
-
-.product-list{
-  margin:16px 0 19px;
-
-  display:grid;
-  gap:8px;
-
-  list-style:none;
-}
-
-.product-list li{
-  display:flex;
-  gap:8px;
-
-  color:#d6e1ef;
-
   font-size:8px;
   line-height:1.4;
 }
 
-.product-list li::before{
-  content:"✓";
 
-  color:var(--yellow);
+/* =====================================================
+   FRANJA SERVICIOS
+===================================================== */
 
-  font-weight:800;
-}
+.hero-services{
+  position:absolute;
+  z-index:5;
+  left:4%;
+  right:4%;
+  bottom:25px;
 
-.product-card .btn{
-  width:100%;
-}
-
-
-/* =========================================================
-   WIFI
-========================================================= */
-
-.wifi-section{
-  padding-top:30px;
-}
-
-
-/* =========================================================
-   SERVICIOS
-========================================================= */
-
-.services-grid{
-  display:grid;
-
-  grid-template-columns:
-    repeat(4,minmax(0,1fr));
-
-  gap:17px;
-}
-
-.service-card{
-  padding:30px 24px;
-
-  border-radius:15px;
-
-  border:
-    1px solid rgba(41,140,255,.17);
-
-  background:
-    rgba(4,23,52,.83);
-
-  transition:.3s;
-}
-
-.service-card:hover{
-  transform:translateY(-4px);
-
-  background:
-    rgba(6,31,68,.95);
-}
-
-.service-icon{
-  width:55px;
-  height:55px;
+  max-width:1570px;
+  margin:auto;
 
   display:grid;
-  place-items:center;
-
-  border-radius:13px;
-
-  background:
-    rgba(15,133,255,.09);
-
-  border:
-    1px solid rgba(42,154,255,.22);
-}
-
-.service-icon svg{
-  width:29px;
-  height:29px;
-
-  fill:none;
-  stroke:var(--blue-light);
-
-  stroke-width:1.6;
-}
-
-.service-card h3{
-  margin-top:20px;
-
-  font-family:'Barlow Condensed',sans-serif;
-
-  font-size:27px;
-  font-weight:800;
-
-  text-transform:uppercase;
-}
-
-.service-card p{
-  margin-top:10px;
-
-  color:#91a5bd;
-
-  font-size:9px;
-  line-height:1.65;
-}
-
-
-/* =========================================================
-   COTIZADOR
-========================================================= */
-
-.quote-box{
-  position:relative;
+  grid-template-columns:repeat(4,1fr);
 
   overflow:hidden;
 
-  display:grid;
+  border-radius:14px;
 
-  grid-template-columns:
-    .9fr 1.1fr;
+  background:#f8fbff;
+  color:#071429;
 
-  gap:45px;
-
-  padding:45px;
-
-  border-radius:22px;
-
-  border:
-    1px solid rgba(42,148,255,.28);
-
-  background:
-    linear-gradient(
-      135deg,
-      #06214a,
-      #020d20
-    );
-
-  box-shadow:
-    0 25px 70px rgba(0,0,0,.25);
+  box-shadow:0 20px 50px rgba(0,0,0,.28);
 }
 
-.quote-box::after{
-  content:"";
-
-  position:absolute;
-
-  right:-120px;
-  top:-120px;
-
-  width:400px;
-  height:400px;
-
-  border-radius:50%;
-
-  background:
-    rgba(17,140,255,.07);
-}
-
-.quote-info{
+.hero-service{
+  min-height:110px;
+  padding:20px;
+  display:flex;
+  align-items:center;
+  gap:13px;
   position:relative;
-  z-index:2;
 }
 
-.quote-info .section-kicker{
-  margin-bottom:14px;
+.hero-service:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  right:0;
+  width:1px;
+  height:55%;
+  background:#d9e4ef;
+}
+
+.hero-service-icon{
+  width:50px;
+  height:50px;
+  flex:0 0 50px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#063a7d;
+}
+
+.hero-service-icon svg{
+  width:27px;
+  height:27px;
+  fill:none;
+  stroke:#fff;
+  stroke-width:1.7;
+}
+
+.hero-service strong{
+  display:block;
+  font-size:11px;
+}
+
+.hero-service p{
+  margin-top:4px;
+  font-size:8px;
+  line-height:1.4;
+  color:#536276;
+}
+
+
+/* =====================================================
+   SOLUCIONES
+===================================================== */
+
+.solution-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+
+.solution-card{
+  min-height:265px;
+  padding:28px 23px;
+  border-radius:15px;
+  border:1px solid var(--line);
+  background:
+  radial-gradient(circle at 100% 0%,rgba(18,137,255,.15),transparent 45%),
+  linear-gradient(145deg,#08224b,#031126);
+}
+
+.solution-icon{
+  width:55px;
+  height:55px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#0b64c5;
+}
+
+.solution-icon svg{
+  width:29px;
+  height:29px;
+  fill:none;
+  stroke:#fff;
+  stroke-width:1.7;
+}
+
+.solution-card h3{
+  margin-top:20px;
+  font-family:'Barlow Condensed';
+  font-size:27px;
+  text-transform:uppercase;
+}
+
+.solution-card p{
+  margin-top:8px;
+  color:#9fb2c8;
+  font-size:9px;
+  line-height:1.6;
+}
+
+
+/* =====================================================
+   KITS
+===================================================== */
+
+.kits-head{
+  margin-bottom:28px;
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:30px;
+}
+
+.kits-head h3{
+  font-family:'Barlow Condensed';
+  font-size:42px;
+  text-transform:uppercase;
+}
+
+.kits-head h3 span{
+  color:var(--blue);
+}
+
+.kits-head p{
+  max-width:560px;
+  color:#91a5bc;
+  font-size:9px;
+  line-height:1.6;
+}
+
+.kits-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.kit-card{
+  overflow:hidden;
+  border-radius:16px;
+  border:1px solid rgba(46,147,255,.25);
+  background:#f7faff;
+  color:#06142b;
+  box-shadow:0 20px 45px rgba(0,0,0,.16);
+}
+
+.kit-visual{
+  position:relative;
+  min-height:215px;
+  display:grid;
+  place-items:center;
+  background:
+  radial-gradient(circle,#eaf5ff,#fff 70%);
+}
+
+.kit-visual svg{
+  width:105px;
+  height:105px;
+  fill:none;
+  stroke:#174b85;
+  stroke-width:1.2;
+}
+
+.kit-badge{
+  position:absolute;
+  left:14px;
+  top:14px;
+  padding:8px 11px;
+  border-radius:5px;
+  background:#0965cc;
+  color:#fff;
+  font-size:8px;
+  font-weight:800;
+}
+
+.kit-body{
+  padding:22px;
+}
+
+.kit-type{
+  color:#1176de;
+  font-size:8px;
+  font-weight:800;
+}
+
+.kit-body h4{
+  margin-top:5px;
+  font-family:'Barlow Condensed';
+  font-size:31px;
+  text-transform:uppercase;
+}
+
+.kit-list{
+  margin:15px 0 20px;
+  list-style:none;
+  display:grid;
+  gap:8px;
+}
+
+.kit-list li{
+  display:flex;
+  gap:7px;
+  font-size:8px;
+  color:#405069;
+}
+
+.kit-list li::before{
+  content:"✓";
+  color:#0a69cf;
+  font-weight:800;
+}
+
+.kit-actions{
+  display:grid;
+  gap:8px;
+}
+
+.add-cart-btn,
+.whatsapp-kit{
+  width:100%;
+  min-height:47px;
+  border:0;
+  border-radius:7px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:9px;
+  font-weight:800;
+}
+
+.add-cart-btn{
+  background:linear-gradient(135deg,var(--yellow),var(--yellow2));
+  color:#05142b;
+}
+
+.whatsapp-kit{
+  background:#073674;
+  color:#fff;
+}
+
+.installation-note{
+  margin-top:13px;
+  padding:11px;
+  border-radius:7px;
+  background:#eef5fc;
+  color:#62738a;
+  font-size:7px;
+  line-height:1.5;
+}
+
+.installation-note strong{
+  color:#0d5fac;
+}
+
+
+/* =====================================================
+   AVISO INSTALACIÓN
+===================================================== */
+
+.install-info{
+  margin-top:35px;
+  padding:26px 30px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:30px;
+
+  border-radius:14px;
+
+  background:linear-gradient(120deg,#062556,#051936);
+  border:1px solid rgba(47,151,255,.25);
+}
+
+.install-info h4{
+  font-family:'Barlow Condensed';
+  font-size:27px;
+  text-transform:uppercase;
+}
+
+.install-info h4 span{
+  color:var(--yellow);
+}
+
+.install-info p{
+  margin-top:6px;
+  max-width:720px;
+  color:#a1b4cb;
+  font-size:9px;
+  line-height:1.6;
+}
+
+.install-info a{
+  flex:0 0 auto;
+  min-height:48px;
+  padding:0 20px;
+  border-radius:7px;
+  display:flex;
+  align-items:center;
+  background:var(--yellow);
+  color:#041329;
+  font-size:9px;
+  font-weight:800;
+}
+
+
+/* =====================================================
+   COTIZADOR
+===================================================== */
+
+.quote-box{
+  display:grid;
+  grid-template-columns:1fr 1.3fr;
+  gap:40px;
+  padding:40px;
+  border-radius:18px;
+  background:
+  radial-gradient(circle at 100% 0%,rgba(18,142,255,.15),transparent 35%),
+  linear-gradient(135deg,#062553,#020d20);
+  border:1px solid rgba(48,145,255,.25);
 }
 
 .quote-info h2{
-  font-family:'Barlow Condensed',sans-serif;
-
-  font-size:53px;
+  font-family:'Barlow Condensed';
+  font-size:50px;
   line-height:.94;
-
-  font-weight:800;
-
   text-transform:uppercase;
 }
 
@@ -1411,1117 +780,747 @@ section{
 }
 
 .quote-info p{
-  margin-top:18px;
-
-  max-width:450px;
-
-  color:#9eb1c7;
-
-  font-size:11px;
-  line-height:1.8;
+  margin-top:15px;
+  color:#98acc4;
+  font-size:10px;
+  line-height:1.7;
 }
 
-.quote-contact{
-  margin-top:27px;
-
-  display:flex;
-  align-items:center;
-  gap:12px;
-
+.quote-phone{
+  margin-top:24px;
   color:#fff;
-}
-
-.quote-contact strong{
-  font-size:15px;
+  font-size:18px;
+  font-weight:800;
 }
 
 .quote-form{
-  position:relative;
-  z-index:3;
-
   display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:13px;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
 }
 
-.form-group{
+.field{
   display:grid;
-  gap:7px;
+  gap:6px;
 }
 
-.form-group.full{
+.field.full{
   grid-column:1/-1;
 }
 
-.form-group label{
-  color:#b7c8db;
-
-  font-size:8px;
+.field label{
+  font-size:7px;
+  color:#aabbd0;
   font-weight:700;
 }
 
 .form-control{
-  width:100%;
   min-height:48px;
-
+  width:100%;
+  padding:0 12px;
   border-radius:7px;
-
-  border:
-    1px solid rgba(47,143,255,.20);
-
+  border:1px solid rgba(48,147,255,.22);
   outline:0;
-
-  padding:0 13px;
-
-  background:
-    rgba(1,12,29,.72);
-
+  background:rgba(2,14,34,.82);
   color:#fff;
-
-  font-size:10px;
+  font-size:9px;
 }
 
 textarea.form-control{
-  min-height:80px;
-  padding-top:13px;
+  min-height:76px;
+  padding-top:12px;
   resize:vertical;
-}
-
-.form-control:focus{
-  border-color:
-    rgba(49,167,255,.7);
 }
 
 .quote-submit{
   grid-column:1/-1;
-
-  min-height:55px;
-
+  min-height:53px;
   border:0;
-
   border-radius:8px;
-
   background:var(--green);
-
   color:#fff;
-
-  font-size:11px;
+  font-size:10px;
   font-weight:800;
-
-  box-shadow:
-    0 12px 35px rgba(37,211,102,.16);
 }
 
 
-/* =========================================================
+/* =====================================================
    TRABAJOS
-========================================================= */
+===================================================== */
 
 .works-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(4,minmax(0,1fr));
-
+  grid-template-columns:repeat(4,1fr);
   gap:14px;
 }
 
 .work-card{
   position:relative;
-
   min-height:290px;
-
   overflow:hidden;
-
   border-radius:14px;
-
-  border:
-    1px solid rgba(38,139,255,.18);
-
-  background:
-    linear-gradient(
-      135deg,
-      #092550,
-      #020c1e
-    );
+  background:linear-gradient(145deg,#0a2854,#020d20);
+  border:1px solid rgba(46,143,255,.22);
 }
 
-.work-placeholder{
+.work-card::before{
+  content:"FOTO REAL DE INSTALACIÓN";
   position:absolute;
   inset:0;
-
   display:grid;
   place-items:center;
-
-  padding:25px;
-
-  text-align:center;
-
-  color:#6c8baa;
-
-  font-size:9px;
-
+  color:#6785a7;
+  font-size:8px;
   letter-spacing:1px;
 }
 
 .work-card::after{
   content:"";
-
   position:absolute;
   inset:0;
-
-  background:
-    linear-gradient(
-      to top,
-      rgba(1,9,23,.95),
-      transparent 58%
-    );
+  background:linear-gradient(to top,rgba(1,8,20,.94),transparent 58%);
 }
 
 .work-info{
   position:absolute;
-
-  z-index:3;
-
-  left:20px;
-  right:20px;
-  bottom:18px;
+  z-index:2;
+  left:18px;
+  right:18px;
+  bottom:17px;
 }
 
 .work-info strong{
-  display:block;
-
-  font-family:'Barlow Condensed',sans-serif;
-
+  font-family:'Barlow Condensed';
   font-size:23px;
 }
 
 .work-info span{
   display:block;
-
   margin-top:4px;
-
-  color:#83a1c1;
-
-  font-size:8px;
+  color:#89a2be;
+  font-size:7px;
 }
 
 
-/* =========================================================
+/* =====================================================
    MANTENIMIENTO
-========================================================= */
+===================================================== */
 
-.maintenance-box{
+.maintenance-grid{
   display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:55px;
-
-  align-items:center;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
 }
 
-.maintenance-visual{
-  min-height:460px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:20px;
-
-  border:
-    1px solid rgba(36,143,255,.20);
-
-  background:
-    radial-gradient(
-      circle at 55% 45%,
-      rgba(18,136,255,.25),
-      transparent 40%
-    ),
-    linear-gradient(
-      135deg,
-      #082551,
-      #020d20
-    );
+.maintenance-card{
+  min-height:195px;
+  padding:22px 15px;
+  text-align:center;
+  border-radius:13px;
+  background:#f6f9fd;
+  color:#07172e;
+  border:1px solid #d8e5f1;
 }
 
-.maintenance-visual svg{
-  width:min(55%,280px);
-  height:auto;
-
-  fill:none;
-  stroke:#55b5ff;
-
-  stroke-width:.85;
-}
-
-.maintenance-info h2{
-  font-family:'Barlow Condensed',sans-serif;
-
-  font-size:56px;
-  font-weight:800;
-
-  line-height:.95;
-
-  text-transform:uppercase;
-}
-
-.maintenance-info h2 span{
-  color:var(--yellow);
-}
-
-.maintenance-info > p{
-  margin-top:16px;
-
-  color:#94a8c0;
-
-  font-size:11px;
-  line-height:1.75;
-}
-
-.maintenance-list{
-  margin:24px 0 28px;
-
-  display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:11px 20px;
-
-  list-style:none;
-}
-
-.maintenance-list li{
-  display:flex;
-  align-items:center;
-  gap:9px;
-
-  font-size:9px;
-  color:#dbe5f1;
-}
-
-.maintenance-list li::before{
-  content:"✓";
-
-  color:var(--yellow);
-
-  font-weight:800;
-}
-
-
-/* =========================================================
-   FAQ
-========================================================= */
-
-.faq{
-  max-width:900px;
+.maintenance-icon{
+  width:55px;
+  height:55px;
   margin:auto;
-}
-
-.faq-item{
-  border-bottom:
-    1px solid rgba(255,255,255,.09);
-}
-
-.faq-question{
-  width:100%;
-
-  min-height:70px;
-
-  border:0;
-  background:transparent;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  gap:20px;
-
-  color:#fff;
-
-  text-align:left;
-
-  font-size:11px;
-  font-weight:700;
-}
-
-.faq-plus{
-  width:30px;
-  height:30px;
-
-  flex:0 0 30px;
-
   display:grid;
   place-items:center;
-
   border-radius:50%;
-
-  border:
-    1px solid rgba(46,151,255,.25);
-
-  color:var(--blue-light);
-
-  font-size:18px;
-
-  transition:.25s;
+  background:#e8f4ff;
 }
 
-.faq-answer{
-  max-height:0;
-
-  overflow:hidden;
-
-  transition:
-    max-height .3s ease;
+.maintenance-icon svg{
+  width:29px;
+  height:29px;
+  fill:none;
+  stroke:#0966ca;
+  stroke-width:1.7;
 }
 
-.faq-answer p{
-  padding:
-    0 55px
-    23px 0;
-
-  color:#91a5be;
-
+.maintenance-card h3{
+  margin-top:14px;
   font-size:10px;
-  line-height:1.7;
 }
 
-.faq-item.active .faq-answer{
-  max-height:180px;
+.maintenance-card p{
+  margin-top:7px;
+  font-size:8px;
+  line-height:1.5;
+  color:#66758a;
 }
 
-.faq-item.active .faq-plus{
-  transform:rotate(45deg);
-}
 
+/* =====================================================
+   FOOTER
+===================================================== */
 
-/* =========================================================
-   CONTACTO
-========================================================= */
-
-.contact-strip{
-  padding:60px 0;
-
-  background:
-    linear-gradient(
-      110deg,
-      #0a70d8,
-      #063573
-    );
+.contact-band{
+  padding:50px 0;
+  background:linear-gradient(110deg,#0875df,#063672);
 }
 
 .contact-inner{
   display:flex;
-
-  align-items:center;
   justify-content:space-between;
-
-  gap:35px;
+  align-items:center;
+  gap:25px;
 }
 
-.contact-text h2{
-  font-family:'Barlow Condensed',sans-serif;
-
-  font-size:44px;
-  font-weight:800;
-
+.contact-inner h2{
+  font-family:'Barlow Condensed';
+  font-size:41px;
   text-transform:uppercase;
 }
 
-.contact-text p{
-  margin-top:7px;
-
-  color:#d7edff;
-
-  font-size:10px;
+.contact-inner p{
+  margin-top:5px;
+  font-size:9px;
 }
 
-.contact-btn{
-  min-height:58px;
-
-  padding:0 28px;
-
-  border-radius:8px;
-
-  display:inline-flex;
-
+.contact-inner a{
+  padding:0 25px;
+  min-height:55px;
+  display:flex;
   align-items:center;
-  justify-content:center;
-
+  border-radius:8px;
   background:var(--yellow);
-
-  color:#041329;
-
-  font-size:11px;
+  color:#05142b;
+  font-size:10px;
   font-weight:800;
 }
 
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
 footer{
-  padding:65px 0 27px;
-
   background:#010711;
+  padding:55px 0 25px;
 }
 
 .footer-grid{
   display:grid;
-
-  grid-template-columns:
-    1.7fr 1fr 1fr 1fr;
-
-  gap:45px;
-}
-
-.footer-brand p{
-  max-width:350px;
-
-  margin-top:18px;
-
-  color:#7f94ad;
-
-  font-size:9px;
-  line-height:1.8;
+  grid-template-columns:1.6fr 1fr 1fr 1fr;
+  gap:40px;
 }
 
 .footer-col h4{
-  margin-bottom:17px;
-
-  color:#fff;
-
   font-size:9px;
-  font-weight:800;
-
-  letter-spacing:.8px;
+  margin-bottom:16px;
 }
 
 .footer-col a,
 .footer-col p{
   display:block;
-
-  margin-bottom:11px;
-
-  color:#7f94ad;
-
+  margin-bottom:9px;
+  color:#8297af;
   font-size:8px;
-  line-height:1.55;
+  line-height:1.6;
 }
 
-.footer-col a:hover{
-  color:var(--blue-light);
+.footer-description{
+  margin-top:15px;
+  max-width:320px;
+  color:#8297af;
+  font-size:8px;
+  line-height:1.7;
 }
 
 .copyright{
-  margin-top:45px;
-
-  padding-top:22px;
-
-  border-top:
-    1px solid rgba(255,255,255,.07);
-
-  color:#53677f;
-
+  margin-top:35px;
+  padding-top:20px;
   text-align:center;
-
+  border-top:1px solid rgba(255,255,255,.06);
   font-size:7px;
+  color:#536a82;
 }
 
 
-/* =========================================================
-   WHATSAPP FLOTANTE
-========================================================= */
+/* =====================================================
+   CARRITO / MI COTIZACIÓN
+===================================================== */
 
-.whatsapp-float{
+.cart-overlay{
   position:fixed;
-
-  right:22px;
-  bottom:22px;
-
-  z-index:6000;
-
-  width:58px;
-  height:58px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:50%;
-
-  background:var(--green);
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,.35);
-
+  inset:0;
+  z-index:8000;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  background:rgba(0,5,15,.72);
   transition:.25s;
 }
 
-.whatsapp-float:hover{
-  transform:scale(1.08);
+.cart-overlay.active{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+
+.cart-panel{
+  position:absolute;
+  right:0;
+  top:0;
+  width:min(92vw,430px);
+  height:100%;
+  padding:22px;
+  background:linear-gradient(180deg,#061b3d,#020b1b);
+  transform:translateX(100%);
+  transition:.3s;
+  overflow-y:auto;
+}
+
+.cart-overlay.active .cart-panel{
+  transform:translateX(0);
+}
+
+.cart-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-bottom:17px;
+  border-bottom:1px solid rgba(255,255,255,.09);
+}
+
+.cart-top h3{
+  font-family:'Barlow Condensed';
+  font-size:28px;
+}
+
+.cart-close{
+  border:0;
+  background:transparent;
+  color:#fff;
+  font-size:30px;
+}
+
+.cart-empty{
+  padding:45px 10px;
+  text-align:center;
+  color:#8199b5;
+  font-size:10px;
+}
+
+.cart-item{
+  margin-top:12px;
+  padding:15px;
+  border-radius:10px;
+  background:rgba(8,36,78,.75);
+  border:1px solid rgba(42,145,255,.17);
+}
+
+.cart-item strong{
+  font-size:10px;
+}
+
+.cart-item small{
+  display:block;
+  margin-top:5px;
+  color:#89a4c1;
+  font-size:8px;
+}
+
+.remove-item{
+  margin-top:10px;
+  border:0;
+  background:transparent;
+  color:#ff7780;
+  font-size:8px;
+  font-weight:700;
+}
+
+.cart-install{
+  margin-top:20px;
+  padding:15px;
+  border-radius:10px;
+  background:rgba(255,196,0,.08);
+  border:1px solid rgba(255,196,0,.22);
+}
+
+.cart-install label{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color:#dbe6f3;
+  font-size:9px;
+  line-height:1.5;
+}
+
+.cart-install small{
+  display:block;
+  margin-top:8px;
+  color:#8da4be;
+  font-size:7px;
+  line-height:1.5;
+}
+
+.cart-form{
+  margin-top:20px;
+  display:grid;
+  gap:10px;
+}
+
+.cart-form input,
+.cart-form textarea{
+  width:100%;
+  min-height:46px;
+  border:1px solid rgba(44,145,255,.22);
+  border-radius:7px;
+  background:#03132d;
+  color:#fff;
+  padding:0 11px;
+  outline:0;
+  font-size:9px;
+}
+
+.cart-form textarea{
+  padding-top:11px;
+  min-height:70px;
+}
+
+.send-cart{
+  min-height:52px;
+  border:0;
+  border-radius:8px;
+  background:var(--green);
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+.whatsapp-float{
+  position:fixed;
+  z-index:7000;
+  right:20px;
+  bottom:20px;
+  width:57px;
+  height:57px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:var(--green);
+  box-shadow:0 10px 30px rgba(0,0,0,.32);
 }
 
 .whatsapp-float svg{
-  width:31px;
-  height:31px;
-
+  width:30px;
   fill:#fff;
 }
 
 
-/* =========================================================
-   LAPTOP
-========================================================= */
+/* =====================================================
+   RESPONSIVE
+===================================================== */
 
 @media(max-width:1250px){
 
   .header-inner{
-    grid-template-columns:
-      220px minmax(0,1fr) 175px;
+    grid-template-columns:210px 1fr auto;
   }
 
   .desktop-nav{
-    gap:14px;
+    gap:13px;
   }
 
   .desktop-nav a{
     font-size:8px;
   }
 
-  .header-cta{
-    padding:0 13px;
-    font-size:8px;
-  }
-
-  .products-grid{
-    grid-template-columns:
-      repeat(2,minmax(0,1fr));
-  }
-
 }
-
-
-/* =========================================================
-   MOBILE / TABLET
-========================================================= */
 
 @media(max-width:980px){
 
-  .site-header{
+  .desktop-header{
     display:none;
   }
 
   .mobile-header{
+    display:block;
     position:fixed;
-
     top:0;
     left:0;
-
-    z-index:5000;
-
-    display:block;
-
     width:100%;
-
-    background:
-      rgba(2,11,27,.97);
-
-    border-bottom:
-      1px solid rgba(31,143,255,.20);
-
-    box-shadow:
-      0 8px 30px rgba(0,0,0,.28);
-
-    backdrop-filter:
-      blur(14px);
+    z-index:5000;
+    background:rgba(2,11,27,.97);
+    border-bottom:1px solid rgba(42,145,255,.2);
+    backdrop-filter:blur(15px);
   }
 
   .mobile-top{
-    min-height:64px;
-
-    padding:8px 13px;
-
+    min-height:62px;
+    padding:8px 12px;
     display:flex;
-    align-items:center;
     justify-content:space-between;
-
+    align-items:center;
     gap:8px;
   }
 
   .mobile-brand{
     display:flex;
     align-items:center;
-
     gap:8px;
   }
 
-  .mobile-brand-icon{
-    width:42px;
-    height:42px;
-
-    display:grid;
-    place-items:center;
-
-    border-radius:9px;
-
-    background:
-      linear-gradient(
-        145deg,
-        #083c86,
-        #02132e
-      );
-
-    border:
-      1px solid rgba(28,145,255,.60);
+  .mobile-brand .brand-icon{
+    width:40px;
+    height:40px;
   }
 
-  .mobile-brand-icon svg{
-    width:25px;
-    height:25px;
-
-    fill:none;
-    stroke:#fff;
-    stroke-width:1.7;
+  .mobile-brand .brand-icon svg{
+    width:24px;
   }
 
-  .mobile-brand-title{
-    font-size:14px;
-    font-weight:800;
+  .mobile-brand .brand-main{
+    font-size:13px;
   }
 
-  .mobile-brand-title span{
-    color:var(--blue);
-  }
-
-  .mobile-brand-sub{
-    display:block;
-
-    margin-top:4px;
-
-    font-size:5px;
-    font-weight:700;
-
+  .mobile-brand .brand-sub{
+    font-size:4px;
     letter-spacing:3px;
   }
 
-  .mobile-top-cta{
-    min-height:40px;
-
-    padding:0 12px;
-
-    border-radius:7px;
-
+  .mobile-actions{
     display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:
-      linear-gradient(
-        135deg,
-        var(--yellow),
-        var(--yellow-2)
-      );
-
-    color:#031229;
-
-    font-size:8px;
-    font-weight:800;
-  }
-
-  .mobile-visible-nav{
-    padding:
-      5px 9px
-      9px;
-
-    display:grid;
-
-    grid-template-columns:
-      repeat(3,1fr);
-
     gap:5px;
   }
 
-  .mobile-visible-nav a{
-    min-height:35px;
-
-    padding:4px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
+  .mobile-cart-btn,
+  .mobile-quote-btn{
+    min-height:38px;
+    padding:0 9px;
     border-radius:6px;
-
-    border:
-      1px solid rgba(38,140,255,.17);
-
-    background:
-      rgba(5,27,61,.72);
-
-    color:#f6f9ff;
-
-    text-align:center;
-
     font-size:7px;
-    font-weight:700;
+    font-weight:800;
   }
 
-  .mobile-visible-nav a:first-child{
-    color:#ffd42a;
+  .mobile-cart-btn{
+    border:1px solid rgba(43,150,255,.32);
+    background:#06204a;
+    color:#fff;
+  }
 
-    border-color:
-      rgba(255,196,0,.45);
+  .mobile-quote-btn{
+    border:0;
+    background:var(--yellow);
+    color:#041329;
+  }
+
+  .mobile-nav{
+    padding:5px 8px 9px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:5px;
+  }
+
+  .mobile-nav a{
+    min-height:34px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:6px;
+    border:1px solid rgba(42,145,255,.16);
+    background:rgba(6,30,67,.7);
+    font-size:7px;
+    font-weight:700;
   }
 
 
   /* HERO MOBILE */
 
   .hero{
-    min-height:1140px;
-
+    min-height:1110px;
     align-items:flex-start;
 
     background-image:
-      linear-gradient(
-        to bottom,
-        rgba(2,11,27,.94) 0%,
-        rgba(2,11,27,.74) 19%,
-        rgba(2,11,27,.42) 35%,
-        rgba(2,11,27,.07) 57%,
-        rgba(2,11,27,.43) 76%,
-        rgba(2,11,27,.98) 100%
-      ),
-      url('portada-snt-mobile.png');
+    linear-gradient(
+      to bottom,
+      rgba(2,11,27,.95) 0%,
+      rgba(2,11,27,.72) 19%,
+      rgba(2,11,27,.39) 36%,
+      rgba(2,11,27,.06) 58%,
+      rgba(2,11,27,.48) 78%,
+      rgba(2,11,27,.98) 100%
+    ),
+    url('portada-snt-mobile.png');
 
-    background-size:cover;
-
-    background-position:
-      center top;
+    background-position:center top;
   }
 
   .hero-inner{
-    min-height:1140px;
-
-    padding:
-      180px 18px
-      340px;
-  }
-
-  .hero-content{
-    width:100%;
-    max-width:560px;
+    padding:175px 17px 360px;
   }
 
   .hero-label{
-    min-height:35px;
-
-    padding:0 10px;
-
+    min-height:34px;
     font-size:7px;
-
-    margin-bottom:17px;
   }
 
   .hero-title{
-    font-size:
-      clamp(50px,14vw,72px);
-
-    line-height:.89;
+    font-size:clamp(48px,14vw,70px);
   }
 
   .hero-description{
-    max-width:420px;
-
-    margin-top:18px;
-
     font-size:11px;
   }
 
   .hero-actions{
     display:block;
-
-    margin-top:21px;
   }
 
   .hero-btn{
     width:100%;
-
-    min-height:53px;
-
+    min-height:52px;
     font-size:9px;
   }
 
-  .hero-btn-secondary{
+  .hero-btn-outline{
     display:none;
   }
 
   .hero-benefits{
-    margin-top:21px;
-
     display:grid;
-
-    grid-template-columns:
-      1fr 1fr;
+    grid-template-columns:1fr 1fr;
+    gap:5px;
   }
 
   .hero-benefit{
-    padding:6px 3px;
-    gap:7px;
+    padding:5px 3px;
+    border-right:0;
   }
 
   .hero-benefit:first-child{
     padding-left:3px;
   }
 
-  .hero-benefit::after{
-    display:none;
-  }
-
   .benefit-icon{
-    width:35px;
-    height:35px;
-
-    flex-basis:35px;
+    width:34px;
+    height:34px;
   }
 
   .hero-benefit span{
     font-size:7px;
   }
 
-  .hero-stats{
+  .hero-services{
     left:11px;
     right:11px;
-
     bottom:13px;
-
-    min-height:auto;
-
-    grid-template-columns:
-      repeat(2,minmax(0,1fr));
+    grid-template-columns:1fr 1fr;
   }
 
-  .hero-stat{
-    min-height:65px;
-
-    padding:10px 8px;
-
-    justify-content:flex-start;
-
-    gap:8px;
+  .hero-service{
+    min-height:82px;
+    padding:11px;
   }
 
-  .hero-stat::after{
+  .hero-service::after{
     display:none;
   }
 
-  .hero-stat:last-child{
-    grid-column:1/-1;
+  .hero-service-icon{
+    width:39px;
+    height:39px;
+    flex-basis:39px;
   }
 
-  .stat-icon{
-    width:36px;
-    height:36px;
-
-    flex-basis:36px;
+  .hero-service-icon svg{
+    width:21px;
   }
 
-  .stat-icon svg{
-    width:20px;
-    height:20px;
+  .hero-service strong{
+    font-size:8px;
   }
 
-  .stat-value{
-    font-size:14px;
-  }
-
-  .stat-label{
+  .hero-service p{
     font-size:6px;
   }
 
+  .solution-grid{
+    grid-template-columns:1fr 1fr;
+  }
 
-  /* RESTO WEB MOBILE */
+  .kits-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .quote-box{
+    grid-template-columns:1fr;
+  }
+
+  .works-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .maintenance-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .maintenance-card:last-child{
+    grid-column:1/-1;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+@media(max-width:560px){
 
   .section{
     padding:62px 0;
   }
 
-  .section-heading{
-    margin-bottom:35px;
-  }
-
-  .section-heading p{
-    font-size:10px;
-  }
-
-  .solutions-grid{
+  .solution-grid{
     grid-template-columns:1fr;
   }
 
-  .solution-card{
-    min-height:auto;
-    padding:27px 24px;
+  .kits-grid{
+    grid-template-columns:1fr;
   }
 
-  .products-grid{
-    grid-template-columns:
-      repeat(2,minmax(0,1fr));
-
-    gap:10px;
-  }
-
-  .product-visual{
-    height:140px;
-  }
-
-  .product-visual svg{
-    width:70px;
-    height:70px;
-  }
-
-  .product-body{
-    padding:16px 12px;
-  }
-
-  .product-card h4{
-    font-size:22px;
-  }
-
-  .product-card p{
-    font-size:7px;
-  }
-
-  .product-list li{
-    font-size:7px;
-  }
-
-  .product-card .btn{
-    min-height:43px;
-
-    padding:0 7px;
-
-    font-size:7px;
-  }
-
-  .category-head{
+  .kits-head{
     align-items:flex-start;
     flex-direction:column;
   }
 
-  .services-grid{
-    grid-template-columns:
-      1fr 1fr;
-  }
-
-  .service-card{
-    padding:22px 16px;
+  .install-info{
+    flex-direction:column;
+    align-items:flex-start;
   }
 
   .quote-box{
-    grid-template-columns:1fr;
-
-    padding:27px 19px;
-
-    gap:30px;
-  }
-
-  .quote-info h2{
-    font-size:44px;
+    padding:25px 18px;
   }
 
   .quote-form{
     grid-template-columns:1fr;
   }
 
-  .form-group.full,
+  .field.full,
   .quote-submit{
     grid-column:auto;
   }
 
   .works-grid{
-    grid-template-columns:
-      1fr 1fr;
-  }
-
-  .work-card{
-    min-height:220px;
-  }
-
-  .maintenance-box{
     grid-template-columns:1fr;
-
-    gap:35px;
   }
 
-  .maintenance-visual{
-    min-height:330px;
+  .maintenance-grid{
+    grid-template-columns:1fr;
   }
 
-  .maintenance-info h2{
-    font-size:47px;
+  .maintenance-card:last-child{
+    grid-column:auto;
   }
 
   .contact-inner{
     flex-direction:column;
-
     align-items:flex-start;
-  }
-
-  .footer-grid{
-    grid-template-columns:
-      1fr 1fr;
-  }
-
-}
-
-
-/* =========================================================
-   CELULARES PEQUEÑOS
-========================================================= */
-
-@media(max-width:520px){
-
-  .container{
-    width:92%;
-  }
-
-  .mobile-brand-title{
-    font-size:13px;
-  }
-
-  .hero-inner{
-    padding-left:14px;
-    padding-right:14px;
-  }
-
-  .section-heading h2{
-    font-size:43px;
-  }
-
-  .solutions-grid{
-    gap:14px;
-  }
-
-  .products-grid{
-    grid-template-columns:
-      1fr 1fr;
-  }
-
-  .services-grid{
-    grid-template-columns:1fr;
-  }
-
-  .works-grid{
-    grid-template-columns:1fr;
-  }
-
-  .maintenance-list{
-    grid-template-columns:1fr;
   }
 
   .footer-grid{
@@ -2531,2602 +1530,1651 @@ footer{
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =========================================================
+<!-- =====================================================
      HEADER PC
-========================================================= -->
-
-<header
-  class="site-header"
-  id="siteHeader">
-
-  <div class="header-inner">
-
-
-    <a
-      href="#inicio"
-      class="brand">
-
-      <div class="brand-icon">
-
-        <svg viewBox="0 0 24 24">
-          <rect x="3" y="7" width="13" height="9" rx="2"></rect>
-          <path d="M16 10l5-3v9l-5-3"></path>
-          <circle cx="9.5" cy="11.5" r="2.4"></circle>
-        </svg>
-
-      </div>
-
-
-      <div class="brand-name">
-
-        <div class="brand-main">
-          SNT <span>SECURITY</span>
-        </div>
-
-        <span class="brand-sub">
-          SERVICES
-        </span>
-
-      </div>
-
-    </a>
-
-
-    <nav class="desktop-nav">
-
-      <a href="#inicio" class="active">
-        INICIO
-      </a>
-
-      <a href="#camaras">
-        CÁMARAS
-      </a>
-
-      <a href="#kits">
-        KITS
-      </a>
-
-      <a href="#servicios">
-        SERVICIOS
-      </a>
-
-      <a href="#trabajos">
-        TRABAJOS
-      </a>
-
-      <a href="#mantenimiento">
-        MANTENIMIENTO
-      </a>
-
-      <a href="#contacto">
-        CONTACTO
-      </a>
-
-    </nav>
-
-
-    <div class="header-action">
-
-      <a
-        class="header-cta"
-        href="https://wa.me/51944275861?text=Hola%20SNT%20Security%20Services,%20quiero%20una%20cotización."
-        target="_blank">
-
-        <svg viewBox="0 0 24 24">
-          <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5z"></path>
-          <path d="M9 8.5c.5 2.7 2.3 4.5 5 5"></path>
-        </svg>
-
-        COTIZAR AHORA
-
-      </a>
-
-    </div>
-
-  </div>
-
-</header>
-
-
-
-<!-- =========================================================
-     HEADER MOBILE SIEMPRE VISIBLE
-========================================================= -->
-
-<header class="mobile-header">
-
-  <div class="mobile-top">
-
-
-    <a
-      href="#inicio"
-      class="mobile-brand">
-
-      <div class="mobile-brand-icon">
-
-        <svg viewBox="0 0 24 24">
-          <rect x="3" y="7" width="13" height="9" rx="2"></rect>
-          <path d="M16 10l5-3v9l-5-3"></path>
-          <circle cx="9.5" cy="11.5" r="2.4"></circle>
-        </svg>
-
-      </div>
-
-      <div>
-
-        <div class="mobile-brand-title">
-          SNT <span>SECURITY</span>
-        </div>
-
-        <span class="mobile-brand-sub">
-          SERVICES
-        </span>
-
-      </div>
-
-    </a>
-
-
-    <a
-      class="mobile-top-cta"
-      href="https://wa.me/51944275861?text=Hola%20SNT%20Security%20Services,%20quiero%20cotizar."
-      target="_blank">
-
-      COTIZAR
-
-    </a>
-
-  </div>
-
-
-  <nav class="mobile-visible-nav">
-
-    <a href="#inicio">
-      INICIO
-    </a>
-
-    <a href="#camaras">
-      CÁMARAS
-    </a>
-
-    <a href="#kits">
-      KITS
-    </a>
-
-    <a href="#servicios">
-      SERVICIOS
-    </a>
-
-    <a href="#trabajos">
-      TRABAJOS
-    </a>
-
-    <a href="#mantenimiento">
-      MANTENIMIENTO
-    </a>
-
-  </nav>
-
-</header>
-
-
-
-<!-- =========================================================
-     PORTADA
-========================================================= -->
-
-<section
-  class="hero"
-  id="inicio">
-
-  <div class="hero-inner">
-
-    <div class="hero-content">
-
-
-      <div class="hero-label">
-
-        <svg viewBox="0 0 24 24">
-          <path d="M12 3l7 3v5c0 4.6-2.8 8.1-7 10-4.2-1.9-7-5.4-7-10V6z"></path>
-          <path d="M9 12l2 2 4-4"></path>
-        </svg>
-
-        SISTEMAS DE VIDEOVIGILANCIA PROFESIONALES
-
-      </div>
-
-
-      <h1 class="hero-title">
-
-        PROTEGE LO QUE
-
-        <br>
-
-        <span>MÁS</span> TE IMPORTA
-
-      </h1>
-
-
-      <p class="hero-description">
-
-        Venta, instalación, configuración y mantenimiento
-        de cámaras de seguridad para hogares,
-        negocios y empresas.
-
-      </p>
-
-
-      <div class="hero-actions">
-
-        <a
-          class="hero-btn hero-btn-primary"
-          href="#cotizador">
-
-          COTIZA TU SISTEMA
-
-        </a>
-
-
-        <a
-          class="hero-btn hero-btn-secondary"
-          href="#trabajos">
-
-          VER TRABAJOS REALIZADOS
-
-        </a>
-
-      </div>
-
-
-      <div class="hero-benefits">
-
-
-        <div class="hero-benefit">
-
-          <div class="benefit-icon">
-
-            <svg viewBox="0 0 24 24">
-              <path d="M14 6l4-4 2 2-4 4"></path>
-              <path d="M13 7l4 4-8 8-4-4z"></path>
-              <path d="M4 20l3-3"></path>
-            </svg>
-
-          </div>
-
-          <span>
-            Instalación<br>
-            profesional
-          </span>
-
-        </div>
-
-
-        <div class="hero-benefit">
-
-          <div class="benefit-icon">
-
-            <svg viewBox="0 0 24 24">
-              <rect x="7" y="2" width="10" height="20" rx="2"></rect>
-              <path d="M10 18h4"></path>
-            </svg>
-
-          </div>
-
-          <span>
-            Acceso desde<br>
-            celular
-          </span>
-
-        </div>
-
-
-        <div class="hero-benefit">
-
-          <div class="benefit-icon">
-
-            <svg viewBox="0 0 24 24">
-              <path d="M4 13v-2a8 8 0 0 1 16 0v2"></path>
-              <path d="M4 13h3v6H4z"></path>
-              <path d="M17 13h3v6h-3z"></path>
-            </svg>
-
-          </div>
-
-          <span>
-            Soporte técnico<br>
-            especializado
-          </span>
-
-        </div>
-
-
-        <div class="hero-benefit">
-
-          <div class="benefit-icon">
-
-            <svg viewBox="0 0 24 24">
-              <path d="M12 3l7 3v5c0 4.6-2.8 8.1-7 10-4.2-1.9-7-5.4-7-10V6z"></path>
-              <path d="M9 12l2 2 4-4"></path>
-            </svg>
-
-          </div>
-
-          <span>
-            Garantía y<br>
-            confianza
-          </span>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-
-  <!-- FRANJA -->
-
-  <div class="hero-stats">
-
-
-    <div class="hero-stat">
-
-      <div class="stat-icon">
-        <svg viewBox="0 0 24 24">
-          <rect x="3" y="6" width="14" height="10" rx="2"></rect>
-          <path d="M17 9l4-2v8l-4-2"></path>
-        </svg>
-      </div>
-
-      <div>
-        <strong class="stat-value">
-          FULL HD
-        </strong>
-        <span class="stat-label">
-          Alta definición
-        </span>
-      </div>
-
-    </div>
-
-
-    <div class="hero-stat">
-
-      <div class="stat-icon">
-        <svg viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="8"></circle>
-          <path d="M12 8v5l3 2"></path>
-        </svg>
-      </div>
-
-      <div>
-        <strong class="stat-value">
-          24/7
-        </strong>
-        <span class="stat-label">
-          Videovigilancia
-        </span>
-      </div>
-
-    </div>
-
-
-    <div class="hero-stat">
-
-      <div class="stat-icon">
-        <svg viewBox="0 0 24 24">
-          <rect x="7" y="2" width="10" height="20" rx="2"></rect>
-          <path d="M10 18h4"></path>
-        </svg>
-      </div>
-
-      <div>
-        <strong class="stat-value">
-          REMOTO
-        </strong>
-        <span class="stat-label">
-          Desde celular
-        </span>
-      </div>
-
-    </div>
-
-
-    <div class="hero-stat">
-
-      <div class="stat-icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M13 2L5 14h6l-1 8 9-13h-6z"></path>
-        </svg>
-      </div>
-
-      <div>
-        <strong class="stat-value">
-          RÁPIDA
-        </strong>
-        <span class="stat-label">
-          Atención
-        </span>
-      </div>
-
-    </div>
-
-
-    <div class="hero-stat">
-
-      <div class="stat-icon">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 22s7-7 7-13a7 7 0 1 0-14 0c0 6 7 13 7 13z"></path>
-          <circle cx="12" cy="9" r="2.5"></circle>
-        </svg>
-      </div>
-
-      <div>
-        <strong class="stat-value">
-          PERÚ
-        </strong>
-        <span class="stat-label">
-          Cobertura
-        </span>
-      </div>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     CÁMARAS Y SOLUCIONES
-========================================================= -->
-
-<section
-  class="section section-deep"
-  id="camaras">
-
-  <div class="container">
-
-
-    <div class="section-heading">
-
-      <div class="section-kicker">
-        ELIGE TU SISTEMA
-      </div>
-
-      <h2>
-        CÁMARAS Y <span>SOLUCIONES</span>
-      </h2>
-
-      <p>
-        Encuentra una opción según tu necesidad:
-        cámaras WiFi independientes, sistemas HD
-        o sistemas Full HD con instalación profesional.
-      </p>
-
-    </div>
-
-
-    <div class="solutions-grid">
-
-
-      <!-- WIFI -->
-
-      <article class="solution-card">
-
-        <div class="solution-icon">
-
-          <svg viewBox="0 0 24 24">
-            <rect x="4" y="8" width="12" height="8" rx="2"></rect>
-            <path d="M16 10l5-3v10l-5-3"></path>
-            <path d="M7 5c3-2 7-2 10 0"></path>
-            <path d="M9 7c2-1 4-1 6 0"></path>
-          </svg>
-
-        </div>
-
-        <h3>
-          CÁMARAS WIFI
-        </h3>
-
-        <p>
-          Alternativa práctica para hogares,
-          habitaciones, pequeños negocios y espacios
-          donde deseas monitorear desde tu celular.
-        </p>
-
-        <ul class="solution-features">
-          <li>Visualización desde celular</li>
-          <li>Conexión WiFi</li>
-          <li>Opciones interior y exterior</li>
-          <li>Instalación disponible</li>
-        </ul>
-
-        <a
-          href="#wifi"
-          class="btn btn-outline">
-
-          VER CÁMARAS WIFI
-
-        </a>
-
-      </article>
-
-
-      <!-- HD -->
-
-      <article class="solution-card">
-
-        <div class="solution-icon">
-
-          <svg viewBox="0 0 24 24">
-            <rect x="3" y="6" width="13" height="9" rx="2"></rect>
-            <path d="M16 9l5-3v9l-5-3"></path>
-            <path d="M7 19h10"></path>
-          </svg>
-
-        </div>
-
-        <h3>
-          SISTEMAS HD
-        </h3>
-
-        <p>
-          Sistemas de videovigilancia completos
-          para casas y negocios que buscan seguridad,
-          grabación y monitoreo continuo.
-        </p>
-
-        <ul class="solution-features">
-          <li>Kits de 2 cámaras</li>
-          <li>Kits de 3 cámaras</li>
-          <li>Kits de 4 cámaras</li>
-          <li>Kits de 8 cámaras</li>
-        </ul>
-
-        <a
-          href="#kits-hd"
-          class="btn btn-outline">
-
-          VER KITS HD
-
-        </a>
-
-      </article>
-
-
-      <!-- FULL HD -->
-
-      <article class="solution-card">
-
-        <div class="solution-icon">
-
-          <svg viewBox="0 0 24 24">
-            <path d="M4 6h16v11H4z"></path>
-            <path d="M8 21h8"></path>
-            <path d="M12 17v4"></path>
-            <path d="M7 10h3"></path>
-            <path d="M7 13h3"></path>
-            <path d="M14 10h3"></path>
-            <path d="M14 13h3"></path>
-          </svg>
-
-        </div>
-
-        <h3>
-          FULL HD 1080P
-        </h3>
-
-        <p>
-          Mayor nivel de detalle para visualizar
-          rostros, movimientos y áreas importantes
-          de tu propiedad o negocio.
-        </p>
-
-        <ul class="solution-features">
-          <li>Kits de 2 cámaras</li>
-          <li>Kits de 4 cámaras</li>
-          <li>Kits de 5 cámaras</li>
-          <li>Kits de 8 cámaras</li>
-        </ul>
-
-        <a
-          href="#kits-fullhd"
-          class="btn btn-yellow">
-
-          VER KITS FULL HD
-
-        </a>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     WIFI
-========================================================= -->
-
-<section
-  class="section section-dark wifi-section"
-  id="wifi">
-
-  <div class="container">
-
-
-    <div class="category-head">
-
-      <div>
-
-        <div class="section-kicker">
-          CONECTIVIDAD
-        </div>
-
-        <h3>
-          CÁMARAS <span>WIFI</span>
-        </h3>
-
-      </div>
-
-      <p>
-        Pregunta por modelos y disponibilidad.
-        Podemos ayudarte a elegir la cámara adecuada
-        según el lugar donde será instalada.
-      </p>
-
-    </div>
-
-
-    <div class="products-grid">
-
-
-      <!-- WIFI INTERIOR -->
-
-      <article class="product-card">
-
-        <div class="product-visual">
-
-          <span class="product-badge">
-            WIFI
-          </span>
-
-          <svg viewBox="0 0 24 24">
-            <circle cx="12" cy="10" r="6"></circle>
-            <circle cx="12" cy="10" r="2.3"></circle>
-            <path d="M7 17h10"></path>
-            <path d="M9 20h6"></path>
-          </svg>
-
-        </div>
-
-
-        <div class="product-body">
-
-          <div class="product-type">
-            CÁMARA WIFI
-          </div>
-
-          <h4>
-            INTERIOR
-          </h4>
-
-          <p>
-            Ideal para sala, habitación,
-            oficina o pequeños negocios.
-          </p>
-
-          <ul class="product-list">
-            <li>Acceso desde celular</li>
-            <li>Monitoreo remoto</li>
-            <li>Configuración disponible</li>
-          </ul>
-
-          <a
-            class="btn btn-yellow"
-            target="_blank"
-            href="https://wa.me/51944275861?text=Hola%20SNT,%20quiero%20cotizar%20una%20cámara%20WiFi%20para%20interior.">
-
-            COTIZAR
-
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- WIFI EXTERIOR -->
-
-      <article class="product-card">
-
-        <div class="product-visual">
-
-          <span class="product-badge">
-            WIFI
-          </span>
-
-          <svg viewBox="0 0 24 24">
-            <path d="M4 9l13-4 3 5-13 4z"></path>
-            <circle cx="14" cy="9" r="2"></circle>
-            <path d="M7 14l-2 6"></path>
-          </svg>
-
-        </div>
-
-
-        <div class="product-body">
-
-          <div class="product-type">
-            CÁMARA WIFI
-          </div>
-
-          <h4>
-            EXTERIOR
-          </h4>
-
-          <p>
-            Para fachada, cochera,
-            patio o ingreso principal.
-          </p>
-
-          <ul class="product-list">
-            <li>Monitoreo por celular</li>
-            <li>Uso exterior según modelo</li>
-            <li>Instalación disponible</li>
-          </ul>
-
-          <a
-            class="btn btn-yellow"
-            target="_blank"
-            href="https://wa.me/51944275861?text=Hola%20SNT,%20quiero%20cotizar%20una%20cámara%20WiFi%20para%20exterior.">
-
-            COTIZAR
-
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- WIFI 360 -->
-
-      <article class="product-card">
-
-        <div class="product-visual">
-
-          <span class="product-badge">
-            360°
-          </span>
-
-          <svg viewBox="0 0 24 24">
-            <circle cx="12" cy="11" r="6"></circle>
-            <circle cx="12" cy="11" r="2"></circle>
-            <path d="M5 5C8 2 16 2 19 5"></path>
-            <path d="M19 5l-1-3"></path>
-          </svg>
-
-        </div>
-
-
-        <div class="product-body">
-
-          <div class="product-type">
-            CÁMARA WIFI
-          </div>
-
-          <h4>
-            MOVIMIENTO 360°
-          </h4>
-
-          <p>
-            Alternativa para ampliar
-            el área de visualización.
-          </p>
-
-          <ul class="product-list">
-            <li>Control desde celular</li>
-            <li>Movimiento según modelo</li>
-            <li>Configuración disponible</li>
-          </ul>
-
-          <a
-            class="btn btn-yellow"
-            target="_blank"
-            href="https://wa.me/51944275861?text=Hola%20SNT,%20quiero%20cotizar%20una%20cámara%20WiFi%20360.">
-
-            COTIZAR
-
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- PERSONALIZADA -->
-
-      <article class="product-card">
-
-        <div class="product-visual">
-
-          <span class="product-badge">
-            ASESORÍA
-          </span>
-
-          <svg viewBox="0 0 24 24">
-            <path d="M4 4h16v12H4z"></path>
-            <path d="M8 20h8"></path>
-            <path d="M12 16v4"></path>
-            <path d="M8 9h8"></path>
-          </svg>
-
-        </div>
-
-
-        <div class="product-body">
-
-          <div class="product-type">
-            NO SABES CUÁL ELEGIR
-          </div>
-
-          <h4>
-            TE ASESORAMOS
-          </h4>
-
-          <p>
-            Cuéntanos dónde deseas instalar
-            la cámara y te orientamos.
-          </p>
-
-          <ul class="product-list">
-            <li>Casa o negocio</li>
-            <li>Interior o exterior</li>
-            <li>Opción según necesidad</li>
-          </ul>
-
-          <a
-            class="btn btn-blue"
-            href="#cotizador">
-
-            PEDIR ASESORÍA
-
-          </a>
-
-        </div>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     KITS
-========================================================= -->
-
-<section
-  class="section section-deep"
-  id="kits">
-
-  <div class="container">
-
-
-    <div class="section-heading">
-
-      <div class="section-kicker">
-        PAQUETES
-      </div>
-
-      <h2>
-        KITS DE <span>SEGURIDAD</span>
-      </h2>
-
-      <p>
-        Elige la cantidad de cámaras que necesitas.
-        La configuración final puede adaptarse
-        según las características del lugar.
-      </p>
-
-    </div>
-
-
-
-    <!-- =====================================================
-         HD
-    ====================================================== -->
-
-    <div
-      class="category-head"
-      id="kits-hd">
-
-      <div>
-
-        <div class="section-kicker">
-          OPCIÓN ECONÓMICA
-        </div>
-
-        <h3>
-          KITS <span>HD</span>
-        </h3>
-
-      </div>
-
-      <p>
-        Paquetes para hogares y negocios
-        con grabación, visualización y
-        configuración según requerimiento.
-      </p>
-
-    </div>
-
-
-    <div class="products-grid">
-
-
-      <!-- 2 HD -->
-
-      <article class="product-card">
-
-        <div class="product-visual">
-
-          <span class="product-qty">
-            2
-          </span>
-
-          <span class="product-badge">
-            HD
-          </span>
-
-          <svg viewBox="0 0 24 24">
-            <rect x="3" y="7" width="13" height="9" rx="2"></rect>
-            <path d="M16 10l5-3v9l-5-3"></path>
-          </svg>
-
-        </div>
-
-
-        <div class="product-body">
-
-          <div class="product-type">
-            KIT HD
-          </div>
-
-          <h4>
-            2 CÁMARAS
-          </h4>
-
-          <p>
-            Para áreas pequeñas,
-            viviendas o pequeños negocios.
-          </p>
-
-          <ul class="product-list">
-            <li>2 cámaras HD</li>
-            <li>Grabador compatible</li>
-            <li>Accesorios necesarios</li>
-            <li>Configuración para celular</li>
-            <li>Instalación según evaluación</li>
-          </ul>
-
-          <a
-            class="btn btn-yellow"
-            target="_blank"
-            href="https://wa.me/51944275861?text=Hola%20SNT,%20quiero%20cotizar%20el%20KIT%20HD%20de%202%20cámaras%20con%20instalación.">
-
-            COTIZAR KIT
-
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- 3 HD -->
-
-      <article class="product-card">
-
-        <div class="product-visual">
-
-          <span class="product-qty">
-            3
-          </span>
-
-          <span class="product-badge">
-            HD
-          </span>
-
-          <svg viewBox="0 0 24 24">
-            <rect x="3" y="7" width="13" height="9" rx="2"></rect>
-            <path d="M16 10l5-3v9l-5-3"></path>
-          </svg>
-
-        </div>
-
-
-        <div class="product-body">
-
-          <div class="product-type">
-            KIT HD
-          </div>
-
-          <h4>
-            3 CÁMARAS
-          </h4>
-
-          <p>
-            Una cámara adicional para
-            ampliar la cobertura.
-          </p>
-
-          <ul class="product-list">
-            <li>3 cámaras HD</li>
-            <li>Grabador compatible</li>
-            <li>Accesorios necesarios</li>
-            <li>Configuración para celular</li>
-            <li>Instalación según evaluación</li>
-          </ul>
-
-          <a
-            class="btn btn-yellow"
-            target="_blank"
-            href="https://wa.me/51944275861?text=Hola%20SNT,%20quiero%20cotizar%20el%20KIT%20HD%20de%203%20cámaras%20con%20instalación.">
-
-            COTIZAR KIT
-
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- 4 HD -->
-
-      <article class="product-card">
-
-        <div class="product-visual">
-
-          <span class="product-qty">
-            4
-          </span>
-
-          <span class="product-badge">
-            HD
-          </span>
-
-          <svg viewBox="0 0 24 24">
-            <rect x="3" y="7" width="13" height="9" rx="2"></rect>
-            <path d="M16 10l5-3v9l-5-3"></path>
-          </svg>
-
-        </div>
-
-
-        <div class="product-body">
-
-          <div class="product-type">
-            KIT HD
-          </div>
-
-          <h4>
-            4 CÁMARAS
-          </h4>
-
-          <p>
-            Una configuración popular
-            para controlar varias áreas.
-          </p>
-
-          <ul class="product-list">
-            <li>4 cámaras HD</li>
-            <li>Grabador compatible</li>
-            <li>Accesorios necesarios</li>
-            <li>Configuración para celular</li>
-            <li>Instalación según evaluación</li>
-          </ul>
-
-          <a
-            class="btn btn-yellow"
-            target="_blank"
-            href="https://wa.me/51944275861?text=Hola%20SNT,%20quiero%20cotizar%20el%20KIT%20HD%20de%204%20cámaras%20con%20instalación.">
-
-            COTIZAR KIT
-
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- 8 HD -->
-
-      <article class="product-card">
-
-        <div class="product-visual">
-
-          <span class="product-qty">
-            8
-          </span>
-
-          <span class="product-badge">
-            HD
-          </span>
-
-          <svg viewBox="0 0 24 24">
-            <rect x="3" y="7" width="13" height="9" rx="2"></rect>
-            <path d="M16 10l5-3v9l-5-3"></path>
-          </svg>
-
-        </div>
-
-
-        <div class="product-body">
-
-          <div class="product-type">
-            KIT HD
-          </div>
-
-          <h4>
-            8 CÁMARAS
-          </h4>
-
-          <p>
-            Para negocios o propiedades
-            con varias zonas importantes.
-          </p>
-
-          <ul class="product-list">
-            <li>8 cámaras HD</li>
-            <li>Grabador compatible</li>
-            <li>Accesorios necesarios</li>
-            <li>Configuración para celular</li>
-            <li>Instalación según evaluación</li>
-          </ul>
-
-          <a
-            class="btn btn-yellow"
-            target="_blank"
-            href="https://wa.me/51944275861?text=Hola%20SNT,%20quiero%20cotizar%20el%20KIT%20HD%20de%208%20cámaras%20con%20instalación.">
-
-            COTIZAR KIT
-
-          </a>
-
-        </div>
-
-      </article>
-
-
-    </div>
-
-
-
-    <!-- =====================================================
-         FULL HD
-    ====================================================== -->
-
-    <div
-      class="category-head"
-      id="kits-fullhd"
-      style="margin-top:70px;">
-
-      <div>
-
-        <div class="section-kicker">
-          MAYOR DEFINICIÓN
-        </div>
-
-        <h3>
-          KITS <span>FULL HD</span>
-        </h3>
-
-      </div>
-
-      <p>
-        Sistemas 1080p para clientes
-        que buscan mayor nitidez
-        y detalle de imagen.
-      </p>
-
-    </div>
-
-
-    <div class="products-grid">
-
-
-      <!-- 2 FULL -->
-
-      <article class="product-card">
-
-        <div class="product-visual">
-
-          <span class="product-qty">
-            2
-          </span>
-
-          <span class="product-badge">
-            FULL HD
-          </span>
-
-          <svg viewBox="0 0 24 24">
-            <path d="M4 9l13-4 3 5-13 4z"></path>
-            <circle cx="14" cy="9" r="2"></circle>
-            <path d="M7 14l-2 6"></path>
-          </svg>
-
-        </div>
-
-
-        <div class="product-body">
-
-          <div class="product-type">
-            KIT FULL HD
-          </div>
-
-          <h4>
-            2 CÁMARAS
-          </h4>
-
-          <p>
-            Full HD para cubrir
-            dos áreas importantes.
-          </p>
-
-          <ul class="product-list">
-            <li>2 cámaras Full HD</li>
-            <li>Grabador compatible</li>
-            <li>Accesorios necesarios</li>
-            <li>Acceso desde celular</li>
-            <li>Instalación según evaluación</li>
-          </ul>
-
-          <a
-            class="btn btn-yellow"
-            target="_blank"
-            href="https://wa.me/51944275861?text=Hola%20SNT,%20quiero%20cotizar%20el%20KIT%20FULL%20HD%20de%202%20cámaras%20con%20instalación.">
-
-            COTIZAR KIT
-
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- 4 FULL -->
-
-      <article class="product-card">
-
-        <div class="product-visual">
-
-          <span class="product-qty">
-            4
-          </span>
-
-          <span class="product-badge">
-            FULL HD
-          </span>
-
-          <svg viewBox="0 0 24 24">
-            <path d="M4 9l13-4 3 5-13 4z"></path>
-            <circle cx="14" cy="9" r="2"></circle>
-            <path d="M7 14l-2 6"></path>
-          </svg>
-
-        </div>
-
-
-        <div class="product-body">
-
-          <div class="product-type">
-            KIT FULL HD
-          </div>
-
-          <h4>
-            4 CÁMARAS
-          </h4>
-
-          <p>
-            Mayor cobertura con
-            imagen Full HD.
-          </p>
-
-          <ul class="product-list">
-            <li>4 cámaras Full HD</li>
-            <li>Grabador compatible</li>
-            <li>Accesorios necesarios</li>
-            <li>Acceso desde celular</li>
-            <li>Instalación según evaluación</li>
-          </ul>
-
-          <a
-            class="btn btn-yellow"
-            target="_blank"
-            href="https://wa.me/51944275861?text=Hola%20SNT,%20quiero%20cotizar%20el%20KIT%20FULL%20HD%20de%204%20cámaras%20con%20instalación.">
-
-            COTIZAR KIT
-
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- 5 FULL -->
-
-      <article class="product-card">
-
-        <div class="product-visual">
-
-          <span class="product-qty">
-            5
-          </span>
-
-          <span class="product-badge">
-            FULL HD
-          </span>
-
-          <svg viewBox="0 0 24 24">
-            <path d="M4 9l13-4 3 5-13 4z"></path>
-            <circle cx="14" cy="9" r="2"></circle>
-            <path d="M7 14l-2 6"></path>
-          </svg>
-
-        </div>
-
-
-        <div class="product-body">
-
-          <div class="product-type">
-            KIT FULL HD
-          </div>
-
-          <h4>
-            5 CÁMARAS
-          </h4>
-
-          <p>
-            Configuración personalizada
-            para cubrir cinco puntos.
-          </p>
-
-          <ul class="product-list">
-            <li>5 cámaras Full HD</li>
-            <li>Grabador compatible</li>
-            <li>Accesorios necesarios</li>
-            <li>Acceso desde celular</li>
-            <li>Instalación según evaluación</li>
-          </ul>
-
-          <a
-            class="btn btn-yellow"
-            target="_blank"
-            href="https://wa.me/51944275861?text=Hola%20SNT,%20quiero%20cotizar%20el%20KIT%20FULL%20HD%20de%205%20cámaras%20con%20instalación.">
-
-            COTIZAR KIT
-
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- 8 FULL -->
-
-      <article class="product-card">
-
-        <div class="product-visual">
-
-          <span class="product-qty">
-            8
-          </span>
-
-          <span class="product-badge">
-            FULL HD
-          </span>
-
-          <svg viewBox="0 0 24 24">
-            <path d="M4 9l13-4 3 5-13 4z"></path>
-            <circle cx="14" cy="9" r="2"></circle>
-            <path d="M7 14l-2 6"></path>
-          </svg>
-
-        </div>
-
-
-        <div class="product-body">
-
-          <div class="product-type">
-            KIT FULL HD
-          </div>
-
-          <h4>
-            8 CÁMARAS
-          </h4>
-
-          <p>
-            Mayor cobertura para
-            empresas, negocios y propiedades.
-          </p>
-
-          <ul class="product-list">
-            <li>8 cámaras Full HD</li>
-            <li>Grabador compatible</li>
-            <li>Accesorios necesarios</li>
-            <li>Acceso desde celular</li>
-            <li>Instalación según evaluación</li>
-          </ul>
-
-          <a
-            class="btn btn-yellow"
-            target="_blank"
-            href="https://wa.me/51944275861?text=Hola%20SNT,%20quiero%20cotizar%20el%20KIT%20FULL%20HD%20de%208%20cámaras%20con%20instalación.">
-
-            COTIZAR KIT
-
-          </a>
-
-        </div>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     SERVICIOS
-========================================================= -->
-
-<section
-  class="section section-dark"
-  id="servicios">
-
-  <div class="container">
-
-
-    <div class="section-heading">
-
-      <div class="section-kicker">
-        SNT SECURITY SERVICES
-      </div>
-
-      <h2>
-        NUESTROS <span>SERVICIOS</span>
-      </h2>
-
-      <p>
-        No solo vendemos cámaras.
-        También realizamos instalación,
-        configuración y mantenimiento.
-      </p>
-
-    </div>
-
-
-    <div class="services-grid">
-
-
-      <article class="service-card">
-
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M4 6h16v12H4z"></path>
-            <path d="M8 10h8"></path>
-            <path d="M8 14h5"></path>
-          </svg>
-        </div>
-
-        <h3>
-          VENTA
-        </h3>
-
-        <p>
-          Cámaras, sistemas de grabación,
-          accesorios y soluciones de
-          videovigilancia.
-        </p>
-
-      </article>
-
-
-      <article class="service-card">
-
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M14 6l4-4 2 2-4 4"></path>
-            <path d="M13 7l4 4-8 8-4-4z"></path>
-            <path d="M4 20l3-3"></path>
-          </svg>
-        </div>
-
-        <h3>
-          INSTALACIÓN
-        </h3>
-
-        <p>
-          Montaje, cableado y puesta
-          en funcionamiento del sistema
-          de cámaras.
-        </p>
-
-      </article>
-
-
-      <article class="service-card">
-
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24">
-            <rect x="7" y="2" width="10" height="20" rx="2"></rect>
-            <path d="M10 18h4"></path>
-          </svg>
-        </div>
-
-        <h3>
-          CONFIGURACIÓN
-        </h3>
-
-        <p>
-          Visualización en celular,
-          monitor o TV y configuración
-          de acceso remoto.
-        </p>
-
-      </article>
-
-
-      <article class="service-card">
-
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M4 20l6-6"></path>
-            <path d="M14 10l6-6"></path>
-            <path d="M14 4l6 6"></path>
-            <path d="M4 14l6 6"></path>
-          </svg>
-        </div>
-
-        <h3>
-          MANTENIMIENTO
-        </h3>
-
-        <p>
-          Diagnóstico, limpieza,
-          revisión de fallas y
-          mantenimiento del sistema.
-        </p>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     COTIZADOR
-========================================================= -->
-
-<section
-  class="section section-deep"
-  id="cotizador">
-
-  <div class="container">
-
-
-    <div class="quote-box">
-
-
-      <div class="quote-info">
-
-        <div class="section-kicker">
-          COTIZACIÓN RÁPIDA
-        </div>
-
-        <h2>
-          ¿QUÉ SISTEMA
-          <span>NECESITAS?</span>
-        </h2>
-
-        <p>
-          Completa los datos básicos.
-          Al presionar el botón se abrirá WhatsApp
-          con tu solicitud lista para enviarnos.
-        </p>
-
-
-        <div class="quote-contact">
-
-          <strong>
-            WhatsApp: 944 275 861
-          </strong>
-
-        </div>
-
-      </div>
-
-
-
-      <form
-        class="quote-form"
-        id="quoteForm">
-
-
-        <div class="form-group">
-
-          <label>
-            NOMBRE
-          </label>
-
-          <input
-            class="form-control"
-            id="quoteName"
-            type="text"
-            placeholder="Tu nombre">
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            TIPO DE LUGAR
-          </label>
-
-          <select
-            class="form-control"
-            id="quotePlace">
-
-            <option value="">
-              Seleccionar
-            </option>
-
-            <option>
-              Casa
-            </option>
-
-            <option>
-              Tienda
-            </option>
-
-            <option>
-              Oficina
-            </option>
-
-            <option>
-              Negocio / Empresa
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            TIPO DE SISTEMA
-          </label>
-
-          <select
-            class="form-control"
-            id="quoteSystem">
-
-            <option value="">
-              Seleccionar
-            </option>
-
-            <option>
-              Cámara WiFi
-            </option>
-
-            <option>
-              Sistema HD
-            </option>
-
-            <option>
-              Sistema Full HD
-            </option>
-
-            <option>
-              No estoy seguro
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            CANTIDAD DE CÁMARAS
-          </label>
-
-          <select
-            class="form-control"
-            id="quoteQty">
-
-            <option value="">
-              Seleccionar
-            </option>
-
-            <option>
-              1 cámara
-            </option>
-
-            <option>
-              2 cámaras
-            </option>
-
-            <option>
-              3 cámaras
-            </option>
-
-            <option>
-              4 cámaras
-            </option>
-
-            <option>
-              5 cámaras
-            </option>
-
-            <option>
-              8 cámaras
-            </option>
-
-            <option>
-              Más de 8 cámaras
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            ¿NECESITAS INSTALACIÓN?
-          </label>
-
-          <select
-            class="form-control"
-            id="quoteInstall">
-
-            <option>
-              Sí
-            </option>
-
-            <option>
-              No
-            </option>
-
-            <option>
-              Quiero asesoría
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="form-group">
-
-          <label>
-            ACCESO DESDE CELULAR
-          </label>
-
-          <select
-            class="form-control"
-            id="quoteMobile">
-
-            <option>
-              Sí
-            </option>
-
-            <option>
-              No
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="form-group full">
-
-          <label>
-            OBSERVACIÓN
-          </label>
-
-          <textarea
-            class="form-control"
-            id="quoteNotes"
-            placeholder="Ejemplo: necesito cámaras para fachada, caja y almacén."></textarea>
-
-        </div>
-
-
-        <button
-          class="quote-submit"
-          type="submit">
-
-          ENVIAR COTIZACIÓN POR WHATSAPP
-
-        </button>
-
-
-      </form>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     TRABAJOS
-========================================================= -->
-
-<section
-  class="section section-dark"
-  id="trabajos">
-
-  <div class="container">
-
-
-    <div class="section-heading">
-
-      <div class="section-kicker">
-        EXPERIENCIA REAL
-      </div>
-
-      <h2>
-        TRABAJOS <span>REALIZADOS</span>
-      </h2>
-
-      <p>
-        Aquí colocaremos fotografías reales
-        de tus instalaciones para que los clientes
-        puedan ver la calidad de tu trabajo.
-      </p>
-
-    </div>
-
-
-    <div class="works-grid">
-
-
-      <article class="work-card">
-
-        <div class="work-placeholder">
-          AQUÍ COLOCAREMOS UNA FOTO REAL
-          DE INSTALACIÓN
-        </div>
-
-        <div class="work-info">
-          <strong>
-            Instalación en negocio
-          </strong>
-          <span>
-            Sistema de videovigilancia
-          </span>
-        </div>
-
-      </article>
-
-
-      <article class="work-card">
-
-        <div class="work-placeholder">
-          AQUÍ COLOCAREMOS UNA FOTO REAL
-          DE CÁMARAS EXTERIORES
-        </div>
-
-        <div class="work-info">
-          <strong>
-            Cámaras exteriores
-          </strong>
-          <span>
-            Protección de accesos
-          </span>
-        </div>
-
-      </article>
-
-
-      <article class="work-card">
-
-        <div class="work-placeholder">
-          AQUÍ COLOCAREMOS UNA FOTO REAL
-          DEL DVR / MONITOR
-        </div>
-
-        <div class="work-info">
-          <strong>
-            Configuración
-          </strong>
-          <span>
-            DVR / XVR / Monitor
-          </span>
-        </div>
-
-      </article>
-
-
-      <article class="work-card">
-
-        <div class="work-placeholder">
-          AQUÍ COLOCAREMOS UNA FOTO REAL
-          DE OTRO TRABAJO
-        </div>
-
-        <div class="work-info">
-          <strong>
-            Proyecto terminado
-          </strong>
-          <span>
-            Instalación profesional
-          </span>
-        </div>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     MANTENIMIENTO
-========================================================= -->
-
-<section
-  class="section section-soft"
-  id="mantenimiento">
-
-  <div class="container">
-
-
-    <div class="maintenance-box">
-
-
-      <div class="maintenance-visual">
-
-        <svg viewBox="0 0 24 24">
-
-          <path d="M4 9l13-4 3 5-13 4z"></path>
-
-          <circle
-            cx="14"
-            cy="9"
-            r="2">
-          </circle>
-
-          <path d="M7 14l-2 6"></path>
-
-          <path d="M3 20h5"></path>
-
-          <path d="M17 16l4 4"></path>
-
-          <path d="M21 16l-4 4"></path>
-
-        </svg>
-
-      </div>
-
-
-      <div class="maintenance-info">
-
-        <div class="section-kicker">
-          SERVICIO TÉCNICO
-        </div>
-
-        <h2>
-          ¿TUS CÁMARAS
-          <span>TIENEN FALLAS?</span>
-        </h2>
-
-        <p>
-          Revisamos sistemas de videovigilancia
-          que presentan problemas de imagen,
-          grabación, conexión o funcionamiento.
-        </p>
-
-
-        <ul class="maintenance-list">
-
-          <li>
-            Cámara sin imagen
-          </li>
-
-          <li>
-            No está grabando
-          </li>
-
-          <li>
-            No conecta al celular
-          </li>
-
-          <li>
-            Revisión de cableado
-          </li>
-
-          <li>
-            Cambio de conectores
-          </li>
-
-          <li>
-            Limpieza del sistema
-          </li>
-
-          <li>
-            Configuración DVR / XVR / NVR
-          </li>
-
-          <li>
-            Diagnóstico de fallas
-          </li>
-
-        </ul>
-
-
-        <a
-          class="btn btn-yellow"
-          target="_blank"
-          href="https://wa.me/51944275861?text=Hola%20SNT,%20necesito%20servicio%20de%20mantenimiento%20para%20mis%20cámaras.">
-
-          SOLICITAR MANTENIMIENTO
-
-        </a>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     FAQ
-========================================================= -->
-
-<section class="section section-deep">
-
-  <div class="container">
-
-
-    <div class="section-heading">
-
-      <div class="section-kicker">
-        PREGUNTAS FRECUENTES
-      </div>
-
-      <h2>
-        RESOLVEMOS TUS <span>DUDAS</span>
-      </h2>
-
-    </div>
-
-
-    <div class="faq">
-
-
-      <div class="faq-item">
-
-        <button class="faq-question">
-
-          ¿Puedo ver mis cámaras desde mi celular?
-
-          <span class="faq-plus">
-            +
-          </span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          <p>
-            Sí. Los sistemas compatibles pueden configurarse
-            para visualizar las cámaras desde el celular
-            mediante conexión a Internet.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <button class="faq-question">
-
-          ¿Realizan instalación de las cámaras?
-
-          <span class="faq-plus">
-            +
-          </span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          <p>
-            Sí. SNT Security Services realiza instalación,
-            configuración y puesta en funcionamiento
-            según las características del lugar.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <button class="faq-question">
-
-          ¿Puedo solicitar una cantidad diferente de cámaras?
-
-          <span class="faq-plus">
-            +
-          </span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          <p>
-            Sí. Los kits publicados son opciones de referencia.
-            También podemos preparar una cotización
-            con otra cantidad de cámaras.
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="faq-item">
-
-        <button class="faq-question">
-
-          ¿Realizan mantenimiento de sistemas ya instalados?
-
-          <span class="faq-plus">
-            +
-          </span>
-
-        </button>
-
-        <div class="faq-answer">
-
-          <p>
-            Sí. Podemos evaluar problemas de imagen,
-            grabación, cableado, conectividad
-            y configuración del sistema.
-          </p>
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     CONTACTO
-========================================================= -->
-
-<section
-  class="contact-strip"
-  id="contacto">
-
-  <div class="container contact-inner">
-
-
-    <div class="contact-text">
-
-      <h2>
-        ¿LISTO PARA PROTEGER TU PROPIEDAD?
-      </h2>
-
-      <p>
-        Escríbenos y solicita una cotización.
-      </p>
-
-    </div>
-
-
-    <a
-      class="contact-btn"
-      target="_blank"
-      href="https://wa.me/51944275861?text=Hola%20SNT%20Security%20Services,%20quiero%20información.">
-
-      WHATSAPP 944 275 861
-
-    </a>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer>
-
-  <div class="container">
-
-
-    <div class="footer-grid">
-
-
-      <div class="footer-brand">
-
-        <a
-          href="#inicio"
-          class="brand">
-
-          <div class="brand-icon">
-
-            <svg viewBox="0 0 24 24">
-              <rect x="3" y="7" width="13" height="9" rx="2"></rect>
-              <path d="M16 10l5-3v9l-5-3"></path>
-              <circle cx="9.5" cy="11.5" r="2.4"></circle>
-            </svg>
-
-          </div>
-
-          <div class="brand-name">
-
-            <div class="brand-main">
-              SNT <span>SECURITY</span>
-            </div>
-
-            <span class="brand-sub">
-              SERVICES
-            </span>
-
-          </div>
-
-        </a>
-
-
-        <p>
-          Venta, instalación, configuración
-          y mantenimiento de sistemas
-          de videovigilancia.
-        </p>
-
-      </div>
-
-
-      <div class="footer-col">
-
-        <h4>
-          SOLUCIONES
-        </h4>
-
-        <a href="#wifi">
-          Cámaras WiFi
-        </a>
-
-        <a href="#kits-hd">
-          Kits HD
-        </a>
-
-        <a href="#kits-fullhd">
-          Kits Full HD
-        </a>
-
-      </div>
-
-
-      <div class="footer-col">
-
-        <h4>
-          SERVICIOS
-        </h4>
-
-        <a href="#servicios">
-          Venta
-        </a>
-
-        <a href="#servicios">
-          Instalación
-        </a>
-
-        <a href="#servicios">
-          Configuración
-        </a>
-
-        <a href="#mantenimiento">
-          Mantenimiento
-        </a>
-
-      </div>
-
-
-      <div class="footer-col">
-
-        <h4>
-          CONTACTO
-        </h4>
-
-        <p>
-          WhatsApp
-        </p>
-
-        <a
-          target="_blank"
-          href="https://wa.me/51944275861">
-
-          944 275 861
-
-        </a>
-
-        <a href="#cotizador">
-          Solicitar cotización
-        </a>
-
-      </div>
-
-
-    </div>
-
-
-    <div class="copyright">
-
-      © 2026 SNT SECURITY SERVICES ·
-      Todos los derechos reservados
-
-    </div>
-
-
-  </div>
-
-</footer>
-
-
-
-<!-- =========================================================
-     WHATSAPP FLOTANTE
-========================================================= -->
-
-<a
-  class="whatsapp-float"
-
-  href="https://wa.me/51944275861?text=Hola%20SNT%20Security%20Services,%20quiero%20información."
-
-  target="_blank"
-
-  aria-label="Contactar por WhatsApp">
-
-
-  <svg viewBox="0 0 32 32">
-
-    <path
-      d="M16.1 3C9 3 3.3 8.6 3.3 15.5c0 2.4.7 4.7 2 6.7L3 29l7-2.2c1.9 1 4 1.6 6.2 1.6 7.1 0 12.8-5.6 12.8-12.5C29 8.7 23.2 3 16.1 3zm0 22.9c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.1 1.3 1.4-4-.3-.4c-1.1-1.6-1.7-3.5-1.7-5.5 0-5.6 4.7-10.1 10.5-10.1 5.8 0 10.5 4.5 10.5 10.1.1 5.7-4.6 10.3-10.4 10.3z">
-    </path>
-
-  </svg>
-
+===================================================== -->
+
+<header class="desktop-header" id="desktopHeader">
+
+<div class="header-inner">
+
+<a href="#inicio" class="brand">
+
+<div class="brand-icon">
+<svg viewBox="0 0 24 24">
+<rect x="3" y="7" width="13" height="9" rx="2"></rect>
+<path d="M16 10l5-3v9l-5-3"></path>
+<circle cx="9.5" cy="11.5" r="2.4"></circle>
+</svg>
+</div>
+
+<div>
+<div class="brand-main">
+SNT <span>SECURITY</span>
+</div>
+<span class="brand-sub">
+SERVICES
+</span>
+</div>
 
 </a>
 
 
+<nav class="desktop-nav">
+
+<a href="#inicio" class="active">INICIO</a>
+<a href="#soluciones">CÁMARAS</a>
+<a href="#kits">KITS</a>
+<a href="#servicios">SERVICIOS</a>
+<a href="#trabajos">TRABAJOS</a>
+<a href="#mantenimiento">MANTENIMIENTO</a>
+<a href="#contacto">CONTACTO</a>
+
+</nav>
+
+
+<div class="header-buttons">
+
+<button class="cart-header-btn open-cart">
+🛒 MI COTIZACIÓN (<span class="cart-count">0</span>)
+</button>
+
+<a
+class="quote-header-btn"
+href="https://wa.me/51944275861?text=Hola%20SNT%20Security%20Services,%20quiero%20solicitar%20una%20cotización."
+target="_blank">
+
+COTIZAR AHORA
+
+</a>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     HEADER MÓVIL
+===================================================== -->
+
+<header class="mobile-header">
+
+<div class="mobile-top">
+
+<a href="#inicio" class="mobile-brand">
+
+<div class="brand-icon">
+<svg viewBox="0 0 24 24">
+<rect x="3" y="7" width="13" height="9" rx="2"></rect>
+<path d="M16 10l5-3v9l-5-3"></path>
+<circle cx="9.5" cy="11.5" r="2.4"></circle>
+</svg>
+</div>
+
+<div>
+<div class="brand-main">
+SNT <span>SECURITY</span>
+</div>
+<span class="brand-sub">
+SERVICES
+</span>
+</div>
+
+</a>
+
+
+<div class="mobile-actions">
+
+<button class="mobile-cart-btn open-cart">
+🛒 <span class="cart-count">0</span>
+</button>
+
+<a
+class="mobile-quote-btn"
+href="https://wa.me/51944275861?text=Hola%20SNT,%20quiero%20una%20cotización."
+target="_blank">
+
+COTIZAR
+
+</a>
+
+</div>
+
+</div>
+
+
+<nav class="mobile-nav">
+
+<a href="#inicio">INICIO</a>
+<a href="#soluciones">CÁMARAS</a>
+<a href="#kits">KITS</a>
+<a href="#servicios">SERVICIOS</a>
+<a href="#trabajos">TRABAJOS</a>
+<a href="#mantenimiento">MANTENIMIENTO</a>
+
+</nav>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero" id="inicio">
+
+<div class="hero-inner">
+
+<div class="hero-content">
+
+<div class="hero-label">
+SISTEMAS DE VIDEOVIGILANCIA PROFESIONALES
+</div>
+
+<h1 class="hero-title">
+PROTEGE LO QUE<br>
+<span>MÁS</span> TE IMPORTA
+</h1>
+
+<p class="hero-description">
+
+Venta, instalación, configuración y mantenimiento
+de cámaras de seguridad para hogares,
+negocios y empresas.
+
+</p>
+
+<div class="hero-actions">
+
+<a href="#kits" class="hero-btn hero-btn-yellow">
+VER KITS DE SEGURIDAD
+</a>
+
+<a href="#trabajos" class="hero-btn hero-btn-outline">
+VER TRABAJOS
+</a>
+
+</div>
+
+
+<div class="hero-benefits">
+
+<div class="hero-benefit">
+<div class="benefit-icon">
+<svg viewBox="0 0 24 24">
+<path d="M14 6l4-4 2 2-4 4"></path>
+<path d="M13 7l4 4-8 8-4-4z"></path>
+</svg>
+</div>
+<span>Instalación<br>profesional</span>
+</div>
+
+<div class="hero-benefit">
+<div class="benefit-icon">
+<svg viewBox="0 0 24 24">
+<rect x="7" y="2" width="10" height="20" rx="2"></rect>
+</svg>
+</div>
+<span>Acceso desde<br>celular</span>
+</div>
+
+<div class="hero-benefit">
+<div class="benefit-icon">
+<svg viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="8"></circle>
+<path d="M9 12l2 2 4-4"></path>
+</svg>
+</div>
+<span>Soporte técnico<br>especializado</span>
+</div>
+
+<div class="hero-benefit">
+<div class="benefit-icon">
+<svg viewBox="0 0 24 24">
+<path d="M12 3l7 3v5c0 4.6-2.8 8.1-7 10-4.2-1.9-7-5.4-7-10V6z"></path>
+</svg>
+</div>
+<span>Garantía y<br>confianza</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="hero-services">
+
+<div class="hero-service">
+<div class="hero-service-icon">
+<svg viewBox="0 0 24 24">
+<path d="M4 6h16v12H4z"></path>
+</svg>
+</div>
+<div>
+<strong>VENTA</strong>
+<p>Equipos y soluciones de videovigilancia.</p>
+</div>
+</div>
+
+<div class="hero-service">
+<div class="hero-service-icon">
+<svg viewBox="0 0 24 24">
+<path d="M14 6l4-4 2 2-4 4"></path>
+<path d="M13 7l4 4-8 8-4-4z"></path>
+</svg>
+</div>
+<div>
+<strong>INSTALACIÓN</strong>
+<p>Servicio profesional cotizado por separado.</p>
+</div>
+</div>
+
+<div class="hero-service">
+<div class="hero-service-icon">
+<svg viewBox="0 0 24 24">
+<path d="M12 2v20"></path>
+<path d="M2 12h20"></path>
+</svg>
+</div>
+<div>
+<strong>CONFIGURACIÓN</strong>
+<p>Celular, DVR, XVR, NVR y acceso remoto.</p>
+</div>
+</div>
+
+<div class="hero-service">
+<div class="hero-service-icon">
+<svg viewBox="0 0 24 24">
+<path d="M12 3l7 3v5c0 4-2.5 7.5-7 10"></path>
+</svg>
+</div>
+<div>
+<strong>MANTENIMIENTO</strong>
+<p>Revisión preventiva y correctiva.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SOLUCIONES
+===================================================== -->
+
+<section class="section section-blue" id="soluciones">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="kicker">
+SOLUCIONES SEGÚN TU NECESIDAD
+</div>
+
+<h2>
+PROTECCIÓN PARA <span>CADA ESPACIO</span>
+</h2>
+
+<p>
+Te ayudamos a elegir el sistema adecuado según
+el tipo de propiedad y los puntos que deseas vigilar.
+</p>
+
+</div>
+
+
+<div class="solution-grid">
+
+<div class="solution-card">
+
+<div class="solution-icon">
+<svg viewBox="0 0 24 24">
+<path d="M3 11l9-8 9 8"></path>
+<path d="M5 10v10h14V10"></path>
+</svg>
+</div>
+
+<h3>CASA</h3>
+
+<p>
+Protección para entradas, salas,
+cocheras, patios y exteriores.
+</p>
+
+</div>
+
+
+<div class="solution-card">
+
+<div class="solution-icon">
+<svg viewBox="0 0 24 24">
+<path d="M4 9h16"></path>
+<path d="M5 9v11h14V9"></path>
+<path d="M3 4h18l-1 5H4z"></path>
+</svg>
+</div>
+
+<h3>TIENDA</h3>
+
+<p>
+Vigila caja, clientes,
+productos y accesos.
+</p>
+
+</div>
+
+
+<div class="solution-card">
+
+<div class="solution-icon">
+<svg viewBox="0 0 24 24">
+<rect x="5" y="3" width="14" height="18"></rect>
+<path d="M9 7h2M13 7h2M9 11h2M13 11h2"></path>
+</svg>
+</div>
+
+<h3>OFICINA</h3>
+
+<p>
+Control visual de áreas de trabajo,
+ingresos y zonas importantes.
+</p>
+
+</div>
+
+
+<div class="solution-card">
+
+<div class="solution-icon">
+<svg viewBox="0 0 24 24">
+<path d="M3 21V7h8v14"></path>
+<path d="M11 11h10v10"></path>
+</svg>
+</div>
+
+<h3>NEGOCIO</h3>
+
+<p>
+Sistemas ampliables para almacenes,
+locales y empresas.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     KITS
+===================================================== -->
+
+<section class="section section-dark" id="kits">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="kicker">
+KITS RECOMENDADOS
+</div>
+
+<h2>
+ELIGE TU <span>SISTEMA</span>
+</h2>
+
+<p>
+Los kits corresponden a equipos de videovigilancia.
+La instalación profesional se cotiza por separado.
+</p>
+
+</div>
+
+
+<div class="kits-head">
+
+<div>
+<h3>
+KITS <span>FULL HD</span>
+</h3>
+</div>
+
+<p>
+Estos son paquetes de referencia.
+Más adelante colocaremos fotografías,
+marcas, modelos y precios reales.
+</p>
+
+</div>
+
+
+<div class="kits-grid">
+
+
+<!-- KIT 2 -->
+
+<article class="kit-card">
+
+<div class="kit-visual">
+
+<span class="kit-badge">
+KIT 2 CÁMARAS
+</span>
+
+<svg viewBox="0 0 24 24">
+<rect x="3" y="8" width="12" height="8" rx="2"></rect>
+<path d="M15 10l6-3v10l-6-3"></path>
+</svg>
+
+</div>
+
+
+<div class="kit-body">
+
+<div class="kit-type">
+SISTEMA FULL HD
+</div>
+
+<h4>
+2 CÁMARAS
+</h4>
+
+<ul class="kit-list">
+
+<li>2 cámaras Full HD</li>
+<li>DVR / XVR compatible</li>
+<li>Fuente de alimentación</li>
+<li>Conectores necesarios</li>
+<li>Acceso desde celular</li>
+
+</ul>
+
+
+<div class="kit-actions">
+
+<button
+class="add-cart-btn"
+data-product="Kit Full HD - 2 cámaras">
+
++ AGREGAR A MI COTIZACIÓN
+
+</button>
+
+<a
+class="whatsapp-kit"
+target="_blank"
+href="https://wa.me/51944275861?text=Hola%20SNT,%20quiero%20información%20sobre%20el%20kit%20Full%20HD%20de%202%20cámaras.">
+
+CONSULTAR POR WHATSAPP
+
+</a>
+
+</div>
+
+
+<div class="installation-note">
+
+<strong>Instalación no incluida.</strong>
+La instalación se cotiza aparte según ubicación,
+distancia, cableado y condiciones del lugar.
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- KIT 4 -->
+
+<article class="kit-card">
+
+<div class="kit-visual">
+
+<span class="kit-badge">
+KIT 4 CÁMARAS
+</span>
+
+<svg viewBox="0 0 24 24">
+<rect x="3" y="8" width="12" height="8" rx="2"></rect>
+<path d="M15 10l6-3v10l-6-3"></path>
+</svg>
+
+</div>
+
+
+<div class="kit-body">
+
+<div class="kit-type">
+SISTEMA FULL HD
+</div>
+
+<h4>
+4 CÁMARAS
+</h4>
+
+<ul class="kit-list">
+
+<li>4 cámaras Full HD</li>
+<li>DVR / XVR compatible</li>
+<li>Fuente de alimentación</li>
+<li>Conectores necesarios</li>
+<li>Acceso desde celular</li>
+
+</ul>
+
+
+<div class="kit-actions">
+
+<button
+class="add-cart-btn"
+data-product="Kit Full HD - 4 cámaras">
+
++ AGREGAR A MI COTIZACIÓN
+
+</button>
+
+<a
+class="whatsapp-kit"
+target="_blank"
+href="https://wa.me/51944275861?text=Hola%20SNT,%20quiero%20información%20sobre%20el%20kit%20Full%20HD%20de%204%20cámaras.">
+
+CONSULTAR POR WHATSAPP
+
+</a>
+
+</div>
+
+
+<div class="installation-note">
+
+<strong>Instalación no incluida.</strong>
+La instalación se cotiza aparte según ubicación,
+distancia, cableado y condiciones del lugar.
+
+</div>
+
+</div>
+
+</article>
+
+
+<!-- KIT 8 -->
+
+<article class="kit-card">
+
+<div class="kit-visual">
+
+<span class="kit-badge">
+KIT 8 CÁMARAS
+</span>
+
+<svg viewBox="0 0 24 24">
+<rect x="3" y="8" width="12" height="8" rx="2"></rect>
+<path d="M15 10l6-3v10l-6-3"></path>
+</svg>
+
+</div>
+
+
+<div class="kit-body">
+
+<div class="kit-type">
+SISTEMA FULL HD
+</div>
+
+<h4>
+8 CÁMARAS
+</h4>
+
+<ul class="kit-list">
+
+<li>8 cámaras Full HD</li>
+<li>DVR / XVR compatible</li>
+<li>Fuente de alimentación</li>
+<li>Conectores necesarios</li>
+<li>Acceso desde celular</li>
+
+</ul>
+
+
+<div class="kit-actions">
+
+<button
+class="add-cart-btn"
+data-product="Kit Full HD - 8 cámaras">
+
++ AGREGAR A MI COTIZACIÓN
+
+</button>
+
+<a
+class="whatsapp-kit"
+target="_blank"
+href="https://wa.me/51944275861?text=Hola%20SNT,%20quiero%20información%20sobre%20el%20kit%20Full%20HD%20de%208%20cámaras.">
+
+CONSULTAR POR WHATSAPP
+
+</a>
+
+</div>
+
+
+<div class="installation-note">
+
+<strong>Instalación no incluida.</strong>
+La instalación se cotiza aparte según ubicación,
+distancia, cableado y condiciones del lugar.
+
+</div>
+
+</div>
+
+</article>
+
+
+</div>
+
+
+<!-- INSTALACIÓN APARTE -->
+
+<div class="install-info">
+
+<div>
+
+<h4>
+¿NECESITAS <span>INSTALACIÓN PROFESIONAL?</span>
+</h4>
+
+<p>
+También realizamos instalación de cámaras.
+El servicio de instalación se evalúa y cotiza
+por separado según la cantidad de cámaras,
+ubicación, distancia, altura, canalización,
+cableado y condiciones del lugar.
+</p>
+
+</div>
+
+
+<a
+target="_blank"
+href="https://wa.me/51944275861?text=Hola%20SNT,%20quiero%20cotizar%20por%20separado%20la%20instalación%20de%20un%20sistema%20de%20cámaras.">
+
+COTIZAR INSTALACIÓN
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SERVICIOS
+===================================================== -->
+
+<section class="section section-blue" id="servicios">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="kicker">
+SERVICIOS
+</div>
+
+<h2>
+TODO PARA TU <span>SEGURIDAD</span>
+</h2>
+
+<p>
+Venta de equipos, instalación profesional,
+configuración y mantenimiento.
+</p>
+
+</div>
+
+
+<div class="solution-grid">
+
+<div class="solution-card">
+<h3>VENTA DE EQUIPOS</h3>
+<p>
+Cámaras, grabadores, fuentes,
+discos, conectores y accesorios.
+</p>
+</div>
+
+<div class="solution-card">
+<h3>INSTALACIÓN</h3>
+<p>
+Realizamos instalación profesional.
+El servicio se cotiza independientemente
+del precio de los equipos.
+</p>
+</div>
+
+<div class="solution-card">
+<h3>CONFIGURACIÓN</h3>
+<p>
+Configuración en celular,
+DVR, XVR, NVR, TV o monitor.
+</p>
+</div>
+
+<div class="solution-card">
+<h3>MANTENIMIENTO</h3>
+<p>
+Diagnóstico, limpieza,
+corrección de fallas y revisión.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     COTIZADOR
+===================================================== -->
+
+<section class="section section-dark" id="cotizador">
+
+<div class="container">
+
+<div class="quote-box">
+
+<div class="quote-info">
+
+<div class="kicker">
+COTIZA RÁPIDO
+</div>
+
+<h2>
+CUÉNTANOS QUÉ
+<span>NECESITAS</span>
+</h2>
+
+<p>
+Completa los datos y enviaremos tu solicitud
+directamente a WhatsApp.
+</p>
+
+<div class="quote-phone">
+944-275861
+</div>
+
+</div>
+
+
+<form class="quote-form" id="quoteForm">
+
+<div class="field">
+<label>NOMBRE</label>
+<input id="quoteName" class="form-control" placeholder="Tu nombre">
+</div>
+
+
+<div class="field">
+<label>TIPO DE PROPIEDAD</label>
+
+<select id="quotePlace" class="form-control">
+
+<option>Casa</option>
+<option>Tienda</option>
+<option>Oficina</option>
+<option>Negocio</option>
+<option>Almacén</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+<label>¿QUÉ NECESITAS?</label>
+
+<select id="quoteNeed" class="form-control">
+
+<option>Kit de cámaras</option>
+<option>Cámara WiFi</option>
+<option>Instalación</option>
+<option>Configuración</option>
+<option>Mantenimiento</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+<label>CANTIDAD DE CÁMARAS</label>
+
+<select id="quoteQty" class="form-control">
+
+<option>1 cámara</option>
+<option>2 cámaras</option>
+<option>3 cámaras</option>
+<option>4 cámaras</option>
+<option>5 cámaras</option>
+<option>8 cámaras</option>
+<option>Más de 8 cámaras</option>
+
+</select>
+
+</div>
+
+
+<div class="field full">
+<label>OBSERVACIÓN</label>
+
+<textarea
+id="quoteNotes"
+class="form-control"
+placeholder="Ejemplo: quiero cámaras para la entrada, caja y almacén."></textarea>
+
+</div>
+
+
+<button class="quote-submit">
+SOLICITAR COTIZACIÓN POR WHATSAPP
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     TRABAJOS
+===================================================== -->
+
+<section class="section section-blue" id="trabajos">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="kicker">
+TRABAJOS REALES
+</div>
+
+<h2>
+TRABAJOS <span>REALIZADOS</span>
+</h2>
+
+<p>
+Aquí colocaremos fotografías reales de las
+instalaciones realizadas por SNT Security Services.
+</p>
+
+</div>
+
+
+<div class="works-grid">
+
+<div class="work-card">
+<div class="work-info">
+<strong>Instalación residencial</strong>
+<span>Sistema de cámaras</span>
+</div>
+</div>
+
+<div class="work-card">
+<div class="work-info">
+<strong>Instalación en tienda</strong>
+<span>Videovigilancia</span>
+</div>
+</div>
+
+<div class="work-card">
+<div class="work-info">
+<strong>Configuración de sistema</strong>
+<span>DVR / XVR</span>
+</div>
+</div>
+
+<div class="work-card">
+<div class="work-info">
+<strong>Cámaras exteriores</strong>
+<span>Protección de accesos</span>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     MANTENIMIENTO
+===================================================== -->
+
+<section class="section section-dark" id="mantenimiento">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="kicker">
+SERVICIO TÉCNICO
+</div>
+
+<h2>
+¿TUS CÁMARAS <span>TIENEN FALLAS?</span>
+</h2>
+
+<p>
+Revisamos y diagnosticamos sistemas
+de videovigilancia.
+</p>
+
+</div>
+
+
+<div class="maintenance-grid">
+
+<div class="maintenance-card">
+
+<div class="maintenance-icon">
+<svg viewBox="0 0 24 24">
+<path d="M3 3l18 18"></path>
+<path d="M4 12s3-5 8-5"></path>
+</svg>
+</div>
+
+<h3>NO SE VE LA IMAGEN</h3>
+
+<p>
+Revisión de cámaras,
+conectores y señal.
+</p>
+
+</div>
+
+
+<div class="maintenance-card">
+
+<div class="maintenance-icon">
+<svg viewBox="0 0 24 24">
+<circle cx="12" cy="12" r="8"></circle>
+</svg>
+</div>
+
+<h3>NO GRABA</h3>
+
+<p>
+Revisión de grabación
+y almacenamiento.
+</p>
+
+</div>
+
+
+<div class="maintenance-card">
+
+<div class="maintenance-icon">
+<svg viewBox="0 0 24 24">
+<rect x="7" y="2" width="10" height="20" rx="2"></rect>
+</svg>
+</div>
+
+<h3>NO CONECTA AL CELULAR</h3>
+
+<p>
+Configuración de acceso
+remoto.
+</p>
+
+</div>
+
+
+<div class="maintenance-card">
+
+<div class="maintenance-icon">
+<svg viewBox="0 0 24 24">
+<path d="M5 19l14-14"></path>
+</svg>
+</div>
+
+<h3>LIMPIEZA</h3>
+
+<p>
+Mantenimiento y limpieza
+de cámaras.
+</p>
+
+</div>
+
+
+<div class="maintenance-card">
+
+<div class="maintenance-icon">
+<svg viewBox="0 0 24 24">
+<rect x="3" y="7" width="18" height="10" rx="2"></rect>
+</svg>
+</div>
+
+<h3>DVR / XVR / NVR</h3>
+
+<p>
+Revisión y configuración
+del grabador.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACTO
+===================================================== -->
+
+<section class="contact-band" id="contacto">
+
+<div class="container contact-inner">
+
+<div>
+
+<h2>
+¿QUIERES UNA COTIZACIÓN?
+</h2>
+
+<p>
+Escríbenos y cuéntanos qué necesitas.
+</p>
+
+</div>
+
+
+<a
+target="_blank"
+href="https://wa.me/51944275861?text=Hola%20SNT%20Security%20Services,%20quiero%20información.">
+
+WHATSAPP 944-275861
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<a class="brand" href="#inicio">
+
+<div class="brand-icon">
+<svg viewBox="0 0 24 24">
+<rect x="3" y="7" width="13" height="9" rx="2"></rect>
+<path d="M16 10l5-3v9l-5-3"></path>
+</svg>
+</div>
+
+<div>
+<div class="brand-main">
+SNT <span>SECURITY</span>
+</div>
+
+<span class="brand-sub">
+SERVICES
+</span>
+</div>
+
+</a>
+
+<p class="footer-description">
+
+Venta, instalación, configuración
+y mantenimiento de sistemas
+de videovigilancia.
+
+</p>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>SOLUCIONES</h4>
+
+<a href="#soluciones">Casa</a>
+<a href="#soluciones">Tienda</a>
+<a href="#soluciones">Oficina</a>
+<a href="#soluciones">Negocio</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>SERVICIOS</h4>
+
+<a href="#kits">Venta de equipos</a>
+<a href="#servicios">Instalación</a>
+<a href="#servicios">Configuración</a>
+<a href="#mantenimiento">Mantenimiento</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>CONTACTO</h4>
+
+<a
+target="_blank"
+href="https://wa.me/51944275861">
+
+WhatsApp 944-275861
+
+</a>
+
+<a href="#cotizador">
+Solicitar cotización
+</a>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 SNT Security Services ·
+Todos los derechos reservados.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- =====================================================
+     MI COTIZACIÓN
+===================================================== -->
+
+<div class="cart-overlay" id="cartOverlay">
+
+<div class="cart-panel">
+
+<div class="cart-top">
+
+<h3>
+🛒 MI COTIZACIÓN
+</h3>
+
+<button class="cart-close" id="closeCart">
+×
+</button>
+
+</div>
+
+
+<div id="cartItems"></div>
+
+
+<div class="cart-install">
+
+<label>
+
+<input
+type="checkbox"
+id="installationRequest">
+
+<span>
+
+También deseo solicitar una cotización
+por separado para la instalación profesional.
+
+</span>
+
+</label>
+
+<small>
+
+La instalación no forma parte del precio
+de los kits y se cotiza según las condiciones
+del lugar.
+
+</small>
+
+</div>
+
+
+<div class="cart-form">
+
+<input
+id="cartName"
+placeholder="Tu nombre">
+
+<input
+id="cartLocation"
+placeholder="Distrito / ciudad">
+
+<textarea
+id="cartNotes"
+placeholder="Observaciones"></textarea>
+
+<button class="send-cart" id="sendCart">
+
+ENVIAR MI COTIZACIÓN POR WHATSAPP
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- WHATSAPP -->
+
+<a
+class="whatsapp-float"
+target="_blank"
+href="https://wa.me/51944275861?text=Hola%20SNT%20Security%20Services,%20quiero%20información.">
+
+<svg viewBox="0 0 32 32">
+
+<path
+d="M16.1 3C9 3 3.3 8.6 3.3 15.5c0 2.4.7 4.7 2 6.7L3 29l7-2.2c1.9 1 4 1.6 6.2 1.6 7.1 0 12.8-5.6 12.8-12.5C29 8.7 23.2 3 16.1 3zm0 22.9c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.1 1.3 1.4-4-.3-.4c-1.1-1.6-1.7-3.5-1.7-5.5 0-5.6 4.7-10.1 10.5-10.1 5.8 0 10.5 4.5 10.5 10.1.1 5.7-4.6 10.3-10.4 10.3z">
+</path>
+
+</svg>
+
+</a>
+
 
 <script>
 
-/* =========================================================
-   HEADER PC
-========================================================= */
+/* =====================================================
+   HEADER
+===================================================== */
 
-const siteHeader =
-document.getElementById("siteHeader");
+const desktopHeader =
+document.getElementById("desktopHeader");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY > 30){
+
+desktopHeader.classList.add("scrolled");
+
+}else{
+
+desktopHeader.classList.remove("scrolled");
+
+}
+
+});
 
 
-function updateHeader(){
+/* =====================================================
+   CARRITO
+===================================================== */
 
-  if(window.scrollY > 30){
+let cart = [];
 
-    siteHeader.classList.add("scrolled");
+const cartOverlay =
+document.getElementById("cartOverlay");
 
-  }else{
+const cartItems =
+document.getElementById("cartItems");
 
-    siteHeader.classList.remove("scrolled");
 
-  }
+function openCart(){
+
+cartOverlay.classList.add("active");
+
+document.body.classList.add("cart-open");
 
 }
 
 
-updateHeader();
+function closeCart(){
 
-window.addEventListener(
-  "scroll",
-  updateHeader
+cartOverlay.classList.remove("active");
+
+document.body.classList.remove("cart-open");
+
+}
+
+
+document
+.querySelectorAll(".open-cart")
+.forEach(button=>{
+
+button.addEventListener("click",openCart);
+
+});
+
+
+document
+.getElementById("closeCart")
+.addEventListener("click",closeCart);
+
+
+cartOverlay.addEventListener("click",(e)=>{
+
+if(e.target === cartOverlay){
+
+closeCart();
+
+}
+
+});
+
+
+document
+.querySelectorAll(".add-cart-btn")
+.forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+const product =
+button.dataset.product;
+
+if(!cart.includes(product)){
+
+cart.push(product);
+
+}
+
+renderCart();
+
+openCart();
+
+});
+
+});
+
+
+function renderCart(){
+
+document
+.querySelectorAll(".cart-count")
+.forEach(counter=>{
+
+counter.textContent =
+cart.length;
+
+});
+
+
+if(cart.length === 0){
+
+cartItems.innerHTML = `
+
+<div class="cart-empty">
+
+Todavía no has agregado ningún producto.
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+cartItems.innerHTML =
+cart.map((product,index)=>`
+
+<div class="cart-item">
+
+<strong>
+${product}
+</strong>
+
+<small>
+Equipo para solicitar cotización.
+</small>
+
+<button
+class="remove-item"
+onclick="removeCartItem(${index})">
+
+ELIMINAR
+
+</button>
+
+</div>
+
+`).join("");
+
+}
+
+
+function removeCartItem(index){
+
+cart.splice(index,1);
+
+renderCart();
+
+}
+
+
+renderCart();
+
+
+/* =====================================================
+   ENVIAR CARRITO
+===================================================== */
+
+document
+.getElementById("sendCart")
+.addEventListener("click",()=>{
+
+
+if(cart.length === 0){
+
+alert(
+"Primero agrega al menos un producto a tu cotización."
 );
 
+return;
+
+}
 
 
-/* =========================================================
-   COTIZADOR WHATSAPP
-========================================================= */
-
-const quoteForm =
-document.getElementById("quoteForm");
+const name =
+document.getElementById("cartName")
+.value.trim();
 
 
-quoteForm.addEventListener(
-  "submit",
-  function(e){
-
-    e.preventDefault();
+const location =
+document.getElementById("cartLocation")
+.value.trim();
 
 
-    const name =
-    document.getElementById("quoteName").value.trim();
+const notes =
+document.getElementById("cartNotes")
+.value.trim();
 
 
-    const place =
-    document.getElementById("quotePlace").value;
+const installation =
+document.getElementById("installationRequest")
+.checked;
 
 
-    const system =
-    document.getElementById("quoteSystem").value;
+let message =
+
+`Hola SNT Security Services.
+
+Quiero solicitar una cotización de:
+
+${cart.map(item=>"• "+item).join("\n")}
+
+Nombre: ${name || "No indicado"}
+Ubicación: ${location || "No indicada"}`;
 
 
-    const qty =
-    document.getElementById("quoteQty").value;
+if(installation){
+
+message += `
+
+También deseo cotizar POR SEPARADO
+el servicio de instalación profesional.`;
+
+}
 
 
-    const install =
-    document.getElementById("quoteInstall").value;
+if(notes){
+
+message += `
+
+Observación:
+${notes}`;
+
+}
 
 
-    const mobile =
-    document.getElementById("quoteMobile").value;
+message += `
+
+Entiendo que la instalación no está incluida
+en el precio del kit y se cotiza aparte.`;
 
 
-    const notes =
-    document.getElementById("quoteNotes").value.trim();
+window.open(
+
+"https://wa.me/51944275861?text="
++
+encodeURIComponent(message),
+
+"_blank"
+
+);
+
+});
 
 
-    let message =
+/* =====================================================
+   COTIZADOR RÁPIDO
+===================================================== */
+
+document
+.getElementById("quoteForm")
+.addEventListener("submit",(e)=>{
+
+e.preventDefault();
+
+
+const name =
+document.getElementById("quoteName")
+.value.trim();
+
+
+const place =
+document.getElementById("quotePlace")
+.value;
+
+
+const need =
+document.getElementById("quoteNeed")
+.value;
+
+
+const qty =
+document.getElementById("quoteQty")
+.value;
+
+
+const notes =
+document.getElementById("quoteNotes")
+.value.trim();
+
+
+let message =
+
 `Hola SNT Security Services.
 
 Quiero solicitar una cotización.
 
 Nombre: ${name || "No indicado"}
-Lugar: ${place || "No indicado"}
-Sistema: ${system || "No indicado"}
-Cantidad: ${qty || "No indicada"}
-Instalación: ${install}
-Acceso desde celular: ${mobile}`;
-
-    if(notes){
-
-      message +=
-`\nObservación: ${notes}`;
-
-    }
+Propiedad: ${place}
+Necesito: ${need}
+Cantidad: ${qty}`;
 
 
-    const whatsappURL =
-    "https://wa.me/51944275861?text=" +
-    encodeURIComponent(message);
+if(notes){
+
+message += `
+
+Observación:
+${notes}`;
+
+}
 
 
-    window.open(
-      whatsappURL,
-      "_blank"
-    );
+if(need === "Instalación"){
 
-  }
+message += `
+
+Entiendo que el servicio de instalación
+se cotiza de manera independiente.`;
+
+}
+
+
+window.open(
+
+"https://wa.me/51944275861?text="
++
+encodeURIComponent(message),
+
+"_blank"
+
 );
-
-
-
-/* =========================================================
-   FAQ
-========================================================= */
-
-document
-.querySelectorAll(".faq-question")
-.forEach(button => {
-
-  button.addEventListener(
-    "click",
-    function(){
-
-      const item =
-      this.parentElement;
-
-
-      document
-      .querySelectorAll(".faq-item")
-      .forEach(other => {
-
-        if(other !== item){
-
-          other.classList.remove("active");
-
-        }
-
-      });
-
-
-      item.classList.toggle("active");
-
-    }
-  );
 
 });
 
 </script>
-
 
 </body>
 </html>
