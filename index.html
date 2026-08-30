@@ -2,25 +2,49 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
   <title>SNT Security Services | Cámaras de Seguridad</title>
 
   <meta name="description"
         content="Venta, instalación, configuración y mantenimiento de cámaras de seguridad para hogares, negocios y empresas.">
 
+  <!-- FUENTES -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Montserrat:wght@400;500;600;700&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
   <style>
+
+    /* =========================================================
+       CONFIGURACIÓN GENERAL
+    ========================================================= */
 
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
+    }
+
+    :root{
+      --navy:#020b1b;
+      --navy-2:#03132d;
+      --navy-3:#061d43;
+
+      --blue:#118cff;
+      --blue-light:#33a9ff;
+
+      --yellow:#ffc400;
+      --yellow-2:#ffad00;
+
+      --white:#ffffff;
+      --text-soft:#dce7f5;
+
+      --header-height:82px;
     }
 
     html{
@@ -29,677 +53,1308 @@
 
     body{
       font-family:'Montserrat',sans-serif;
-      background:#020b1b;
+      background:var(--navy);
       color:#fff;
       overflow-x:hidden;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
+    body.menu-open{
+      overflow:hidden;
     }
 
-    /* ================================
-       HEADER
-    ================================= */
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
 
-    .header{
-      position:absolute;
+    button{
+      font:inherit;
+    }
+
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    .site-header{
+      position:fixed;
       top:0;
       left:0;
+
       width:100%;
-      z-index:20;
-      padding:0 4%;
+      height:var(--header-height);
+
+      z-index:2000;
+
+      border-bottom:1px solid rgba(255,255,255,.04);
+
+      transition:
+        background .3s ease,
+        backdrop-filter .3s ease,
+        box-shadow .3s ease;
+    }
+
+    .site-header.scrolled{
+      background:rgba(2,11,27,.90);
+      backdrop-filter:blur(15px);
+
+      box-shadow:
+        0 10px 35px rgba(0,0,0,.28);
+
+      border-bottom:
+        1px solid rgba(29,139,255,.15);
     }
 
     .header-inner{
+      width:100%;
       max-width:1700px;
-      height:95px;
-      margin:auto;
+      height:100%;
+
+      margin:0 auto;
+      padding:0 4%;
 
       display:grid;
-      grid-template-columns:310px 1fr 230px;
+      grid-template-columns:280px minmax(0,1fr) 220px;
       align-items:center;
-      gap:30px;
+      gap:28px;
     }
 
-    .logo{
+
+    /* =========================================================
+       LOGO PROVISIONAL
+    ========================================================= */
+
+    .brand{
       display:flex;
       align-items:center;
-      gap:13px;
-      font-family:'Barlow Condensed',sans-serif;
-      font-size:29px;
-      font-weight:800;
-      letter-spacing:1px;
+      gap:12px;
+
+      width:max-content;
+    }
+
+    .brand-icon{
+      width:58px;
+      height:58px;
+
+      display:grid;
+      place-items:center;
+
+      border-radius:13px;
+
+      background:
+        linear-gradient(145deg,#083c86,#02132e);
+
+      border:
+        1px solid rgba(28,145,255,.65);
+
+      box-shadow:
+        0 0 22px rgba(0,120,255,.18);
+    }
+
+    .brand-icon svg{
+      width:35px;
+      height:35px;
+
+      fill:none;
+      stroke:#fff;
+      stroke-width:1.7;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .brand-name{
+      line-height:1;
       white-space:nowrap;
     }
 
-    .logo-icon{
-      width:67px;
-      height:67px;
-      border-radius:15px;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
-
-      background:
-        linear-gradient(145deg,#0a3c91,#00132e);
-
-      border:2px solid #1977ff;
-      box-shadow:
-        0 0 20px rgba(0,119,255,.35);
-    }
-
-    .logo-icon svg{
-      width:40px;
-      height:40px;
-      fill:none;
-      stroke:#fff;
-      stroke-width:1.8;
-    }
-
-    .logo-title{
-      line-height:.9;
-    }
-
-    .logo-title strong{
-      color:#fff;
-    }
-
-    .logo-title span{
-      color:#168bff;
-    }
-
-    .logo-title small{
-      display:block;
-      margin-top:8px;
+    .brand-main{
       font-family:'Montserrat',sans-serif;
-      font-size:10px;
+      font-weight:800;
+      font-size:22px;
+      letter-spacing:-.4px;
+    }
+
+    .brand-main .blue{
+      color:var(--blue);
+    }
+
+    .brand-sub{
+      display:block;
+
+      margin-top:7px;
+
+      font-size:8px;
+      font-weight:700;
+
       letter-spacing:5px;
       color:#fff;
     }
 
-    .nav{
+
+    /* =========================================================
+       MENÚ DESKTOP
+    ========================================================= */
+
+    .desktop-nav{
       display:flex;
-      justify-content:center;
       align-items:center;
-      gap:30px;
+      justify-content:center;
+
+      gap:27px;
+
+      height:100%;
     }
 
-    .nav a{
+    .desktop-nav a{
       position:relative;
 
-      font-family:'Barlow Condensed',sans-serif;
-      font-size:17px;
-      font-weight:600;
-      letter-spacing:.5px;
+      height:100%;
 
-      color:#fff;
-      padding:37px 0 31px;
+      display:flex;
+      align-items:center;
+
+      font-family:'Montserrat',sans-serif;
+
+      font-size:11px;
+      font-weight:700;
+
+      letter-spacing:.25px;
+
+      color:#f8fbff;
 
       transition:.25s ease;
     }
 
-    .nav a::after{
+    .desktop-nav a::after{
       content:"";
+
       position:absolute;
       left:50%;
-      bottom:24px;
+      bottom:17px;
 
       width:0;
-      height:3px;
+      height:2px;
 
-      background:#ffc400;
+      background:var(--yellow);
 
       transition:.25s ease;
     }
 
-    .nav a:hover{
-      color:#31a5ff;
+    .desktop-nav a:hover{
+      color:var(--blue-light);
     }
 
-    .nav a:hover::after,
-    .nav a.active::after{
+    .desktop-nav a:hover::after,
+    .desktop-nav a.active::after{
       width:100%;
       left:0;
     }
 
-    .header-cta{
+
+    /* =========================================================
+       BOTÓN HEADER
+    ========================================================= */
+
+    .header-action{
       display:flex;
       justify-content:flex-end;
     }
 
-    .btn-header{
-      min-height:52px;
-      padding:0 25px;
+    .header-whatsapp{
+      min-height:48px;
+
+      padding:0 22px;
 
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:9px;
 
-      border-radius:9px;
+      gap:10px;
 
-      background:linear-gradient(135deg,#ffd21a,#ffae00);
-      color:#06132c;
+      border-radius:8px;
 
+      background:
+        linear-gradient(135deg,var(--yellow),var(--yellow-2));
+
+      color:#031229;
+
+      font-family:'Montserrat',sans-serif;
+
+      font-size:12px;
       font-weight:800;
-      font-size:14px;
 
       box-shadow:
-        0 8px 28px rgba(255,190,0,.25);
+        0 10px 30px rgba(255,184,0,.18);
 
-      transition:.25s ease;
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
     }
 
-    .btn-header:hover{
+    .header-whatsapp:hover{
       transform:translateY(-2px);
+
       box-shadow:
-        0 12px 35px rgba(255,190,0,.38);
+        0 14px 35px rgba(255,184,0,.32);
+    }
+
+    .header-whatsapp svg{
+      width:20px;
+      height:20px;
+
+      fill:none;
+      stroke:currentColor;
+      stroke-width:1.8;
     }
 
 
-    /* ================================
-       HERO
-    ================================= */
+    /* =========================================================
+       BOTÓN MENÚ MOBILE
+    ========================================================= */
+
+    .mobile-menu-btn{
+      display:none;
+
+      width:44px;
+      height:44px;
+
+      border:
+        1px solid rgba(255,255,255,.15);
+
+      background:
+        rgba(3,20,48,.65);
+
+      border-radius:8px;
+
+      cursor:pointer;
+    }
+
+    .mobile-menu-btn span{
+      display:block;
+
+      width:19px;
+      height:2px;
+
+      margin:4px auto;
+
+      background:#fff;
+
+      border-radius:5px;
+    }
+
+
+    /* =========================================================
+       HERO / PORTADA
+    ========================================================= */
 
     .hero{
-      min-height:900px;
-
       position:relative;
+
+      min-height:900px;
 
       display:flex;
       align-items:center;
 
-      background:
+      overflow:hidden;
+
+      background-color:#020b1b;
+
+      background-image:
         linear-gradient(
           90deg,
-          rgba(1,8,22,.96) 0%,
-          rgba(1,10,27,.86) 34%,
-          rgba(1,10,28,.30) 64%,
-          rgba(1,8,20,.78) 100%
+          rgba(1,8,21,.98) 0%,
+          rgba(1,10,26,.91) 25%,
+          rgba(1,11,29,.68) 42%,
+          rgba(1,11,29,.16) 68%,
+          rgba(1,8,22,.10) 100%
         ),
         url('portada-snt.png');
 
       background-size:cover;
-      background-position:center;
+      background-position:center center;
       background-repeat:no-repeat;
-
-      overflow:hidden;
     }
 
     .hero::before{
       content:"";
+
       position:absolute;
       inset:0;
 
       background:
         radial-gradient(
-          circle at 70% 50%,
-          rgba(0,115,255,.20),
-          transparent 38%
+          circle at 72% 52%,
+          rgba(0,119,255,.15),
+          transparent 36%
+        );
+
+      pointer-events:none;
+    }
+
+    .hero::after{
+      content:"";
+
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+
+      height:210px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          transparent,
+          rgba(2,11,27,.25)
         );
 
       pointer-events:none;
     }
 
     .hero-inner{
+      position:relative;
+      z-index:5;
+
       width:100%;
       max-width:1700px;
-      margin:auto;
 
-      padding:145px 4% 120px;
+      margin:0 auto;
 
-      position:relative;
-      z-index:3;
+      padding:
+        135px 4%
+        175px;
     }
 
     .hero-content{
-      max-width:700px;
+      max-width:690px;
     }
 
-    .eyebrow{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
+
+    /* =========================================================
+       ETIQUETA SUPERIOR
+    ========================================================= */
+
+    .hero-label{
+      width:max-content;
+
+      max-width:100%;
 
       min-height:43px;
-      padding:0 18px;
 
-      border:1px solid #178cff;
-      border-radius:8px;
+      padding:0 17px;
 
-      color:#2ca4ff;
-      background:rgba(3,20,48,.70);
+      display:inline-flex;
+      align-items:center;
 
-      font-family:'Barlow Condensed',sans-serif;
-      font-size:17px;
-      letter-spacing:1px;
+      gap:10px;
+
+      border-radius:7px;
+
+      border:
+        1px solid rgba(21,148,255,.78);
+
+      background:
+        rgba(2,18,43,.70);
+
+      color:var(--blue-light);
+
+      font-family:'Montserrat',sans-serif;
+
+      font-size:11px;
+      font-weight:700;
+
+      letter-spacing:.5px;
 
       margin-bottom:25px;
     }
 
-    .eyebrow-icon{
-      font-size:20px;
+    .hero-label svg{
+      width:20px;
+      height:20px;
+
+      fill:none;
+      stroke:var(--blue-light);
+
+      stroke-width:1.7;
+      stroke-linecap:round;
+      stroke-linejoin:round;
     }
 
-    .hero h1{
+
+    /* =========================================================
+       TÍTULO
+    ========================================================= */
+
+    .hero-title{
       font-family:'Barlow Condensed',sans-serif;
-      font-size:clamp(64px,6vw,103px);
+
+      font-size:
+        clamp(68px,6vw,102px);
 
       font-weight:800;
-      line-height:.87;
 
-      text-transform:uppercase;
+      line-height:.88;
+
       letter-spacing:-1px;
 
+      text-transform:uppercase;
+
+      color:#fff;
+
       text-shadow:
-        0 8px 35px rgba(0,0,0,.55);
+        0 9px 35px rgba(0,0,0,.52);
     }
 
-    .hero h1 span{
-      color:#168cff;
+    .hero-title .blue{
+      color:var(--blue);
     }
+
+
+    /* =========================================================
+       DESCRIPCIÓN
+    ========================================================= */
 
     .hero-description{
-      max-width:650px;
+      max-width:635px;
 
-      margin-top:28px;
+      margin-top:27px;
 
-      font-size:19px;
-      line-height:1.55;
-      color:#e9edf5;
+      font-family:'Montserrat',sans-serif;
+
+      font-size:17px;
+      font-weight:400;
+
+      line-height:1.65;
+
+      color:#e6edf7;
+
+      text-shadow:
+        0 3px 14px rgba(0,0,0,.55);
     }
 
-    .hero-buttons{
-      display:flex;
-      gap:17px;
-      flex-wrap:wrap;
 
+    /* =========================================================
+       BOTONES HERO
+    ========================================================= */
+
+    .hero-actions{
       margin-top:29px;
+
+      display:flex;
+      align-items:center;
+
+      gap:15px;
+
+      flex-wrap:wrap;
     }
 
-    .btn-primary,
-    .btn-secondary{
-      min-height:63px;
-      padding:0 30px;
+    .hero-btn{
+      min-height:59px;
+
+      padding:0 28px;
 
       border-radius:8px;
 
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap:11px;
 
+      gap:10px;
+
+      font-family:'Montserrat',sans-serif;
+
+      font-size:12px;
       font-weight:800;
-      font-size:15px;
 
-      transition:.25s ease;
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
     }
 
-    .btn-primary{
-      background:
-        linear-gradient(135deg,#ffd119,#ffb400);
+    .hero-btn svg{
+      width:21px;
+      height:21px;
+    }
 
-      color:#04132d;
+    .hero-btn-primary{
+      color:#041329;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--yellow),
+          var(--yellow-2)
+        );
 
       box-shadow:
-        0 8px 30px rgba(255,188,0,.22);
+        0 10px 30px rgba(255,183,0,.20);
     }
 
-    .btn-secondary{
-      border:1px solid #248cff;
-      background:rgba(4,16,40,.72);
+    .hero-btn-primary svg{
+      fill:none;
+      stroke:#041329;
+      stroke-width:1.8;
+    }
+
+    .hero-btn-secondary{
       color:#fff;
+
+      border:
+        1px solid rgba(28,145,255,.85);
+
+      background:
+        rgba(2,17,42,.68);
+
+      backdrop-filter:
+        blur(4px);
     }
 
-    .btn-primary:hover,
-    .btn-secondary:hover{
+    .hero-btn-secondary svg{
+      fill:#fff;
+    }
+
+    .hero-btn:hover{
       transform:translateY(-3px);
     }
 
-    /* ================================
-       BENEFICIOS
-    ================================= */
+    .hero-btn-primary:hover{
+      box-shadow:
+        0 15px 38px rgba(255,183,0,.32);
+    }
 
-    .benefits{
-      margin-top:38px;
+    .hero-btn-secondary:hover{
+      background:
+        rgba(10,47,94,.82);
+    }
+
+
+    /* =========================================================
+       BENEFICIOS
+    ========================================================= */
+
+    .hero-benefits{
+      margin-top:34px;
 
       display:flex;
+      align-items:center;
+
       flex-wrap:wrap;
 
       gap:0;
     }
 
-    .benefit{
+    .hero-benefit{
+      position:relative;
+
+      min-height:54px;
+
+      padding:0 24px;
+
       display:flex;
       align-items:center;
-      gap:12px;
 
-      min-height:58px;
-
-      padding:0 28px;
-
-      border-right:1px solid rgba(57,143,255,.45);
+      gap:11px;
     }
 
-    .benefit:first-child{
+    .hero-benefit:first-child{
       padding-left:0;
     }
 
-    .benefit-icon{
-      width:43px;
-      height:43px;
-
-      border-radius:50%;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
-
-      border:1px solid #178cff;
-      background:#061a3d;
-
-      color:#38a8ff;
-
-      font-size:19px;
-    }
-
-    .benefit p{
-      font-size:12px;
-      line-height:1.4;
-      font-weight:600;
-    }
-
-    /* ================================
-       ESTADÍSTICAS
-    ================================= */
-
-    .stats{
-      position:absolute;
-
-      left:4%;
-      right:4%;
-      bottom:38px;
-
-      z-index:5;
-
-      max-width:1570px;
-      margin:auto;
-
-      min-height:112px;
-
-      display:grid;
-      grid-template-columns:
-        repeat(5,1fr);
-
-      border:1px solid rgba(27,128,255,.55);
-      border-radius:18px;
-
-      background:
-        linear-gradient(
-          90deg,
-          rgba(2,18,47,.95),
-          rgba(3,27,68,.88),
-          rgba(2,18,47,.95)
-        );
-
-      box-shadow:
-        0 20px 50px rgba(0,0,0,.30);
-    }
-
-    .stat{
-      position:relative;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:16px;
-
-      padding:20px;
-    }
-
-    .stat:not(:last-child)::after{
+    .hero-benefit:not(:last-child)::after{
       content:"";
+
       position:absolute;
       right:0;
 
       width:1px;
-      height:55px;
+      height:34px;
 
       background:
-        rgba(255,255,255,.20);
+        rgba(37,141,255,.38);
     }
 
-    .stat-icon{
-      font-size:31px;
-      color:#1595ff;
+    .benefit-icon{
+      width:41px;
+      height:41px;
+
+      flex:0 0 41px;
+
+      display:grid;
+      place-items:center;
+
+      border-radius:50%;
+
+      background:
+        rgba(5,30,67,.80);
+
+      border:
+        1px solid rgba(24,146,255,.72);
     }
 
-    .stat strong{
-      display:block;
+    .benefit-icon svg{
+      width:22px;
+      height:22px;
 
-      font-family:'Barlow Condensed',sans-serif;
-      font-size:29px;
-      line-height:1;
+      fill:none;
+      stroke:var(--blue-light);
 
-      color:#1999ff;
+      stroke-width:1.7;
+
+      stroke-linecap:round;
+      stroke-linejoin:round;
     }
 
-    .stat span{
-      display:block;
-      margin-top:5px;
+    .hero-benefit span{
+      font-family:'Montserrat',sans-serif;
 
-      font-family:'Barlow Condensed',sans-serif;
-      font-size:14px;
+      font-size:10px;
+      font-weight:600;
 
-      color:#fff;
+      line-height:1.45;
+
+      color:#f2f6fc;
     }
 
 
-    /* ================================
-       WHATSAPP FLOTANTE
-    ================================= */
+    /* =========================================================
+       FRANJA INFERIOR
+    ========================================================= */
 
-    .whatsapp-float{
-      position:fixed;
+    .hero-stats{
+      position:absolute;
 
-      right:22px;
-      bottom:22px;
+      z-index:10;
 
-      z-index:100;
+      left:4%;
+      right:4%;
+      bottom:32px;
 
-      width:62px;
-      height:62px;
+      max-width:1570px;
+
+      margin:0 auto;
+
+      min-height:108px;
+
+      display:grid;
+      grid-template-columns:
+        repeat(5,minmax(0,1fr));
+
+      border-radius:15px;
+
+      border:
+        1px solid rgba(35,140,255,.50);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(2,18,44,.97),
+          rgba(3,29,69,.94)
+        );
+
+      box-shadow:
+        0 22px 50px rgba(0,0,0,.30),
+        inset 0 1px 0 rgba(255,255,255,.04);
+
+      overflow:hidden;
+    }
+
+    .hero-stat{
+      position:relative;
+
+      min-width:0;
+
+      padding:20px 17px;
 
       display:flex;
       align-items:center;
       justify-content:center;
 
+      gap:15px;
+    }
+
+    .hero-stat:not(:last-child)::after{
+      content:"";
+
+      position:absolute;
+
+      right:0;
+      top:27%;
+
+      width:1px;
+      height:46%;
+
+      background:
+        rgba(255,255,255,.13);
+    }
+
+    .stat-icon{
+      width:46px;
+      height:46px;
+
+      flex:0 0 46px;
+
+      display:grid;
+      place-items:center;
+
+      border-radius:11px;
+
+      background:
+        rgba(16,129,255,.07);
+
+      border:
+        1px solid rgba(28,143,255,.20);
+    }
+
+    .stat-icon svg{
+      width:27px;
+      height:27px;
+
+      fill:none;
+      stroke:var(--blue-light);
+
+      stroke-width:1.7;
+
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    .stat-info{
+      min-width:0;
+    }
+
+    .stat-value{
+      display:block;
+
+      font-family:'Montserrat',sans-serif;
+
+      font-size:22px;
+      font-weight:800;
+
+      line-height:1.05;
+
+      color:var(--blue-light);
+
+      letter-spacing:-.5px;
+    }
+
+    .stat-label{
+      display:block;
+
+      margin-top:6px;
+
+      font-family:'Montserrat',sans-serif;
+
+      font-size:9px;
+      font-weight:600;
+
+      line-height:1.4;
+
+      letter-spacing:.35px;
+
+      text-transform:uppercase;
+
+      color:#e7f0fb;
+    }
+
+
+    /* =========================================================
+       WHATSAPP FLOTANTE
+    ========================================================= */
+
+    .whatsapp-float{
+      position:fixed;
+
+      right:23px;
+      bottom:23px;
+
+      z-index:3000;
+
+      width:58px;
+      height:58px;
+
+      display:grid;
+      place-items:center;
+
       border-radius:50%;
 
       background:#25d366;
-      color:#fff;
-
-      font-size:31px;
 
       box-shadow:
-        0 8px 30px rgba(0,0,0,.35);
+        0 10px 30px rgba(0,0,0,.35);
 
-      transition:.25s;
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
     }
 
     .whatsapp-float:hover{
-      transform:scale(1.08);
+      transform:scale(1.07);
+
+      box-shadow:
+        0 14px 35px rgba(0,0,0,.43);
+    }
+
+    .whatsapp-float svg{
+      width:31px;
+      height:31px;
+
+      fill:#fff;
     }
 
 
-    /* ================================
-       MOBILE
-    ================================= */
+    /* =========================================================
+       MENÚ MOBILE
+    ========================================================= */
 
-    .mobile-menu{
-      display:none;
+    .mobile-drawer{
+      position:fixed;
+      inset:0;
+
+      z-index:5000;
+
+      background:
+        rgba(0,4,14,.72);
+
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+
+      transition:.25s ease;
     }
 
-    @media(max-width:1200px){
+    .mobile-drawer.active{
+      opacity:1;
+      visibility:visible;
+      pointer-events:auto;
+    }
+
+    .mobile-panel{
+      position:absolute;
+
+      top:0;
+      right:0;
+
+      width:min(88vw,390px);
+      height:100%;
+
+      padding:22px;
+
+      background:
+        linear-gradient(
+          180deg,
+          #03132d,
+          #020b1b
+        );
+
+      border-left:
+        1px solid rgba(25,141,255,.25);
+
+      transform:
+        translateX(100%);
+
+      transition:
+        .27s ease;
+    }
+
+    .mobile-drawer.active .mobile-panel{
+      transform:
+        translateX(0);
+    }
+
+    .mobile-head{
+      min-height:60px;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      border-bottom:
+        1px solid rgba(255,255,255,.10);
+    }
+
+    .mobile-head strong{
+      font-size:18px;
+      font-weight:800;
+    }
+
+    .mobile-head strong span{
+      color:var(--blue);
+    }
+
+    .mobile-close{
+      border:0;
+      background:transparent;
+
+      color:#fff;
+
+      font-size:30px;
+
+      cursor:pointer;
+    }
+
+    .mobile-links{
+      list-style:none;
+
+      margin-top:12px;
+    }
+
+    .mobile-links a{
+      display:block;
+
+      padding:17px 2px;
+
+      border-bottom:
+        1px solid rgba(255,255,255,.08);
+
+      font-size:12px;
+      font-weight:700;
+    }
+
+    .mobile-whatsapp{
+      margin-top:25px;
+
+      width:100%;
+
+      min-height:53px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border-radius:8px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--yellow),
+          var(--yellow-2)
+        );
+
+      color:#041329;
+
+      font-size:12px;
+      font-weight:800;
+    }
+
+
+    /* =========================================================
+       TABLET
+    ========================================================= */
+
+    @media(max-width:1250px){
 
       .header-inner{
-        grid-template-columns:250px 1fr 190px;
+        grid-template-columns:
+          230px
+          minmax(0,1fr)
+          190px;
       }
 
-      .nav{
+      .desktop-nav{
         gap:16px;
       }
 
-      .nav a{
-        font-size:14px;
+      .desktop-nav a{
+        font-size:9px;
       }
 
-    }
-
-    @media(max-width:980px){
-
-      .header-inner{
-        grid-template-columns:1fr auto;
-      }
-
-      .nav{
-        display:none;
-      }
-
-      .mobile-menu{
-        display:block;
-      }
-
-      .header-cta{
-        display:none;
-      }
-
-      .hero{
-        min-height:950px;
-
-        background-position:65% center;
-      }
-
-      .hero-inner{
-        padding-top:150px;
-        padding-bottom:250px;
+      .header-whatsapp{
+        padding:0 15px;
+        font-size:10px;
       }
 
       .hero-content{
-        max-width:610px;
+        max-width:600px;
       }
 
-      .stats{
-        grid-template-columns:
-          repeat(2,1fr);
-
-        bottom:25px;
-      }
-
-      .stat{
-        min-height:86px;
-      }
-
-      .stat:last-child{
-        grid-column:1/-1;
-      }
-
-      .stat::after{
-        display:none;
+      .hero-benefit{
+        padding:0 15px;
       }
 
     }
 
-    @media(max-width:620px){
 
-      .header{
-        padding:0 18px;
+    /* =========================================================
+       MOBILE / TABLET
+    ========================================================= */
+
+    @media(max-width:980px){
+
+      :root{
+        --header-height:72px;
+      }
+
+      .site-header{
+        background:
+          rgba(2,11,27,.88);
+
+        backdrop-filter:
+          blur(12px);
       }
 
       .header-inner{
-        height:75px;
+        grid-template-columns:
+          1fr auto;
+
+        padding:0 18px;
       }
 
-      .logo{
-        font-size:22px;
+      .desktop-nav,
+      .header-action{
+        display:none;
       }
 
-      .logo-icon{
-        width:50px;
-        height:50px;
+      .mobile-menu-btn{
+        display:block;
       }
 
-      .logo-title small{
-        font-size:7px;
-        letter-spacing:3px;
+      .brand-icon{
+        width:48px;
+        height:48px;
       }
+
+      .brand-icon svg{
+        width:29px;
+        height:29px;
+      }
+
+      .brand-main{
+        font-size:19px;
+      }
+
+      .brand-sub{
+        font-size:6px;
+        letter-spacing:4px;
+      }
+
+
+      /* HERO */
 
       .hero{
-        min-height:1040px;
+        min-height:1060px;
 
-        background-position:68% center;
+        background-position:
+          64% center;
+
+        background-image:
+          linear-gradient(
+            to bottom,
+            rgba(1,8,21,.82) 0%,
+            rgba(1,9,23,.56) 42%,
+            rgba(2,11,27,.94) 78%,
+            #020b1b 100%
+          ),
+          url('portada-snt.png');
       }
 
       .hero-inner{
         padding:
-          120px 20px
-          330px;
+          125px 20px
+          360px;
       }
 
-      .eyebrow{
-        font-size:13px;
+      .hero-content{
+        max-width:640px;
       }
 
-      .hero h1{
-        font-size:53px;
+      .hero-title{
+        font-size:
+          clamp(58px,10vw,84px);
       }
 
       .hero-description{
         font-size:15px;
       }
 
-      .hero-buttons{
-        flex-direction:column;
+      .hero-benefits{
+        max-width:590px;
       }
 
-      .btn-primary,
-      .btn-secondary{
-        width:100%;
-      }
-
-      .benefits{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-      }
-
-      .benefit{
-        padding:12px 8px;
-        border:0;
-      }
-
-      .stats{
+      .hero-stats{
         left:18px;
         right:18px;
 
+        bottom:25px;
+
         grid-template-columns:
-          1fr 1fr;
+          repeat(2,minmax(0,1fr));
 
         min-height:auto;
       }
 
-      .stat{
-        padding:15px 7px;
+      .hero-stat{
+        justify-content:flex-start;
+
+        min-height:85px;
+
+        padding:15px 19px;
       }
 
-      .stat strong{
-        font-size:23px;
+      .hero-stat::after{
+        display:none;
       }
 
-      .stat span{
-        font-size:11px;
+      .hero-stat:last-child{
+        grid-column:1/-1;
+      }
+
+    }
+
+
+    /* =========================================================
+       CELULAR
+    ========================================================= */
+
+    @media(max-width:600px){
+
+      .brand-icon{
+        width:44px;
+        height:44px;
+      }
+
+      .brand-main{
+        font-size:16px;
+      }
+
+      .brand-sub{
+        margin-top:5px;
+
+        font-size:5px;
+
+        letter-spacing:3px;
+      }
+
+      .hero{
+        min-height:1160px;
+
+        background-position:
+          66% top;
+      }
+
+      .hero-inner{
+        padding:
+          112px 18px
+          435px;
+      }
+
+      .hero-label{
+        min-height:38px;
+
+        padding:0 12px;
+
+        font-size:9px;
+
+        margin-bottom:20px;
+      }
+
+      .hero-title{
+        font-size:
+          clamp(51px,16vw,69px);
+
+        line-height:.90;
+      }
+
+      .hero-description{
+        margin-top:20px;
+
+        font-size:13px;
+
+        line-height:1.6;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+
+        align-items:stretch;
+
+        margin-top:23px;
+      }
+
+      .hero-btn{
+        width:100%;
+
+        min-height:55px;
+
+        padding:0 16px;
+
+        font-size:10px;
+      }
+
+      .hero-benefits{
+        display:grid;
+
+        grid-template-columns:
+          1fr 1fr;
+
+        margin-top:25px;
+      }
+
+      .hero-benefit{
+        padding:10px 6px;
+      }
+
+      .hero-benefit:first-child{
+        padding-left:6px;
+      }
+
+      .hero-benefit::after{
+        display:none;
+      }
+
+      .benefit-icon{
+        width:37px;
+        height:37px;
+
+        flex-basis:37px;
+      }
+
+      .hero-benefit span{
+        font-size:8px;
+      }
+
+      .hero-stats{
+        left:12px;
+        right:12px;
+
+        grid-template-columns:
+          1fr 1fr;
+
+        border-radius:13px;
+      }
+
+      .hero-stat{
+        padding:13px 11px;
+
+        gap:10px;
+      }
+
+      .stat-icon{
+        width:38px;
+        height:38px;
+
+        flex-basis:38px;
+      }
+
+      .stat-icon svg{
+        width:22px;
+        height:22px;
+      }
+
+      .stat-value{
+        font-size:17px;
+      }
+
+      .stat-label{
+        font-size:7px;
+      }
+
+      .whatsapp-float{
+        width:54px;
+        height:54px;
+
+        right:15px;
+        bottom:15px;
       }
 
     }
@@ -707,69 +1362,117 @@
   </style>
 </head>
 
+
 <body>
 
 
-<header class="header">
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="site-header" id="siteHeader">
 
   <div class="header-inner">
 
-    <!-- LOGO -->
-    <a class="logo" href="#inicio">
 
-      <div class="logo-icon">
+    <!-- LOGO -->
+
+    <a href="#inicio" class="brand">
+
+      <div class="brand-icon">
 
         <svg viewBox="0 0 24 24">
-          <path d="M3 7h13v8H3z"></path>
-          <path d="M16 9l5-3v10l-5-3"></path>
-          <circle cx="9.5" cy="11" r="2.4"></circle>
+          <rect x="3" y="7" width="13" height="9" rx="2"></rect>
+          <path d="M16 10l5-3v9l-5-3"></path>
+          <circle cx="9.5" cy="11.5" r="2.4"></circle>
         </svg>
 
       </div>
 
-      <div class="logo-title">
-        <strong>SNT</strong>
-        <span> SECURITY</span>
+      <div class="brand-name">
 
-        <small>SERVICES</small>
+        <div class="brand-main">
+          SNT <span class="blue">SECURITY</span>
+        </div>
+
+        <span class="brand-sub">
+          SERVICES
+        </span>
+
       </div>
 
     </a>
 
 
-    <!-- MENU -->
-    <nav class="nav">
+    <!-- MENÚ -->
 
-      <a href="#inicio" class="active">INICIO</a>
+    <nav class="desktop-nav">
 
-      <a href="#camaras">CÁMARAS</a>
+      <a href="#inicio" class="active">
+        INICIO
+      </a>
 
-      <a href="#kits">KITS</a>
+      <a href="#camaras">
+        CÁMARAS
+      </a>
 
-      <a href="#servicios">SERVICIOS</a>
+      <a href="#kits">
+        KITS
+      </a>
 
-      <a href="#trabajos">TRABAJOS</a>
+      <a href="#servicios">
+        SERVICIOS
+      </a>
 
-      <a href="#mantenimiento">MANTENIMIENTO</a>
+      <a href="#trabajos">
+        TRABAJOS
+      </a>
 
-      <a href="#contacto">CONTACTO</a>
+      <a href="#mantenimiento">
+        MANTENIMIENTO
+      </a>
+
+      <a href="#contacto">
+        CONTACTO
+      </a>
 
     </nav>
 
 
-    <!-- BOTÓN -->
-    <div class="header-cta">
+    <!-- WHATSAPP HEADER -->
+
+    <div class="header-action">
 
       <a
-        class="btn-header"
-        href="https://wa.me/51944275861"
+        class="header-whatsapp"
+        href="https://wa.me/51944275861?text=Hola%20SNT%20Security%20Services,%20quiero%20solicitar%20una%20cotización."
         target="_blank">
 
-        ☎ COTIZAR AHORA
+        <svg viewBox="0 0 24 24">
+          <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5z"></path>
+          <path d="M9 8.5c.5 2.7 2.3 4.5 5 5"></path>
+        </svg>
+
+        COTIZAR AHORA
 
       </a>
 
     </div>
+
+
+    <!-- MOBILE -->
+
+    <button
+      class="mobile-menu-btn"
+      id="openMenu"
+      aria-label="Abrir menú">
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+    </button>
+
 
   </div>
 
@@ -777,9 +1480,9 @@
 
 
 
-<!-- =====================================
-     PORTADA PRINCIPAL
-====================================== -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 
 <section class="hero" id="inicio">
 
@@ -787,25 +1490,39 @@
 
     <div class="hero-content">
 
-      <div class="eyebrow">
 
-        <span class="eyebrow-icon">🛡</span>
+      <!-- ETIQUETA -->
+
+      <div class="hero-label">
+
+        <svg viewBox="0 0 24 24">
+          <path d="M12 3l7 3v5c0 4.6-2.8 8.1-7 10-4.2-1.9-7-5.4-7-10V6z"></path>
+          <path d="M9 12l2 2 4-4"></path>
+        </svg>
 
         SISTEMAS DE VIDEOVIGILANCIA PROFESIONALES
 
       </div>
 
 
-      <h1>
+      <!-- TÍTULO -->
+
+      <h1 class="hero-title">
 
         PROTEGE LO QUE
 
         <br>
 
-        <span>MÁS</span> TE IMPORTA
+        <span class="blue">
+          MÁS
+        </span>
+
+        TE IMPORTA
 
       </h1>
 
+
+      <!-- DESCRIPCIÓN -->
 
       <p class="hero-description">
 
@@ -816,85 +1533,161 @@
       </p>
 
 
-      <div class="hero-buttons">
+      <!-- BOTONES -->
+
+      <div class="hero-actions">
+
 
         <a
-          class="btn-primary"
-          href="https://wa.me/51944275861?text=Hola%20SNT%20Security,%20quiero%20cotizar%20un%20sistema%20de%20cámaras."
+          class="hero-btn hero-btn-primary"
+          href="https://wa.me/51944275861?text=Hola%20SNT%20Security%20Services,%20quiero%20cotizar%20un%20sistema%20de%20cámaras."
           target="_blank">
 
-          ☎ COTIZA TU SISTEMA
+          <svg viewBox="0 0 24 24">
+
+            <path
+              d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5z">
+            </path>
+
+            <path
+              d="M9 8.5c.5 2.7 2.3 4.5 5 5">
+            </path>
+
+          </svg>
+
+          COTIZA TU SISTEMA
 
         </a>
 
 
         <a
-          class="btn-secondary"
+          class="hero-btn hero-btn-secondary"
           href="#trabajos">
 
-          ▶ VER TRABAJOS REALIZADOS
+          <svg viewBox="0 0 24 24">
+            <path d="M8 5l11 7-11 7z"></path>
+          </svg>
+
+          VER TRABAJOS REALIZADOS
 
         </a>
+
 
       </div>
 
 
-      <div class="benefits">
+      <!-- BENEFICIOS -->
 
-        <div class="benefit">
+      <div class="hero-benefits">
+
+
+        <!-- INSTALACIÓN -->
+
+        <div class="hero-benefit">
 
           <div class="benefit-icon">
-            ✓
+
+            <svg viewBox="0 0 24 24">
+
+              <path d="M14 6l4-4 2 2-4 4"></path>
+
+              <path d="M13 7l4 4-8 8-4-4z"></path>
+
+              <path d="M4 20l3-3"></path>
+
+            </svg>
+
           </div>
 
-          <p>
+          <span>
             Instalación<br>
             profesional
-          </p>
+          </span>
 
         </div>
 
 
-        <div class="benefit">
+        <!-- CELULAR -->
+
+        <div class="hero-benefit">
 
           <div class="benefit-icon">
-            ◉
+
+            <svg viewBox="0 0 24 24">
+
+              <rect
+                x="7"
+                y="2"
+                width="10"
+                height="20"
+                rx="2">
+              </rect>
+
+              <path d="M10 18h4"></path>
+
+            </svg>
+
           </div>
 
-          <p>
+          <span>
             Acceso desde<br>
             celular
-          </p>
+          </span>
 
         </div>
 
 
-        <div class="benefit">
+        <!-- SOPORTE -->
+
+        <div class="hero-benefit">
 
           <div class="benefit-icon">
-            ♧
+
+            <svg viewBox="0 0 24 24">
+
+              <path d="M4 13v-2a8 8 0 0 1 16 0v2"></path>
+
+              <path d="M4 13h3v6H4z"></path>
+
+              <path d="M17 13h3v6h-3z"></path>
+
+              <path d="M17 19c0 2-2 3-5 3"></path>
+
+            </svg>
+
           </div>
 
-          <p>
+          <span>
             Soporte técnico<br>
             especializado
-          </p>
+          </span>
 
         </div>
 
 
-        <div class="benefit">
+        <!-- GARANTÍA -->
+
+        <div class="hero-benefit">
 
           <div class="benefit-icon">
-            ✓
+
+            <svg viewBox="0 0 24 24">
+
+              <path d="M12 3l7 3v5c0 4.6-2.8 8.1-7 10-4.2-1.9-7-5.4-7-10V6z"></path>
+
+              <path d="M9 12l2 2 4-4"></path>
+
+            </svg>
+
           </div>
 
-          <p>
+          <span>
             Garantía y<br>
             confianza
-          </p>
+          </span>
 
         </div>
+
 
       </div>
 
@@ -903,78 +1696,178 @@
   </div>
 
 
-  <!-- ESTADÍSTICAS -->
 
-  <div class="stats">
+  <!-- =========================================================
+       FRANJA INFERIOR
+  ========================================================= -->
 
-    <div class="stat">
+  <div class="hero-stats">
+
+
+    <!-- FULL HD -->
+
+    <div class="hero-stat">
 
       <div class="stat-icon">
-        📹
+
+        <svg viewBox="0 0 24 24">
+
+          <rect
+            x="3"
+            y="6"
+            width="14"
+            height="10"
+            rx="2">
+          </rect>
+
+          <path d="M17 9l4-2v8l-4-2"></path>
+
+        </svg>
+
       </div>
 
-      <div>
-        <strong>+500</strong>
-        <span>CÁMARAS INSTALADAS</span>
+      <div class="stat-info">
+
+        <strong class="stat-value">
+          FULL HD
+        </strong>
+
+        <span class="stat-label">
+          Alta definición
+        </span>
+
       </div>
 
     </div>
 
 
-    <div class="stat">
+    <!-- 24/7 -->
+
+    <div class="hero-stat">
 
       <div class="stat-icon">
-        👥
+
+        <svg viewBox="0 0 24 24">
+
+          <circle cx="12" cy="12" r="8"></circle>
+
+          <path d="M12 8v5l3 2"></path>
+
+        </svg>
+
       </div>
 
-      <div>
-        <strong>+300</strong>
-        <span>CLIENTES SATISFECHOS</span>
+      <div class="stat-info">
+
+        <strong class="stat-value">
+          24/7
+        </strong>
+
+        <span class="stat-label">
+          Videovigilancia
+        </span>
+
       </div>
 
     </div>
 
 
-    <div class="stat">
+    <!-- CELULAR -->
+
+    <div class="hero-stat">
 
       <div class="stat-icon">
-        🏅
+
+        <svg viewBox="0 0 24 24">
+
+          <rect
+            x="7"
+            y="2"
+            width="10"
+            height="20"
+            rx="2">
+          </rect>
+
+          <path d="M10 18h4"></path>
+
+        </svg>
+
       </div>
 
-      <div>
-        <strong>2 AÑOS+</strong>
-        <span>EXPERIENCIA</span>
+      <div class="stat-info">
+
+        <strong class="stat-value">
+          REMOTO
+        </strong>
+
+        <span class="stat-label">
+          Acceso desde celular
+        </span>
+
       </div>
 
     </div>
 
 
-    <div class="stat">
+    <!-- ATENCIÓN -->
+
+    <div class="hero-stat">
 
       <div class="stat-icon">
-        ⚡
+
+        <svg viewBox="0 0 24 24">
+
+          <path d="M13 2L5 14h6l-1 8 9-13h-6z"></path>
+
+        </svg>
+
       </div>
 
-      <div>
-        <strong>RÁPIDA</strong>
-        <span>ATENCIÓN</span>
+      <div class="stat-info">
+
+        <strong class="stat-value">
+          RÁPIDA
+        </strong>
+
+        <span class="stat-label">
+          Atención
+        </span>
+
       </div>
 
     </div>
 
 
-    <div class="stat">
+    <!-- COBERTURA -->
+
+    <div class="hero-stat">
 
       <div class="stat-icon">
-        📍
+
+        <svg viewBox="0 0 24 24">
+
+          <path d="M12 22s7-7 7-13a7 7 0 1 0-14 0c0 6 7 13 7 13z"></path>
+
+          <circle cx="12" cy="9" r="2.5"></circle>
+
+        </svg>
+
       </div>
 
-      <div>
-        <strong>PERÚ</strong>
-        <span>COBERTURA</span>
+      <div class="stat-info">
+
+        <strong class="stat-value">
+          PERÚ
+        </strong>
+
+        <span class="stat-label">
+          Cobertura
+        </span>
+
       </div>
 
     </div>
+
 
   </div>
 
@@ -982,17 +1875,218 @@
 
 
 
-<!-- WHATSAPP FLOTANTE -->
+<!-- =========================================================
+     SECCIONES QUE CONSTRUIREMOS DESPUÉS
+========================================================= -->
+
+<div id="camaras"></div>
+<div id="kits"></div>
+<div id="servicios"></div>
+<div id="trabajos"></div>
+<div id="mantenimiento"></div>
+<div id="contacto"></div>
+
+
+
+<!-- =========================================================
+     WHATSAPP FLOTANTE
+========================================================= -->
 
 <a
   class="whatsapp-float"
-  href="https://wa.me/51944275861"
+  href="https://wa.me/51944275861?text=Hola%20SNT%20Security%20Services,%20quiero%20información."
   target="_blank"
-  aria-label="WhatsApp">
+  aria-label="Contactar por WhatsApp">
 
-  ☎
+  <svg viewBox="0 0 32 32">
+
+    <path d="M16.1 3C9 3 3.3 8.6 3.3 15.5c0 2.4.7 4.7 2 6.7L3 29l7-2.2c1.9 1 4 1.6 6.2 1.6 7.1 0 12.8-5.6 12.8-12.5C29 8.7 23.2 3 16.1 3zm0 22.9c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.1 1.3 1.4-4-.3-.4c-1.1-1.6-1.7-3.5-1.7-5.5 0-5.6 4.7-10.1 10.5-10.1 5.8 0 10.5 4.5 10.5 10.1.1 5.7-4.6 10.3-10.4 10.3zm5.8-7.7c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.7.1-1.9-.9-3.2-1.7-4.5-3.8-.3-.6.3-.6.9-1.8.1-.2 0-.5-.1-.7-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.3 3.4 1.4 3.6c.2.2 2.5 3.8 6 5.3.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5 0-.2-.3-.3-.6-.5z">
+    </path>
+
+  </svg>
 
 </a>
+
+
+
+<!-- =========================================================
+     MENU MOBILE
+========================================================= -->
+
+<div
+  class="mobile-drawer"
+  id="mobileDrawer">
+
+  <div class="mobile-panel">
+
+    <div class="mobile-head">
+
+      <strong>
+        SNT <span>SECURITY</span>
+      </strong>
+
+      <button
+        class="mobile-close"
+        id="closeMenu"
+        aria-label="Cerrar menú">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+    <ul class="mobile-links">
+
+      <li>
+        <a href="#inicio">INICIO</a>
+      </li>
+
+      <li>
+        <a href="#camaras">CÁMARAS</a>
+      </li>
+
+      <li>
+        <a href="#kits">KITS</a>
+      </li>
+
+      <li>
+        <a href="#servicios">SERVICIOS</a>
+      </li>
+
+      <li>
+        <a href="#trabajos">TRABAJOS</a>
+      </li>
+
+      <li>
+        <a href="#mantenimiento">MANTENIMIENTO</a>
+      </li>
+
+      <li>
+        <a href="#contacto">CONTACTO</a>
+      </li>
+
+    </ul>
+
+
+    <a
+      class="mobile-whatsapp"
+      href="https://wa.me/51944275861?text=Hola%20SNT%20Security%20Services,%20quiero%20solicitar%20una%20cotización."
+      target="_blank">
+
+      COTIZAR POR WHATSAPP
+
+    </a>
+
+  </div>
+
+</div>
+
+
+
+<script>
+
+  /* =========================================================
+     HEADER AL HACER SCROLL
+  ========================================================= */
+
+  const siteHeader =
+    document.getElementById("siteHeader");
+
+  function updateHeader(){
+
+    if(window.scrollY > 30){
+
+      siteHeader.classList.add("scrolled");
+
+    }else{
+
+      siteHeader.classList.remove("scrolled");
+
+    }
+
+  }
+
+  updateHeader();
+
+  window.addEventListener(
+    "scroll",
+    updateHeader
+  );
+
+
+
+  /* =========================================================
+     MENÚ MOBILE
+  ========================================================= */
+
+  const mobileDrawer =
+    document.getElementById("mobileDrawer");
+
+  const openMenu =
+    document.getElementById("openMenu");
+
+  const closeMenu =
+    document.getElementById("closeMenu");
+
+
+  function openMobileMenu(){
+
+    mobileDrawer.classList.add("active");
+
+    document.body.classList.add("menu-open");
+
+  }
+
+
+  function closeMobileMenu(){
+
+    mobileDrawer.classList.remove("active");
+
+    document.body.classList.remove("menu-open");
+
+  }
+
+
+  openMenu.addEventListener(
+    "click",
+    openMobileMenu
+  );
+
+
+  closeMenu.addEventListener(
+    "click",
+    closeMobileMenu
+  );
+
+
+  mobileDrawer.addEventListener(
+    "click",
+    function(e){
+
+      if(e.target === mobileDrawer){
+
+        closeMobileMenu();
+
+      }
+
+    }
+  );
+
+
+  document.querySelectorAll(
+    ".mobile-links a"
+  ).forEach(link => {
+
+    link.addEventListener(
+      "click",
+      closeMobileMenu
+    );
+
+  });
+
+</script>
 
 
 </body>
