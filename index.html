@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 
   <meta charset="UTF-8">
@@ -13,22 +12,23 @@
   <meta name="description"
         content="Venta, instalación, configuración y mantenimiento de cámaras de seguridad para hogares, negocios y empresas.">
 
+  <!-- FUENTES -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
   <link rel="preconnect"
         href="https://fonts.gstatic.com"
         crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
 
 <style>
 
-
-/* =====================================================
+/* =========================================================
    GENERAL
-===================================================== */
+========================================================= */
 
 *{
   margin:0;
@@ -39,17 +39,19 @@
 :root{
 
   --navy:#020b1b;
-  --navy2:#03132d;
+  --navy-2:#03132d;
+  --navy-3:#061d43;
 
   --blue:#118cff;
   --blue-light:#32a9ff;
 
   --yellow:#ffc400;
-  --yellow2:#ffae00;
+  --yellow-2:#ffae00;
 
   --white:#ffffff;
+  --soft:#dce7f5;
 
-  --header-height:82px;
+  --desktop-header:82px;
 }
 
 html{
@@ -60,15 +62,11 @@ body{
 
   font-family:'Montserrat',sans-serif;
 
-  background:#020b1b;
+  background:var(--navy);
 
   color:#fff;
 
   overflow-x:hidden;
-}
-
-body.menu-open{
-  overflow:hidden;
 }
 
 a{
@@ -81,9 +79,9 @@ button{
 }
 
 
-/* =====================================================
-   HEADER
-===================================================== */
+/* =========================================================
+   HEADER DESKTOP
+========================================================= */
 
 .site-header{
 
@@ -94,29 +92,38 @@ button{
 
   width:100%;
 
-  height:var(--header-height);
+  height:var(--desktop-header);
 
-  z-index:2000;
-
-  transition:.3s ease;
+  z-index:3000;
 
   border-bottom:
   1px solid rgba(255,255,255,.04);
+
+  transition:
+  background .3s ease,
+  backdrop-filter .3s ease,
+  box-shadow .3s ease;
 }
 
 .site-header.scrolled{
 
   background:
-  rgba(2,11,27,.91);
+  rgba(2,11,27,.92);
 
   backdrop-filter:
-  blur(16px);
+  blur(15px);
 
   box-shadow:
   0 10px 35px rgba(0,0,0,.30);
+
+  border-bottom:
+  1px solid rgba(30,140,255,.14);
 }
 
+
 .header-inner{
+
+  width:100%;
 
   max-width:1700px;
 
@@ -135,29 +142,31 @@ button{
 
   align-items:center;
 
-  gap:25px;
+  gap:26px;
 }
 
 
-/* =====================================================
-   LOGO
-===================================================== */
+/* =========================================================
+   MARCA
+========================================================= */
 
 .brand{
+
+  width:max-content;
 
   display:flex;
 
   align-items:center;
 
   gap:12px;
-
-  width:max-content;
 }
 
 .brand-icon{
 
   width:58px;
   height:58px;
+
+  flex:0 0 58px;
 
   display:grid;
 
@@ -191,7 +200,6 @@ button{
   stroke-width:1.7;
 
   stroke-linecap:round;
-
   stroke-linejoin:round;
 }
 
@@ -204,11 +212,13 @@ button{
 
 .brand-main{
 
+  font-family:'Montserrat',sans-serif;
+
   font-size:22px;
 
   font-weight:800;
 
-  letter-spacing:-.4px;
+  letter-spacing:-.5px;
 }
 
 .brand-main .blue{
@@ -226,12 +236,14 @@ button{
   font-weight:700;
 
   letter-spacing:5px;
+
+  color:#fff;
 }
 
 
-/* =====================================================
-   MENU PC
-===================================================== */
+/* =========================================================
+   MENÚ DESKTOP
+========================================================= */
 
 .desktop-nav{
 
@@ -239,9 +251,9 @@ button{
 
   display:flex;
 
-  justify-content:center;
-
   align-items:center;
+
+  justify-content:center;
 
   gap:27px;
 }
@@ -260,9 +272,11 @@ button{
 
   font-weight:700;
 
-  color:#fff;
+  letter-spacing:.15px;
 
-  transition:.25s;
+  color:#f8fbff;
+
+  transition:.25s ease;
 }
 
 .desktop-nav a::after{
@@ -281,7 +295,7 @@ button{
 
   background:var(--yellow);
 
-  transition:.25s;
+  transition:.25s ease;
 }
 
 .desktop-nav a:hover{
@@ -297,9 +311,9 @@ button{
 }
 
 
-/* =====================================================
-   BOTON HEADER
-===================================================== */
+/* =========================================================
+   BOTÓN COTIZAR DESKTOP
+========================================================= */
 
 .header-action{
 
@@ -314,7 +328,7 @@ button{
 
   padding:0 22px;
 
-  display:flex;
+  display:inline-flex;
 
   align-items:center;
 
@@ -322,16 +336,16 @@ button{
 
   gap:9px;
 
+  border-radius:8px;
+
   background:
   linear-gradient(
     135deg,
     var(--yellow),
-    var(--yellow2)
+    var(--yellow-2)
   );
 
   color:#031229;
-
-  border-radius:8px;
 
   font-size:12px;
 
@@ -363,51 +377,25 @@ button{
   stroke:currentColor;
 
   stroke-width:1.8;
+
+  stroke-linecap:round;
+  stroke-linejoin:round;
 }
 
 
-/* =====================================================
-   MENU MOBILE BUTTON
-===================================================== */
+/* =========================================================
+   NAVEGACIÓN MÓVIL
+   EN PC NO SE VE
+========================================================= */
 
-.mobile-menu-btn{
-
+.mobile-nav-shell{
   display:none;
-
-  width:44px;
-
-  height:44px;
-
-  border-radius:8px;
-
-  border:
-  1px solid rgba(255,255,255,.14);
-
-  background:
-  rgba(3,20,48,.72);
-
-  cursor:pointer;
-}
-
-.mobile-menu-btn span{
-
-  display:block;
-
-  width:19px;
-
-  height:2px;
-
-  background:#fff;
-
-  margin:4px auto;
-
-  border-radius:4px;
 }
 
 
-/* =====================================================
-   PORTADA DESKTOP
-===================================================== */
+/* =========================================================
+   HERO DESKTOP
+========================================================= */
 
 .hero{
 
@@ -423,9 +411,6 @@ button{
 
   background-color:#020b1b;
 
-
-  /* PORTADA PARA PC */
-
   background-image:
 
   linear-gradient(
@@ -439,11 +424,10 @@ button{
 
     rgba(1,11,29,.12) 68%,
 
-    rgba(1,8,22,.06) 100%
+    rgba(1,8,22,.05) 100%
   ),
 
   url('portada-snt.png');
-
 
   background-size:cover;
 
@@ -492,26 +476,25 @@ button{
 
 
 .hero-content{
-
   max-width:690px;
 }
 
 
-/* =====================================================
-   LABEL
-===================================================== */
+/* =========================================================
+   ETIQUETA
+========================================================= */
 
 .hero-label{
-
-  min-height:43px;
 
   width:max-content;
 
   max-width:100%;
 
+  min-height:43px;
+
   padding:0 17px;
 
-  display:flex;
+  display:inline-flex;
 
   align-items:center;
 
@@ -531,6 +514,8 @@ button{
 
   font-weight:700;
 
+  letter-spacing:.4px;
+
   margin-bottom:25px;
 }
 
@@ -545,12 +530,15 @@ button{
   stroke:var(--blue-light);
 
   stroke-width:1.7;
+
+  stroke-linecap:round;
+  stroke-linejoin:round;
 }
 
 
-/* =====================================================
-   TITULO
-===================================================== */
+/* =========================================================
+   TÍTULO
+========================================================= */
 
 .hero-title{
 
@@ -569,19 +557,20 @@ button{
 
   text-transform:uppercase;
 
+  color:#fff;
+
   text-shadow:
-  0 9px 35px rgba(0,0,0,.50);
+  0 9px 35px rgba(0,0,0,.52);
 }
 
 .hero-title .blue{
-
   color:var(--blue);
 }
 
 
-/* =====================================================
-   DESCRIPCION
-===================================================== */
+/* =========================================================
+   DESCRIPCIÓN
+========================================================= */
 
 .hero-description{
 
@@ -589,7 +578,11 @@ button{
 
   margin-top:27px;
 
+  font-family:'Montserrat',sans-serif;
+
   font-size:17px;
+
+  font-weight:400;
 
   line-height:1.65;
 
@@ -600,19 +593,21 @@ button{
 }
 
 
-/* =====================================================
-   BOTONES PORTADA
-===================================================== */
+/* =========================================================
+   BOTONES HERO
+========================================================= */
 
 .hero-actions{
+
+  margin-top:29px;
 
   display:flex;
 
   flex-wrap:wrap;
 
-  gap:15px;
+  align-items:center;
 
-  margin-top:29px;
+  gap:15px;
 }
 
 .hero-btn{
@@ -623,7 +618,7 @@ button{
 
   border-radius:8px;
 
-  display:flex;
+  display:inline-flex;
 
   align-items:center;
 
@@ -635,13 +630,11 @@ button{
 
   font-weight:800;
 
-  transition:.25s;
+  transition:.25s ease;
 }
 
 .hero-btn:hover{
-
-  transform:
-  translateY(-3px);
+  transform:translateY(-3px);
 }
 
 .hero-btn svg{
@@ -651,20 +644,20 @@ button{
   height:20px;
 }
 
+
 .hero-btn-primary{
+
+  color:#041329;
 
   background:
   linear-gradient(
     135deg,
     var(--yellow),
-    var(--yellow2)
+    var(--yellow-2)
   );
 
-  color:#041329;
-
   box-shadow:
-  0 10px 30px
-  rgba(255,183,0,.20);
+  0 10px 30px rgba(255,183,0,.20);
 }
 
 .hero-btn-primary svg{
@@ -674,17 +667,21 @@ button{
   stroke:#041329;
 
   stroke-width:1.8;
+
+  stroke-linecap:round;
+  stroke-linejoin:round;
 }
 
+
 .hero-btn-secondary{
+
+  color:#fff;
 
   border:
   1px solid rgba(28,145,255,.85);
 
   background:
   rgba(2,17,42,.72);
-
-  color:#fff;
 }
 
 .hero-btn-secondary svg{
@@ -692,9 +689,9 @@ button{
 }
 
 
-/* =====================================================
+/* =========================================================
    BENEFICIOS
-===================================================== */
+========================================================= */
 
 .hero-benefits{
 
@@ -721,7 +718,6 @@ button{
 }
 
 .hero-benefit:first-child{
-
   padding-left:0;
 }
 
@@ -770,13 +766,11 @@ button{
 
   fill:none;
 
-  stroke:
-  var(--blue-light);
+  stroke:var(--blue-light);
 
   stroke-width:1.7;
 
   stroke-linecap:round;
-
   stroke-linejoin:round;
 }
 
@@ -787,12 +781,14 @@ button{
   font-weight:600;
 
   line-height:1.45;
+
+  color:#f4f7fc;
 }
 
 
-/* =====================================================
-   FRANJA
-===================================================== */
+/* =========================================================
+   FRANJA INFERIOR DESKTOP
+========================================================= */
 
 .hero-stats{
 
@@ -801,7 +797,6 @@ button{
   z-index:10;
 
   left:4%;
-
   right:4%;
 
   bottom:32px;
@@ -899,13 +894,11 @@ button{
 
   fill:none;
 
-  stroke:
-  var(--blue-light);
+  stroke:var(--blue-light);
 
   stroke-width:1.7;
 
   stroke-linecap:round;
-
   stroke-linejoin:round;
 }
 
@@ -913,14 +906,15 @@ button{
 
   display:block;
 
+  font-family:'Montserrat',sans-serif;
+
   font-size:22px;
 
   font-weight:800;
 
   line-height:1;
 
-  color:
-  var(--blue-light);
+  color:var(--blue-light);
 }
 
 .stat-label{
@@ -933,15 +927,17 @@ button{
 
   font-weight:600;
 
+  line-height:1.4;
+
   text-transform:uppercase;
 
   color:#e7f0fb;
 }
 
 
-/* =====================================================
-   WHATSAPP
-===================================================== */
+/* =========================================================
+   WHATSAPP FLOTANTE
+========================================================= */
 
 .whatsapp-float{
 
@@ -951,7 +947,7 @@ button{
 
   bottom:23px;
 
-  z-index:3000;
+  z-index:4000;
 
   width:58px;
 
@@ -972,9 +968,7 @@ button{
 }
 
 .whatsapp-float:hover{
-
-  transform:
-  scale(1.08);
+  transform:scale(1.08);
 }
 
 .whatsapp-float svg{
@@ -987,169 +981,9 @@ button{
 }
 
 
-/* =====================================================
-   DRAWER MOBILE
-===================================================== */
-
-.mobile-drawer{
-
-  position:fixed;
-
-  inset:0;
-
-  z-index:5000;
-
-  background:
-  rgba(0,4,14,.74);
-
-  opacity:0;
-
-  visibility:hidden;
-
-  pointer-events:none;
-
-  transition:.25s;
-}
-
-.mobile-drawer.active{
-
-  opacity:1;
-
-  visibility:visible;
-
-  pointer-events:auto;
-}
-
-.mobile-panel{
-
-  position:absolute;
-
-  right:0;
-
-  top:0;
-
-  width:
-  min(88vw,390px);
-
-  height:100%;
-
-  padding:22px;
-
-  background:
-  linear-gradient(
-    180deg,
-    #03132d,
-    #020b1b
-  );
-
-  transform:
-  translateX(100%);
-
-  transition:.27s;
-}
-
-.mobile-drawer.active
-.mobile-panel{
-
-  transform:
-  translateX(0);
-}
-
-.mobile-head{
-
-  min-height:60px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:
-  space-between;
-
-  border-bottom:
-  1px solid
-  rgba(255,255,255,.10);
-}
-
-.mobile-head strong{
-
-  font-size:18px;
-}
-
-.mobile-head span{
-
-  color:var(--blue);
-}
-
-.mobile-close{
-
-  border:0;
-
-  background:transparent;
-
-  color:#fff;
-
-  font-size:30px;
-
-  cursor:pointer;
-}
-
-.mobile-links{
-
-  list-style:none;
-
-  margin-top:12px;
-}
-
-.mobile-links a{
-
-  display:block;
-
-  padding:17px 2px;
-
-  border-bottom:
-  1px solid
-  rgba(255,255,255,.08);
-
-  font-size:12px;
-
-  font-weight:700;
-}
-
-.mobile-whatsapp{
-
-  width:100%;
-
-  min-height:53px;
-
-  margin-top:25px;
-
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
-
-  border-radius:8px;
-
-  background:
-  linear-gradient(
-    135deg,
-    var(--yellow),
-    var(--yellow2)
-  );
-
-  color:#041329;
-
-  font-size:12px;
-
-  font-weight:800;
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
+/* =========================================================
+   LAPTOP MÁS PEQUEÑA
+========================================================= */
 
 @media(max-width:1250px){
 
@@ -1162,100 +996,319 @@ button{
   }
 
   .desktop-nav{
-
     gap:16px;
   }
 
   .desktop-nav a{
-
     font-size:9px;
+  }
+
+  .header-whatsapp{
+
+    padding:0 15px;
+
+    font-size:10px;
   }
 
 }
 
 
-/* =====================================================
-   CELULAR Y TABLET
-===================================================== */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:980px){
 
 
-  :root{
-
-    --header-height:72px;
-  }
-
+  /*
+     QUITAMOS COMPLETAMENTE
+     EL HEADER DE PC.
+  */
 
   .site-header{
-
-    background:
-    rgba(2,11,27,.90);
-
-    backdrop-filter:
-    blur(13px);
-  }
-
-
-  .header-inner{
-
-    grid-template-columns:
-    1fr auto;
-
-    padding:0 18px;
-  }
-
-
-  .desktop-nav,
-  .header-action{
-
     display:none;
   }
 
 
-  .mobile-menu-btn{
+  /*
+     MENÚ MOBILE SIEMPRE VISIBLE
+  */
+
+  .mobile-nav-shell{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    z-index:5000;
 
     display:block;
+
+    background:
+    rgba(2,11,27,.97);
+
+    border-bottom:
+    1px solid rgba(31,143,255,.20);
+
+    box-shadow:
+    0 8px 30px rgba(0,0,0,.28);
+
+    backdrop-filter:
+    blur(14px);
   }
 
 
-  .brand-icon{
+  /* FILA SUPERIOR */
 
-    width:48px;
+  .mobile-top{
 
-    height:48px;
+    min-height:65px;
+
+    padding:
+    8px 13px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
   }
 
 
-  .brand-main{
+  .mobile-brand{
 
-    font-size:19px;
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    min-width:0;
   }
 
 
-  /* ========================================
-     IMPORTANTE:
-     PORTADA ESPECIAL PARA CELULAR
-  ======================================== */
+  .mobile-brand-icon{
 
+    width:42px;
+
+    height:42px;
+
+    flex:0 0 42px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:9px;
+
+    background:
+    linear-gradient(
+      145deg,
+      #083c86,
+      #02132e
+    );
+
+    border:
+    1px solid rgba(28,145,255,.60);
+  }
+
+
+  .mobile-brand-icon svg{
+
+    width:26px;
+
+    height:26px;
+
+    fill:none;
+
+    stroke:#fff;
+
+    stroke-width:1.7;
+  }
+
+
+  .mobile-brand-text{
+
+    line-height:1;
+  }
+
+
+  .mobile-brand-title{
+
+    font-size:15px;
+
+    font-weight:800;
+
+    white-space:nowrap;
+  }
+
+
+  .mobile-brand-title span{
+    color:var(--blue);
+  }
+
+
+  .mobile-brand-sub{
+
+    display:block;
+
+    margin-top:5px;
+
+    font-size:5px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+  }
+
+
+  /* BOTÓN COTIZAR ARRIBA */
+
+  .mobile-top-cta{
+
+    min-height:42px;
+
+    padding:0 13px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:6px;
+
+    border-radius:7px;
+
+    background:
+    linear-gradient(
+      135deg,
+      var(--yellow),
+      var(--yellow-2)
+    );
+
+    color:#031229;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    white-space:nowrap;
+  }
+
+
+  .mobile-top-cta svg{
+
+    width:17px;
+
+    height:17px;
+
+    fill:none;
+
+    stroke:currentColor;
+
+    stroke-width:1.8;
+  }
+
+
+  /* ===============================================
+     MENÚ VISIBLE
+     2 FILAS DE 3 BOTONES
+  =============================================== */
+
+  .mobile-visible-nav{
+
+    padding:
+    5px 10px
+    10px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:6px;
+  }
+
+
+  .mobile-visible-nav a{
+
+    min-height:37px;
+
+    padding:5px 4px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    border-radius:6px;
+
+    border:
+    1px solid rgba(38,140,255,.18);
+
+    background:
+    rgba(5,27,61,.72);
+
+    color:#f6f9ff;
+
+    font-size:8px;
+
+    font-weight:700;
+
+    letter-spacing:.15px;
+  }
+
+
+  .mobile-visible-nav a:first-child{
+
+    border-color:
+    rgba(255,196,0,.55);
+
+    color:#ffd42a;
+  }
+
+
+  .mobile-visible-nav a:active{
+
+    background:
+    rgba(18,89,165,.55);
+  }
+
+
+  /* =================================================
+     HERO MOBILE
+  ================================================= */
 
   .hero{
 
-    min-height:1100px;
+    min-height:1180px;
 
+    align-items:flex-start;
 
     background-image:
 
     linear-gradient(
       to bottom,
 
-      rgba(2,11,27,.90) 0%,
+      rgba(2,11,27,.94) 0%,
 
-      rgba(2,11,27,.55) 27%,
+      rgba(2,11,27,.74) 19%,
 
-      rgba(2,11,27,.15) 56%,
+      rgba(2,11,27,.46) 35%,
 
-      rgba(2,11,27,.56) 76%,
+      rgba(2,11,27,.10) 56%,
+
+      rgba(2,11,27,.45) 76%,
 
       rgba(2,11,27,.98) 100%
     ),
@@ -1265,175 +1318,35 @@ button{
 
     background-size:cover;
 
+    background-position:center top;
 
-    /*
-       Aquí usamos la FOTO VERTICAL
-       en lugar de la horizontal.
-    */
-
-
-    background-position:
-    center center;
-
-
-    background-repeat:
-    no-repeat;
+    background-repeat:no-repeat;
   }
 
 
   .hero-inner{
 
-    min-height:1100px;
-
-    display:flex;
-
-    align-items:flex-start;
+    min-height:1180px;
 
     padding:
-
-    120px 20px
-    370px;
-  }
-
-
-  .hero-content{
-
-    max-width:580px;
-  }
-
-
-  .hero-title{
-
-    font-size:
-    clamp(
-      57px,
-      10vw,
-      82px
-    );
-  }
-
-
-  .hero-description{
-
-    font-size:15px;
-  }
-
-
-  .hero-stats{
-
-    left:18px;
-
-    right:18px;
-
-    bottom:24px;
-
-    grid-template-columns:
-    repeat(
-      2,
-      minmax(0,1fr)
-    );
-  }
-
-
-  .hero-stat{
-
-    justify-content:
-    flex-start;
-
-    min-height:78px;
-
-    padding:
-    13px 17px;
-  }
-
-
-  .hero-stat::after{
-
-    display:none;
-  }
-
-
-  .hero-stat:last-child{
-
-    grid-column:1/-1;
-  }
-
-}
-
-
-/* =====================================================
-   CELULAR
-===================================================== */
-
-@media(max-width:600px){
-
-
-  .brand-icon{
-
-    width:44px;
-
-    height:44px;
-  }
-
-
-  .brand-main{
-
-    font-size:16px;
-  }
-
-
-  .brand-sub{
-
-    font-size:5px;
-
-    letter-spacing:3px;
-
-    margin-top:5px;
-  }
-
-
-  .hero{
-
-    min-height:1190px;
-
-
-    /*
-       La imagen vertical tiene
-       mucho cielo arriba.
-
-       Esto permite poner ahí
-       nuestro texto HTML.
-    */
-
-
-    background-position:
-    center top;
-  }
-
-
-  .hero-inner{
-
-    min-height:1190px;
-
-    padding:
-
-    105px 18px
-    440px;
+    185px 18px
+    360px;
   }
 
 
   .hero-content{
 
     width:100%;
+
+    max-width:560px;
   }
 
 
   .hero-label{
 
-    min-height:37px;
+    min-height:36px;
 
-    padding:
-    0 11px;
+    padding:0 11px;
 
     font-size:8px;
 
@@ -1443,9 +1356,9 @@ button{
 
   .hero-label svg{
 
-    width:17px;
+    width:16px;
 
-    height:17px;
+    height:16px;
   }
 
 
@@ -1453,9 +1366,9 @@ button{
 
     font-size:
     clamp(
-      49px,
-      15.5vw,
-      67px
+      50px,
+      14vw,
+      72px
     );
 
     line-height:.89;
@@ -1464,21 +1377,25 @@ button{
 
   .hero-description{
 
-    max-width:360px;
+    max-width:430px;
 
     margin-top:19px;
 
     font-size:12px;
 
-    line-height:1.55;
+    line-height:1.6;
   }
 
 
+  /*
+     BOTÓN PRINCIPAL MÁS CLARO.
+  */
+
   .hero-actions{
 
-    margin-top:21px;
+    margin-top:22px;
 
-    flex-direction:column;
+    display:block;
   }
 
 
@@ -1486,57 +1403,89 @@ button{
 
     width:100%;
 
-    min-height:53px;
+    min-height:54px;
 
     font-size:10px;
   }
 
 
+  /*
+     EN MÓVIL OCULTAMOS
+     "VER TRABAJOS"
+     PARA SIMPLIFICAR.
+  */
+
+  .hero-btn-secondary{
+    display:none;
+  }
+
+
+  /*
+     BENEFICIOS MÁS LIMPIOS
+  */
+
   .hero-benefits{
+
+    margin-top:22px;
 
     display:grid;
 
     grid-template-columns:
     1fr 1fr;
 
-    margin-top:22px;
+    gap:4px;
   }
 
 
   .hero-benefit{
 
-    padding:
-    8px 5px;
+    min-height:51px;
+
+    padding:6px 4px;
+
+    gap:8px;
   }
 
 
   .hero-benefit:first-child{
-
-    padding-left:5px;
+    padding-left:4px;
   }
 
 
   .hero-benefit::after{
-
     display:none;
   }
 
 
   .benefit-icon{
 
-    width:37px;
+    width:36px;
 
-    height:37px;
+    height:36px;
 
-    flex-basis:37px;
+    flex:0 0 36px;
+  }
+
+
+  .benefit-icon svg{
+
+    width:19px;
+
+    height:19px;
   }
 
 
   .hero-benefit span{
 
-    font-size:8px;
+    font-size:7.5px;
+
+    line-height:1.4;
   }
 
+
+  /* ===============================================
+     ESTADÍSTICAS MOBILE
+  =============================================== */
 
   .hero-stats{
 
@@ -1544,7 +1493,12 @@ button{
 
     right:12px;
 
-    bottom:15px;
+    bottom:14px;
+
+    min-height:auto;
+
+    grid-template-columns:
+    repeat(2,minmax(0,1fr));
 
     border-radius:13px;
   }
@@ -1552,11 +1506,23 @@ button{
 
   .hero-stat{
 
-    min-height:69px;
+    min-height:70px;
 
-    padding:11px 9px;
+    justify-content:flex-start;
+
+    padding:11px 10px;
 
     gap:9px;
+  }
+
+
+  .hero-stat::after{
+    display:none;
+  }
+
+
+  .hero-stat:last-child{
+    grid-column:1/-1;
   }
 
 
@@ -1566,7 +1532,7 @@ button{
 
     height:37px;
 
-    flex-basis:37px;
+    flex:0 0 37px;
   }
 
 
@@ -1586,7 +1552,9 @@ button{
 
   .stat-label{
 
-    font-size:6px;
+    margin-top:4px;
+
+    font-size:6.5px;
   }
 
 
@@ -1604,6 +1572,59 @@ button{
 }
 
 
+/* =========================================================
+   CELULARES PEQUEÑOS
+========================================================= */
+
+@media(max-width:380px){
+
+  .mobile-top{
+    padding-left:9px;
+    padding-right:9px;
+  }
+
+  .mobile-brand-title{
+    font-size:13px;
+  }
+
+  .mobile-top-cta{
+
+    padding:0 9px;
+
+    font-size:8px;
+  }
+
+  .mobile-visible-nav{
+
+    padding-left:8px;
+    padding-right:8px;
+
+    gap:5px;
+  }
+
+  .mobile-visible-nav a{
+
+    font-size:7px;
+  }
+
+  .hero-inner{
+
+    padding-left:13px;
+    padding-right:13px;
+  }
+
+  .hero-title{
+
+    font-size:
+    clamp(
+      47px,
+      14vw,
+      61px
+    );
+  }
+
+}
+
 </style>
 
 </head>
@@ -1612,738 +1633,782 @@ button{
 <body>
 
 
+<!-- =========================================================
+     HEADER DESKTOP
+========================================================= -->
+
 <header
   class="site-header"
   id="siteHeader">
 
-
-<div class="header-inner">
-
-
-<a
-  href="#inicio"
-  class="brand">
+  <div class="header-inner">
 
 
-<div class="brand-icon">
+    <a
+      href="#inicio"
+      class="brand">
 
-<svg viewBox="0 0 24 24">
+      <div class="brand-icon">
 
-<rect
-  x="3"
-  y="7"
-  width="13"
-  height="9"
-  rx="2">
-</rect>
+        <svg viewBox="0 0 24 24">
 
-<path
-  d="M16 10l5-3v9l-5-3">
-</path>
+          <rect
+            x="3"
+            y="7"
+            width="13"
+            height="9"
+            rx="2">
+          </rect>
 
-<circle
-  cx="9.5"
-  cy="11.5"
-  r="2.4">
-</circle>
+          <path d="M16 10l5-3v9l-5-3"></path>
 
-</svg>
+          <circle
+            cx="9.5"
+            cy="11.5"
+            r="2.4">
+          </circle>
 
-</div>
+        </svg>
 
-
-<div class="brand-name">
-
-<div class="brand-main">
-
-SNT
-<span class="blue">
-SECURITY
-</span>
-
-</div>
-
-<span class="brand-sub">
-SERVICES
-</span>
-
-</div>
+      </div>
 
 
-</a>
+      <div class="brand-name">
+
+        <div class="brand-main">
+          SNT
+          <span class="blue">
+            SECURITY
+          </span>
+        </div>
+
+        <span class="brand-sub">
+          SERVICES
+        </span>
+
+      </div>
+
+    </a>
 
 
+    <!-- MENU DESKTOP -->
 
-<nav class="desktop-nav">
+    <nav class="desktop-nav">
 
-<a
-  href="#inicio"
-  class="active">
-INICIO
-</a>
+      <a
+        href="#inicio"
+        class="active">
 
-<a href="#camaras">
-CÁMARAS
-</a>
+        INICIO
 
-<a href="#kits">
-KITS
-</a>
+      </a>
 
-<a href="#servicios">
-SERVICIOS
-</a>
+      <a href="#camaras">
+        CÁMARAS
+      </a>
 
-<a href="#trabajos">
-TRABAJOS
-</a>
+      <a href="#kits">
+        KITS
+      </a>
 
-<a href="#mantenimiento">
-MANTENIMIENTO
-</a>
+      <a href="#servicios">
+        SERVICIOS
+      </a>
 
-<a href="#contacto">
-CONTACTO
-</a>
+      <a href="#trabajos">
+        TRABAJOS
+      </a>
 
-</nav>
+      <a href="#mantenimiento">
+        MANTENIMIENTO
+      </a>
 
+      <a href="#contacto">
+        CONTACTO
+      </a>
 
-
-<div class="header-action">
-
-<a
-  class="header-whatsapp"
-  href="https://wa.me/51944275861?text=Hola%20SNT%20Security%20Services,%20quiero%20solicitar%20una%20cotización."
-  target="_blank">
+    </nav>
 
 
-<svg viewBox="0 0 24 24">
+    <div class="header-action">
 
-<path
-  d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5z">
-</path>
+      <a
+        class="header-whatsapp"
+        href="https://wa.me/51944275861?text=Hola%20SNT%20Security%20Services,%20quiero%20solicitar%20una%20cotización."
+        target="_blank">
 
-<path
-  d="M9 8.5c.5 2.7 2.3 4.5 5 5">
-</path>
+        <svg viewBox="0 0 24 24">
 
-</svg>
+          <path
+            d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5z">
+          </path>
 
+          <path
+            d="M9 8.5c.5 2.7 2.3 4.5 5 5">
+          </path>
 
-COTIZAR AHORA
+        </svg>
 
-</a>
+        COTIZAR AHORA
 
-</div>
+      </a>
 
-
-
-<button
-  class="mobile-menu-btn"
-  id="openMenu"
-  aria-label="Abrir menú">
-
-<span></span>
-<span></span>
-<span></span>
-
-</button>
+    </div>
 
 
-</div>
+  </div>
 
 </header>
 
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- =========================================================
+     HEADER / MENU MOBILE
+========================================================= -->
 
+<header class="mobile-nav-shell">
+
+
+  <!-- FILA 1 -->
+
+  <div class="mobile-top">
+
+
+    <a
+      href="#inicio"
+      class="mobile-brand">
+
+
+      <div class="mobile-brand-icon">
+
+        <svg viewBox="0 0 24 24">
+
+          <rect
+            x="3"
+            y="7"
+            width="13"
+            height="9"
+            rx="2">
+          </rect>
+
+          <path d="M16 10l5-3v9l-5-3"></path>
+
+          <circle
+            cx="9.5"
+            cy="11.5"
+            r="2.4">
+          </circle>
+
+        </svg>
+
+      </div>
+
+
+      <div class="mobile-brand-text">
+
+        <div class="mobile-brand-title">
+          SNT
+          <span>SECURITY</span>
+        </div>
+
+        <span class="mobile-brand-sub">
+          SERVICES
+        </span>
+
+      </div>
+
+    </a>
+
+
+    <!-- COTIZAR -->
+
+    <a
+      class="mobile-top-cta"
+      href="https://wa.me/51944275861?text=Hola%20SNT%20Security%20Services,%20quiero%20una%20cotización."
+      target="_blank">
+
+
+      <svg viewBox="0 0 24 24">
+
+        <path
+          d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5z">
+        </path>
+
+        <path
+          d="M9 8.5c.5 2.7 2.3 4.5 5 5">
+        </path>
+
+      </svg>
+
+      COTIZAR
+
+    </a>
+
+
+  </div>
+
+
+  <!-- FILA 2 Y 3 - MENÚ SIEMPRE VISIBLE -->
+
+  <nav class="mobile-visible-nav">
+
+    <a href="#inicio">
+      INICIO
+    </a>
+
+    <a href="#camaras">
+      CÁMARAS
+    </a>
+
+    <a href="#kits">
+      KITS
+    </a>
+
+    <a href="#servicios">
+      SERVICIOS
+    </a>
+
+    <a href="#trabajos">
+      TRABAJOS
+    </a>
+
+    <a href="#mantenimiento">
+      MANTENIMIENTO
+    </a>
+
+  </nav>
+
+
+</header>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
 
 <section
   class="hero"
   id="inicio">
 
 
-<div class="hero-inner">
+  <div class="hero-inner">
 
 
-<div class="hero-content">
+    <div class="hero-content">
 
 
-<div class="hero-label">
+      <!-- ETIQUETA -->
 
+      <div class="hero-label">
 
-<svg viewBox="0 0 24 24">
 
-<path
-  d="M12 3l7 3v5c0 4.6-2.8 8.1-7 10-4.2-1.9-7-5.4-7-10V6z">
-</path>
+        <svg viewBox="0 0 24 24">
 
-<path
-  d="M9 12l2 2 4-4">
-</path>
+          <path
+            d="M12 3l7 3v5c0 4.6-2.8 8.1-7 10-4.2-1.9-7-5.4-7-10V6z">
+          </path>
 
-</svg>
+          <path
+            d="M9 12l2 2 4-4">
+          </path>
 
+        </svg>
 
-SISTEMAS DE VIDEOVIGILANCIA PROFESIONALES
 
+        SISTEMAS DE VIDEOVIGILANCIA PROFESIONALES
 
-</div>
 
+      </div>
 
 
-<h1 class="hero-title">
+      <!-- TÍTULO -->
 
-PROTEGE LO QUE
+      <h1 class="hero-title">
 
-<br>
+        PROTEGE LO QUE
 
-<span class="blue">
-MÁS
-</span>
+        <br>
 
-TE IMPORTA
+        <span class="blue">
+          MÁS
+        </span>
 
-</h1>
+        TE IMPORTA
 
+      </h1>
 
 
-<p class="hero-description">
+      <!-- DESCRIPCIÓN -->
 
-Venta, instalación, configuración y mantenimiento
-de cámaras de seguridad para hogares,
-negocios y empresas.
+      <p class="hero-description">
 
-</p>
+        Venta, instalación, configuración y mantenimiento
+        de cámaras de seguridad para hogares,
+        negocios y empresas.
 
+      </p>
 
 
-<div class="hero-actions">
+      <!-- BOTONES -->
 
+      <div class="hero-actions">
 
-<a
-  class="hero-btn hero-btn-primary"
-  href="https://wa.me/51944275861?text=Hola%20SNT%20Security%20Services,%20quiero%20cotizar%20un%20sistema%20de%20cámaras."
-  target="_blank">
 
+        <a
+          class="hero-btn hero-btn-primary"
+          href="https://wa.me/51944275861?text=Hola%20SNT%20Security%20Services,%20quiero%20cotizar%20un%20sistema%20de%20cámaras."
+          target="_blank">
 
-<svg viewBox="0 0 24 24">
 
-<path
-  d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5z">
-</path>
+          <svg viewBox="0 0 24 24">
 
-<path
-  d="M9 8.5c.5 2.7 2.3 4.5 5 5">
-</path>
+            <path
+              d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5z">
+            </path>
 
-</svg>
+            <path
+              d="M9 8.5c.5 2.7 2.3 4.5 5 5">
+            </path>
 
+          </svg>
 
-COTIZA TU SISTEMA
 
-</a>
+          COTIZA TU SISTEMA
 
 
+        </a>
 
-<a
-  class="hero-btn hero-btn-secondary"
-  href="#trabajos">
 
+        <a
+          class="hero-btn hero-btn-secondary"
+          href="#trabajos">
 
-<svg viewBox="0 0 24 24">
 
-<path
-  d="M8 5l11 7-11 7z">
-</path>
+          <svg viewBox="0 0 24 24">
 
-</svg>
+            <path
+              d="M8 5l11 7-11 7z">
+            </path>
 
+          </svg>
 
-VER TRABAJOS REALIZADOS
 
-</a>
+          VER TRABAJOS REALIZADOS
 
 
-</div>
+        </a>
 
 
+      </div>
 
-<div class="hero-benefits">
 
+      <!-- BENEFICIOS -->
 
-<div class="hero-benefit">
+      <div class="hero-benefits">
 
-<div class="benefit-icon">
 
-<svg viewBox="0 0 24 24">
+        <!-- INSTALACIÓN -->
 
-<path d="M14 6l4-4 2 2-4 4"></path>
-<path d="M13 7l4 4-8 8-4-4z"></path>
-<path d="M4 20l3-3"></path>
+        <div class="hero-benefit">
 
-</svg>
+          <div class="benefit-icon">
 
-</div>
+            <svg viewBox="0 0 24 24">
 
-<span>
-Instalación<br>
-profesional
-</span>
+              <path d="M14 6l4-4 2 2-4 4"></path>
 
-</div>
+              <path d="M13 7l4 4-8 8-4-4z"></path>
 
+              <path d="M4 20l3-3"></path>
 
+            </svg>
 
-<div class="hero-benefit">
+          </div>
 
-<div class="benefit-icon">
+          <span>
+            Instalación<br>
+            profesional
+          </span>
 
-<svg viewBox="0 0 24 24">
+        </div>
 
-<rect
-x="7"
-y="2"
-width="10"
-height="20"
-rx="2">
-</rect>
 
-<path d="M10 18h4"></path>
+        <!-- CELULAR -->
 
-</svg>
+        <div class="hero-benefit">
 
-</div>
+          <div class="benefit-icon">
 
-<span>
-Acceso desde<br>
-celular
-</span>
+            <svg viewBox="0 0 24 24">
 
-</div>
+              <rect
+                x="7"
+                y="2"
+                width="10"
+                height="20"
+                rx="2">
+              </rect>
 
+              <path d="M10 18h4"></path>
 
+            </svg>
 
-<div class="hero-benefit">
+          </div>
 
-<div class="benefit-icon">
+          <span>
+            Acceso desde<br>
+            celular
+          </span>
 
-<svg viewBox="0 0 24 24">
+        </div>
 
-<path d="M4 13v-2a8 8 0 0 1 16 0v2"></path>
-<path d="M4 13h3v6H4z"></path>
-<path d="M17 13h3v6h-3z"></path>
-<path d="M17 19c0 2-2 3-5 3"></path>
 
-</svg>
+        <!-- SOPORTE -->
 
-</div>
+        <div class="hero-benefit">
 
-<span>
-Soporte técnico<br>
-especializado
-</span>
+          <div class="benefit-icon">
 
-</div>
+            <svg viewBox="0 0 24 24">
 
+              <path
+                d="M4 13v-2a8 8 0 0 1 16 0v2">
+              </path>
 
+              <path d="M4 13h3v6H4z"></path>
 
-<div class="hero-benefit">
+              <path d="M17 13h3v6h-3z"></path>
 
-<div class="benefit-icon">
+              <path
+                d="M17 19c0 2-2 3-5 3">
+              </path>
 
-<svg viewBox="0 0 24 24">
+            </svg>
 
-<path
-d="M12 3l7 3v5c0 4.6-2.8 8.1-7 10-4.2-1.9-7-5.4-7-10V6z">
-</path>
+          </div>
 
-<path
-d="M9 12l2 2 4-4">
-</path>
+          <span>
+            Soporte técnico<br>
+            especializado
+          </span>
 
-</svg>
+        </div>
 
-</div>
 
-<span>
-Garantía y<br>
-confianza
-</span>
+        <!-- GARANTIA -->
 
-</div>
+        <div class="hero-benefit">
 
+          <div class="benefit-icon">
 
-</div>
+            <svg viewBox="0 0 24 24">
 
+              <path
+                d="M12 3l7 3v5c0 4.6-2.8 8.1-7 10-4.2-1.9-7-5.4-7-10V6z">
+              </path>
 
-</div>
+              <path
+                d="M9 12l2 2 4-4">
+              </path>
 
-</div>
+            </svg>
 
+          </div>
 
+          <span>
+            Garantía y<br>
+            confianza
+          </span>
 
-<!-- =====================================================
-     FRANJA INFERIOR
-===================================================== -->
+        </div>
 
 
-<div class="hero-stats">
+      </div>
 
 
-<div class="hero-stat">
+    </div>
 
-<div class="stat-icon">
 
-<svg viewBox="0 0 24 24">
+  </div>
 
-<rect
-x="3"
-y="6"
-width="14"
-height="10"
-rx="2">
-</rect>
 
-<path
-d="M17 9l4-2v8l-4-2">
-</path>
 
-</svg>
+  <!-- =====================================================
+       ESTADÍSTICAS
+  ====================================================== -->
 
-</div>
+  <div class="hero-stats">
 
 
-<div>
+    <!-- FULL HD -->
 
-<strong class="stat-value">
-FULL HD
-</strong>
+    <div class="hero-stat">
 
-<span class="stat-label">
-Alta definición
-</span>
+      <div class="stat-icon">
 
-</div>
+        <svg viewBox="0 0 24 24">
 
-</div>
+          <rect
+            x="3"
+            y="6"
+            width="14"
+            height="10"
+            rx="2">
+          </rect>
 
+          <path
+            d="M17 9l4-2v8l-4-2">
+          </path>
 
+        </svg>
 
-<div class="hero-stat">
+      </div>
 
-<div class="stat-icon">
 
-<svg viewBox="0 0 24 24">
+      <div>
 
-<circle
-cx="12"
-cy="12"
-r="8">
-</circle>
+        <strong class="stat-value">
+          FULL HD
+        </strong>
 
-<path
-d="M12 8v5l3 2">
-</path>
+        <span class="stat-label">
+          Alta definición
+        </span>
 
-</svg>
+      </div>
 
-</div>
 
+    </div>
 
-<div>
 
-<strong class="stat-value">
-24/7
-</strong>
+    <!-- 24/7 -->
 
-<span class="stat-label">
-Videovigilancia
-</span>
+    <div class="hero-stat">
 
-</div>
+      <div class="stat-icon">
 
-</div>
+        <svg viewBox="0 0 24 24">
 
+          <circle
+            cx="12"
+            cy="12"
+            r="8">
+          </circle>
 
+          <path
+            d="M12 8v5l3 2">
+          </path>
 
-<div class="hero-stat">
+        </svg>
 
-<div class="stat-icon">
+      </div>
 
-<svg viewBox="0 0 24 24">
 
-<rect
-x="7"
-y="2"
-width="10"
-height="20"
-rx="2">
-</rect>
+      <div>
 
-<path d="M10 18h4"></path>
+        <strong class="stat-value">
+          24/7
+        </strong>
 
-</svg>
+        <span class="stat-label">
+          Videovigilancia
+        </span>
 
-</div>
+      </div>
 
 
-<div>
+    </div>
 
-<strong class="stat-value">
-REMOTO
-</strong>
 
-<span class="stat-label">
-Acceso desde celular
-</span>
+    <!-- REMOTO -->
 
-</div>
+    <div class="hero-stat">
 
-</div>
+      <div class="stat-icon">
 
+        <svg viewBox="0 0 24 24">
 
+          <rect
+            x="7"
+            y="2"
+            width="10"
+            height="20"
+            rx="2">
+          </rect>
 
-<div class="hero-stat">
+          <path d="M10 18h4"></path>
 
-<div class="stat-icon">
+        </svg>
 
-<svg viewBox="0 0 24 24">
+      </div>
 
-<path
-d="M13 2L5 14h6l-1 8 9-13h-6z">
-</path>
 
-</svg>
+      <div>
 
-</div>
+        <strong class="stat-value">
+          REMOTO
+        </strong>
 
+        <span class="stat-label">
+          Acceso desde celular
+        </span>
 
-<div>
+      </div>
 
-<strong class="stat-value">
-RÁPIDA
-</strong>
 
-<span class="stat-label">
-Atención
-</span>
+    </div>
 
-</div>
 
-</div>
+    <!-- ATENCIÓN -->
 
+    <div class="hero-stat">
 
+      <div class="stat-icon">
 
-<div class="hero-stat">
+        <svg viewBox="0 0 24 24">
 
-<div class="stat-icon">
+          <path
+            d="M13 2L5 14h6l-1 8 9-13h-6z">
+          </path>
 
-<svg viewBox="0 0 24 24">
+        </svg>
 
-<path
-d="M12 22s7-7 7-13a7 7 0 1 0-14 0c0 6 7 13 7 13z">
-</path>
+      </div>
 
-<circle
-cx="12"
-cy="9"
-r="2.5">
-</circle>
 
-</svg>
+      <div>
 
-</div>
+        <strong class="stat-value">
+          RÁPIDA
+        </strong>
 
+        <span class="stat-label">
+          Atención
+        </span>
 
-<div>
+      </div>
 
-<strong class="stat-value">
-PERÚ
-</strong>
 
-<span class="stat-label">
-Cobertura
-</span>
+    </div>
 
-</div>
 
-</div>
+    <!-- PERÚ -->
 
+    <div class="hero-stat">
 
-</div>
+      <div class="stat-icon">
+
+        <svg viewBox="0 0 24 24">
+
+          <path
+            d="M12 22s7-7 7-13a7 7 0 1 0-14 0c0 6 7 13 7 13z">
+          </path>
+
+          <circle
+            cx="12"
+            cy="9"
+            r="2.5">
+          </circle>
+
+        </svg>
+
+      </div>
+
+
+      <div>
+
+        <strong class="stat-value">
+          PERÚ
+        </strong>
+
+        <span class="stat-label">
+          Cobertura
+        </span>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
 
 
 </section>
 
 
 
-<!-- FUTURAS SECCIONES -->
+<!-- =========================================================
+     AQUÍ IRÁN LAS SIGUIENTES SECCIONES
+========================================================= -->
 
 <div id="camaras"></div>
+
 <div id="kits"></div>
+
 <div id="servicios"></div>
+
 <div id="trabajos"></div>
+
 <div id="mantenimiento"></div>
+
 <div id="contacto"></div>
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      WHATSAPP FLOTANTE
-===================================================== -->
-
-
-<a
-class="whatsapp-float"
-href="https://wa.me/51944275861?text=Hola%20SNT%20Security%20Services,%20quiero%20información."
-target="_blank">
-
-
-<svg viewBox="0 0 32 32">
-
-<path
-d="M16.1 3C9 3 3.3 8.6 3.3 15.5c0 2.4.7 4.7 2 6.7L3 29l7-2.2c1.9 1 4 1.6 6.2 1.6 7.1 0 12.8-5.6 12.8-12.5C29 8.7 23.2 3 16.1 3zm0 22.9c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.1 1.3 1.4-4-.3-.4c-1.1-1.6-1.7-3.5-1.7-5.5 0-5.6 4.7-10.1 10.5-10.1 5.8 0 10.5 4.5 10.5 10.1.1 5.7-4.6 10.3-10.4 10.3z">
-</path>
-
-</svg>
-
-
-</a>
-
-
-
-<!-- =====================================================
-     MENU MOBILE
-===================================================== -->
-
-
-<div
-class="mobile-drawer"
-id="mobileDrawer">
-
-
-<div class="mobile-panel">
-
-
-<div class="mobile-head">
-
-<strong>
-
-SNT
-<span>
-SECURITY
-</span>
-
-</strong>
-
-
-<button
-class="mobile-close"
-id="closeMenu">
-
-×
-
-</button>
-
-</div>
-
-
-<ul class="mobile-links">
-
-<li>
-<a href="#inicio">
-INICIO
-</a>
-</li>
-
-<li>
-<a href="#camaras">
-CÁMARAS
-</a>
-</li>
-
-<li>
-<a href="#kits">
-KITS
-</a>
-</li>
-
-<li>
-<a href="#servicios">
-SERVICIOS
-</a>
-</li>
-
-<li>
-<a href="#trabajos">
-TRABAJOS
-</a>
-</li>
-
-<li>
-<a href="#mantenimiento">
-MANTENIMIENTO
-</a>
-</li>
-
-<li>
-<a href="#contacto">
-CONTACTO
-</a>
-</li>
-
-</ul>
-
+========================================================= -->
 
 <a
-class="mobile-whatsapp"
-href="https://wa.me/51944275861"
-target="_blank">
+  class="whatsapp-float"
 
-COTIZAR POR WHATSAPP
+  href="https://wa.me/51944275861?text=Hola%20SNT%20Security%20Services,%20quiero%20información."
+
+  target="_blank"
+
+  aria-label="WhatsApp">
+
+
+  <svg viewBox="0 0 32 32">
+
+    <path
+      d="M16.1 3C9 3 3.3 8.6 3.3 15.5c0 2.4.7 4.7 2 6.7L3 29l7-2.2c1.9 1 4 1.6 6.2 1.6 7.1 0 12.8-5.6 12.8-12.5C29 8.7 23.2 3 16.1 3zm0 22.9c-2 0-3.9-.5-5.5-1.5l-.4-.2-4.1 1.3 1.4-4-.3-.4c-1.1-1.6-1.7-3.5-1.7-5.5 0-5.6 4.7-10.1 10.5-10.1 5.8 0 10.5 4.5 10.5 10.1.1 5.7-4.6 10.3-10.4 10.3z">
+    </path>
+
+  </svg>
+
 
 </a>
-
-
-</div>
-
-</div>
 
 
 
 <script>
 
-
-/* HEADER */
+/* =========================================================
+   HEADER DESKTOP CON SCROLL
+========================================================= */
 
 const siteHeader =
-document.getElementById(
-"siteHeader"
-);
+document.getElementById("siteHeader");
 
 
 function updateHeader(){
 
-if(
-window.scrollY > 30
-){
+  if(window.scrollY > 30){
 
-siteHeader.classList.add(
-"scrolled"
-);
+    siteHeader.classList.add(
+      "scrolled"
+    );
 
-}else{
+  }else{
 
-siteHeader.classList.remove(
-"scrolled"
-);
+    siteHeader.classList.remove(
+      "scrolled"
+    );
 
-}
+  }
 
 }
 
@@ -2352,102 +2417,9 @@ updateHeader();
 
 
 window.addEventListener(
-"scroll",
-updateHeader
+  "scroll",
+  updateHeader
 );
-
-
-
-/* MOBILE MENU */
-
-
-const mobileDrawer =
-document.getElementById(
-"mobileDrawer"
-);
-
-
-const openMenu =
-document.getElementById(
-"openMenu"
-);
-
-
-const closeMenu =
-document.getElementById(
-"closeMenu"
-);
-
-
-function openMobileMenu(){
-
-mobileDrawer.classList.add(
-"active"
-);
-
-document.body.classList.add(
-"menu-open"
-);
-
-}
-
-
-function closeMobileMenu(){
-
-mobileDrawer.classList.remove(
-"active"
-);
-
-document.body.classList.remove(
-"menu-open"
-);
-
-}
-
-
-openMenu.addEventListener(
-"click",
-openMobileMenu
-);
-
-
-closeMenu.addEventListener(
-"click",
-closeMobileMenu
-);
-
-
-mobileDrawer.addEventListener(
-"click",
-function(e){
-
-if(
-e.target === mobileDrawer
-){
-
-closeMobileMenu();
-
-}
-
-}
-);
-
-
-document.querySelectorAll(
-".mobile-links a"
-).forEach(
-
-link => {
-
-link.addEventListener(
-"click",
-closeMobileMenu
-);
-
-}
-
-);
-
 
 </script>
 
